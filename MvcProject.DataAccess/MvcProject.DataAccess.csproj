@@ -58,12 +58,12 @@
     <Compile Include="Abstract\IHeadingDal.cs" />
     <Compile Include="Abstract\IWriterDal.cs" />
     <Compile Include="Concrete\Context.cs" />
-    <Compile Include="Concrete\EfAboutDal.cs" />
-    <Compile Include="Concrete\EfCategoryDal.cs" />
-    <Compile Include="Concrete\EfContactDal.cs" />
-    <Compile Include="Concrete\EfContentDal.cs" />
-    <Compile Include="Concrete\EfHeadingDal.cs" />
-    <Compile Include="Concrete\EfWriterDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfAboutDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfCategoryDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfContactDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfContentDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfHeadingDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfWriterDal.cs" />
     <Compile Include="Migrations\202105051950288_mig1.cs" />
     <Compile Include="Migrations\202105051950288_mig1.designer.cs">
       <DependentUpon>202105051950288_mig1.cs</DependentUpon>

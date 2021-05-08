@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using MvcProject.Business.Concrete;
 using MvcProject.DataAccess.Concrete;
+using MvcProject.DataAccess.Concrete.EntityFramework;
+using MvcProject.Entities.Concrete;
 
 namespace MvcProject.Mvc.Controllers
 {
@@ -21,6 +23,19 @@ namespace MvcProject.Mvc.Controllers
         {
             var categoryValues = categoryManager.GetAll();
             return View(categoryValues);
+        }
+
+        [HttpGet]
+        public ActionResult AddCategory()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddCategory(Category category)
+        {
+            categoryManager.Add(category);
+            return RedirectToAction("GetCategoryList");
         }
     }
 }
