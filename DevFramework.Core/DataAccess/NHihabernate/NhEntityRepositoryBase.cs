@@ -29,6 +29,11 @@ namespace DevFramework.Core.DataAccess.NHihabernate
             }
         }
 
+        void IEntityRepository<TEntity>.Update(TEntity entity)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Delete(TEntity entity)
         {
             using (var session = _nHibernateHelper.OpenSession())
@@ -50,6 +55,11 @@ namespace DevFramework.Core.DataAccess.NHihabernate
             }
         }
 
+        void IEntityRepository<TEntity>.Add(TEntity entity)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<TEntity> GetList(Expression<Func<TEntity, bool>> filter = null)
         {
             using (var session = _nHibernateHelper.OpenSession())
@@ -67,16 +77,6 @@ namespace DevFramework.Core.DataAccess.NHihabernate
                 session.Update(entity);
                 return entity;
             }
-        }
-
-        void IEntityRepository<TEntity>.Add(TEntity entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        void IEntityRepository<TEntity>.Update(TEntity entity)
-        {
-            throw new NotImplementedException();
         }
     }
 }

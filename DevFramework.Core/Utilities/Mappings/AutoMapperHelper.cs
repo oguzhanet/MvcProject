@@ -16,6 +16,7 @@ namespace DevFramework.Core.Utilities.Mappings
             List<T> result = Mapper.Map<List<T>, List<T>>(list);
             return result;
         }
+
         public static T MapToSameType<T>(T obj)
         {
             Mapper.Initialize(c => { c.CreateMap<T, T>(); });

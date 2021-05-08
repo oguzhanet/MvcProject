@@ -193,7 +193,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DevFramework.Core\DevFramework.Core.csproj">
-      <Project>{93C91DD3-067E-4806-A7FF-F8F9B3E570D7}</Project>
+      <Project>{93c91dd3-067e-4806-a7ff-f8f9b3e570d7}</Project>
       <Name>DevFramework.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\MvcProject.Business\MvcProject.Business.csproj">

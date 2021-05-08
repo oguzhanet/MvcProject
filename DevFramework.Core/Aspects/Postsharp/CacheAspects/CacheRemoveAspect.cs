@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using DevFramework.Core.CrossCuttingConcerns.Caching;
 using PostSharp.Aspects;
 
-namespace DevFramework.Core.Aspects.CacheAspects
+namespace DevFramework.Core.Aspects.Postsharp.CacheAspects
 {
     [Serializable]
     public class CacheRemoveAspect:OnMethodBoundaryAspect
@@ -20,10 +20,11 @@ namespace DevFramework.Core.Aspects.CacheAspects
         {
             _cacheType = cacheType;
         }
-        public CacheRemoveAspect(Type cacheType, string pattern)
+
+        public CacheRemoveAspect(string pattern,Type cacheType)
         {
-            _cacheType = cacheType;
             _pattern = pattern;
+            _cacheType = cacheType;
         }
 
         public override void RuntimeInitialize(MethodBase method)
@@ -32,7 +33,6 @@ namespace DevFramework.Core.Aspects.CacheAspects
             {
                 throw new Exception("Wrong Cache Manager");
             }
-
             _cacheManager = (ICacheManager)Activator.CreateInstance(_cacheType);
 
             base.RuntimeInitialize(method);
@@ -41,8 +41,8 @@ namespace DevFramework.Core.Aspects.CacheAspects
         public override void OnSuccess(MethodExecutionArgs args)
         {
             _cacheManager.RemoveByPattern(string.IsNullOrEmpty(_pattern)
-            ?string.Format("{0}.{1}.*",args.Method.ReflectedType.Namespace,args.Method.ReflectedType.Name)
-            :_pattern);
+                ?string.Format("{0}.{1}.*",args.Method.ReflectedType.Namespace,args.Method.ReflectedType.Name)
+                :_pattern);
         }
     }
 }
