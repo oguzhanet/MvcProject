@@ -25,7 +25,7 @@ namespace MvcProject.Business.Concrete
             return _categoryDal.GetAll();
         }
 
-        [FluentValidationAspect(typeof(CategoryValidator))]
+        //[FluentValidationAspect(typeof(CategoryValidator))]
         public void Add(Category category)
         {
             _categoryDal.Add(category);
