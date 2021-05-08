@@ -11,7 +11,7 @@ using MvcProject.Entities.Concrete;
 
 namespace MvcProject.Business.Concrete
 {
-    public class CategoryManager:ICategoryService
+    public class CategoryManager : ICategoryService
     {
         private ICategoryDal _categoryDal;
 

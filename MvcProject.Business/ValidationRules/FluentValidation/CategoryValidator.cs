@@ -12,9 +12,9 @@ namespace MvcProject.Business.ValidationRules.FluentValidation
     {
         public CategoryValidator()
         {
-            RuleFor(c => c.CategoryName).NotEmpty();
-            RuleFor(c => c.CategoryName).MinimumLength(3);
-            RuleFor(c => c.CategoryDescription).NotEmpty();
+            RuleFor(c => c.CategoryName).NotEmpty().WithMessage("Kategori adı boş olamaz!");
+            RuleFor(c => c.CategoryName).MinimumLength(2).WithMessage("Kategori adı en az iki karakter olamalıdır!");
+            RuleFor(c => c.CategoryDescription).NotEmpty().WithMessage("Kategori açıklaması boş olamaz!"); 
         }
     }
 }

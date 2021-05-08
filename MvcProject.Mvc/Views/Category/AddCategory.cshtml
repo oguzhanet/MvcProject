@@ -1,13 +1,29 @@
-﻿
+﻿@model MvcProject.Entities.Concrete.Category
 @{
     Layout = null;
 }
 <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 
-<form class="form-group" method="post">
+@using (Html.BeginForm("AddCategory","Category",FormMethod.Post))
+{
+<div class="form-group">
+    @Html.Label("Kategori Adı")
+    @Html.TextBoxFor(c => c.CategoryName)
+    @Html.ValidationMessageFor(c => c.CategoryName)
+    <br /> <br />
+    @Html.Label("Açıklama")
+    @Html.TextBoxFor(c => c.CategoryDescription)
+    @*@Html.ValidationMessage("CategoryException")*@
+    @Html.ValidationMessageFor(c=>c.CategoryDescription)
+    <br /> <br />
+    <button>Kaydet</button>
+</div>
+}
+
+@*<form class="form-group" method="post">
     <input type="text" placeholder="Kategori Adı" name="CategoryName" class="form-control" />
     <br />
     <input type="text" placeholder="Açıklama Giriniz" name="CategoryDescription" class="form-control" />
     <br />
     <button class="btn btn-primary">Kategori Ekle</button>
-</form>
+</form>*@

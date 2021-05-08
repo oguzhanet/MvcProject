@@ -10,6 +10,6 @@ namespace MvcProject.Business.Abstract
     public interface ICategoryService
     {
         List<Category> GetAll();
-
+        void Add(Category category);
     }
 }
