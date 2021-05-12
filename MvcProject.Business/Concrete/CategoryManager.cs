@@ -25,10 +25,40 @@ namespace MvcProject.Business.Concrete
             return _categoryDal.GetAll();
         }
 
+        public List<Category> StatusIsTrue()
+        {
+            return _categoryDal.GetAll(c => c.CategoryStatus == true);
+        }
+
+        public List<Category> StatusIsFalse()
+        {
+            return _categoryDal.GetAll(c => c.CategoryStatus == false);
+        }
+
+        public Category GetById(int id)
+        {
+            return _categoryDal.Get(c => c.CategoryId == id);
+        }
+
+        public Category GetByName(string name)
+        {
+            return _categoryDal.Get(c => c.CategoryName == name);
+        }
+
         //[FluentValidationAspect(typeof(CategoryValidator))]
         public void Add(Category category)
         {
             _categoryDal.Add(category);
+        }
+
+        public void Update(Category category)
+        {
+            _categoryDal.Update(category);
+        }
+
+        public void Delete(Category category)
+        {
+            _categoryDal.Delete(category);
         }
     }
 }

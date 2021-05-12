@@ -10,6 +10,12 @@ namespace MvcProject.Business.Abstract
     public interface ICategoryService
     {
         List<Category> GetAll();
+        List<Category> StatusIsTrue();
+        List<Category> StatusIsFalse();
+        Category GetById(int id);
+        Category GetByName(string name);
         void Add(Category category);
+        void Update(Category category);
+        void Delete(Category category);
     }
 }

@@ -143,6 +143,7 @@
     <Compile Include="DataAccess\NHihabernate\NhEntityRepositoryBase.cs" />
     <Compile Include="DataAccess\NHihabernate\NHibernateHelper.cs" />
     <Compile Include="DataAccess\NHihabernate\NhQueryableRepository.cs" />
+    <Compile Include="Entities\IDto.cs" />
     <Compile Include="Entities\IEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\Common\WcfProxy.cs" />
