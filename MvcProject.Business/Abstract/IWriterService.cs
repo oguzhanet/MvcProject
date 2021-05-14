@@ -9,6 +9,11 @@ namespace MvcProject.Business.Abstract
 {
     public interface IWriterService
     {
-        
+        List<Writer> GetAll();
+        Writer GetById(int id);
+        void Add(Writer writer);
+        void Update(Writer writer);
+        void Delete(Writer writer);
+
     }
 }

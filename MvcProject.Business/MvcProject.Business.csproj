@@ -78,6 +78,7 @@
     <Compile Include="Concrete\WriterManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValidationRules\FluentValidation\CategoryValidator.cs" />
+    <Compile Include="ValidationRules\FluentValidation\WriterValidator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

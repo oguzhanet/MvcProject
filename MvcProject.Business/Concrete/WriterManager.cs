@@ -11,5 +11,36 @@ namespace MvcProject.Business.Concrete
 {
     public class WriterManager:IWriterService
     {
+        private IWriterDal _writerDal;
+
+        public WriterManager(IWriterDal writerDal)
+        {
+            _writerDal = writerDal;
+        }
+
+        public List<Writer> GetAll()
+        {
+            return _writerDal.GetAll();
+        }
+
+        public Writer GetById(int id)
+        {
+            return _writerDal.Get(w => w.WriterId == id);
+        }
+
+        public void Add(Writer writer)
+        {
+            _writerDal.Add(writer);
+        }
+
+        public void Update(Writer writer)
+        {
+            _writerDal.Update(writer);
+        }
+
+        public void Delete(Writer writer)
+        {
+            _writerDal.Delete(writer);
+        }
     }
 }
