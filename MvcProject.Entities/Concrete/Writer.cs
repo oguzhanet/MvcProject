@@ -18,6 +18,8 @@ namespace MvcProject.Entities.Concrete
         public string WriterSurName { get; set; }
         [StringLength(150)]
         public string WriterAbout { get; set; }
+        [StringLength(30)]
+        public string WriterTitle { get; set; }
         [StringLength(100)]
         public string WriterImage { get; set; }
         [StringLength(200)]
