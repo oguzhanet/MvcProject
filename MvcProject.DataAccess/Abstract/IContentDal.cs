@@ -8,7 +8,7 @@ using MvcProject.Entities.Concrete;
 
 namespace MvcProject.DataAccess.Abstract
 {
-    public interface IContentDal:IEntityRepository<Content>
+    public interface IContentDal: IEntityRepository<Content>
     {
     }
 }

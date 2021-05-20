@@ -78,5 +78,10 @@ namespace DevFramework.Core.DataAccess.NHihabernate
                 return entity;
             }
         }
+
+        public List<TEntity> GetAll()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -1,0 +1,27 @@
+﻿@using MvcProject.Entities.Concrete
+@model List<Heading>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<h2>Başlıklar</h2>
+
+<a href="/Heading/AddHeading/" class="btn btn-default" style="background-color:deepskyblue; margin-block-end:15px;">Yeni Başlık Oluştur</a>
+
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Başlık</th>
+        <th>Kategori</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.HeadingId</th>
+            <td>@item.HeadingName</td>
+            <td>@item.Category.CategoryName</td>
+        </tr>
+    }
+</table>
+

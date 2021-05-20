@@ -56,6 +56,7 @@
     <Compile Include="Abstract\IContactDal.cs" />
     <Compile Include="Abstract\IContentDal.cs" />
     <Compile Include="Abstract\IHeadingDal.cs" />
+    <Compile Include="Abstract\IRepository.cs" />
     <Compile Include="Abstract\IWriterDal.cs" />
     <Compile Include="Concrete\Context.cs" />
     <Compile Include="Concrete\EntityFramework\EfAboutDal.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="Concrete\EntityFramework\EfContentDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfHeadingDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfWriterDal.cs" />
+    <Compile Include="Concrete\EntityFramework\GenericRepository.cs" />
     <Compile Include="Migrations\202105051950288_mig1.cs" />
     <Compile Include="Migrations\202105051950288_mig1.designer.cs">
       <DependentUpon>202105051950288_mig1.cs</DependentUpon>

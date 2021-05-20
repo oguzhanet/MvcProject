@@ -4,7 +4,7 @@ using MvcProject.Entities.Concrete;
 
 namespace MvcProject.DataAccess.Concrete.EntityFramework
 {
-    public class EfContactDal:EfEntityRepositoryBase<Contact,Context>,IContactDal
+    public class EfContactDal: GenericRepository<Contact>,IContactDal
     {
     }
 }

@@ -9,6 +9,10 @@ namespace MvcProject.Business.Abstract
 {
     public interface IHeadingService
     {
-
+        List<Heading> GetAll();
+        Heading GetById(int id);
+        void Add(Heading heading);
+        void Update(Heading heading);
+        void Delete(Heading heading);
     }
 }

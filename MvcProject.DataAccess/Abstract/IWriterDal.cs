@@ -8,7 +8,7 @@ using MvcProject.Entities.Concrete;
 
 namespace MvcProject.DataAccess.Abstract
 {
-    public interface IWriterDal:IEntityRepository<Writer>
+    public interface IWriterDal: IEntityRepository<Writer>
     {
     }
 }

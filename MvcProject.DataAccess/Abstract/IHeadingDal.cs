@@ -8,7 +8,7 @@ using MvcProject.Entities.Concrete;
 
 namespace MvcProject.DataAccess.Abstract
 {
-    public interface IHeadingDal:IEntityRepository<Heading>
+    public interface IHeadingDal: IEntityRepository<Heading>
     {
     }
 }
