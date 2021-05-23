@@ -12,24 +12,37 @@
 
 <body class="hold-transition sidebar-mini">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
+    <!--<section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Projects</h1>
+                    <h1>Başlıklar</h1>
+                    <a href="/Heading/AddHeading/" class="btn btn-default" style="background-color:deepskyblue; margin-block-end:15px;">Yeni Başlık Oluştur</a>
                 </div>
 
             </div>
-        </div><!-- /.container-fluid -->
-    </section>
-
+        </div>-->
+    <!-- /.container-fluid -->
+    <!--</section>-->
+    
+    <div>
+        <div class="row gx-5">
+            <div class="col" style="margin-top:10px; margin-bottom:5px;">
+                <h1>Başlıklar</h1>
+            </div>
+            <div class="col-7" style="margin-top:15px; margin-bottom:5px; margin-right:15px;">
+                <a href="/Heading/AddHeading/" class="btn btn-default" style="background-color:deepskyblue; margin-block-end:15px;">Yeni Başlık Oluşturun..</a>
+            </div>
+        </div>
+    </div>
+   
     <!-- Main content -->
     <section class="content">
 
         <!-- Default box -->
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Proje İşlemleri</h3>
+                <h3 class="card-title">Başlık İşlemleri</h3>
 
                 <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
@@ -94,8 +107,12 @@
                                 </td>
                                 <td>
                                     <ul class="list-inline">
-                                        <li class="list-inline-item">
-                                            <img alt="Avatar" class="table-avatar" src="~/AdminLTE-3.0.4/dist/img/avatar.png">
+                                        <li><a> @item.Writer.WriterName @item.Writer.WriterSurName</a>  </li>
+                                    </ul>
+                                    <ul class="list-inline">
+
+                                        <li>
+                                            <img alt="Avatar" class="table-avatar" src="@item.Writer.WriterImage">
                                         </li>
                                     </ul>
                                 </td>
@@ -107,7 +124,7 @@
                                     <a class="btn btn-primary btn-sm" href="#">
                                         <i class="fas fa-folder">
                                         </i>
-                                       Başlığın İçerikleri
+                                        Başlığın İçerikleri
                                     </a>
                                     <a class="btn btn-info btn-sm" href="#">
                                         <i class="fas fa-pencil-alt">
