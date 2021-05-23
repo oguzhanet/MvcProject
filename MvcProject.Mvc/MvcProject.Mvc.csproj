@@ -150,6 +150,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminCategoryController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\ContentController.cs" />
     <Compile Include="Controllers\HeadingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\StatisticsController.cs" />
@@ -2300,6 +2301,7 @@
     <Content Include="Views\Heading\Index.cshtml" />
     <Content Include="Views\Heading\AddHeading.cshtml" />
     <Content Include="Views\Heading\ContentByHeading.cshtml" />
+    <Content Include="Views\Content\ContentByHeading.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
