@@ -34,6 +34,16 @@ namespace DevFramework.Core.DataAccess.EntityFramework
             return _object.ToList();
         }
 
+        public List<TEntity> GetAllById(Expression<Func<TEntity, bool>> filter)
+        {
+            return _object.Where(filter).ToList();
+        }
+
+        public TEntity GetById(Expression<Func<TEntity, bool>> filter)
+        {
+            return _object.SingleOrDefault(filter);
+        }
+
         public TEntity Get(Expression<Func<TEntity, bool>> filter)
         {
             using (TContext context = new TContext())

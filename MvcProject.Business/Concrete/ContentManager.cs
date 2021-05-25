@@ -23,9 +23,9 @@ namespace MvcProject.Business.Concrete
             throw new NotImplementedException();
         }
 
-        public List<Content> GetAllById(int id)
+        public List<Content> GetAllByHeadingId(int id)
         {
-            return _contentDal.GetAll(x => x.HeadingId == id);
+            return _contentDal.GetAllById(x => x.HeadingId == id);
         }
 
         public Content GetById(int id)

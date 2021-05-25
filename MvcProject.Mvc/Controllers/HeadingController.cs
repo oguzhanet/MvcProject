@@ -50,9 +50,19 @@ namespace MvcProject.Mvc.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult ContentByHeading()
+        [HttpGet]
+        public ActionResult UpdateHeading(int id)
         {
-            return View();
+            List<SelectListItem> valueCategory = (from category in categoryManager.GetAll()
+                                                  select new SelectListItem
+                                                  {
+                                                      Text = category.CategoryName,
+                                                      Value = category.CategoryId.ToString()
+                                                  }).ToList();
+            ViewBag.category = valueCategory;
+
+            var headingValues = headingManager.GetById(id);
+            return View(headingValues);
         }
     }
 }

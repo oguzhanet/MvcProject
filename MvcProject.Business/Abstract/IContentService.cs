@@ -10,7 +10,7 @@ namespace MvcProject.Business.Abstract
     public interface IContentService
     {
         List<Content> GetAll();
-        List<Content> GetAllById(int id);
+        List<Content> GetAllByHeadingId(int id);
         Content GetById(int id);
         void Add(Content content);
         void Update(Content content);

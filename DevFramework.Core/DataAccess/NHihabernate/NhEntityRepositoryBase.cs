@@ -83,5 +83,15 @@ namespace DevFramework.Core.DataAccess.NHihabernate
         {
             throw new NotImplementedException();
         }
+
+        public List<TEntity> GetAllById(Expression<Func<TEntity, bool>> filter)
+        {
+            throw new NotImplementedException();
+        }
+
+        public TEntity GetById(Expression<Func<TEntity, bool>> filter)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
