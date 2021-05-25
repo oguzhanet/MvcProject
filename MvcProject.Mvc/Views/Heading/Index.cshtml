@@ -63,10 +63,12 @@
                             <th style="width: 20%">
                                 Başlık Adı
                             </th>
-                            <th style="width: 30%">
+                            <th style="width: 20%">
                                 Oluşturan Yazar
                             </th>
-
+                            <th style="width: 10%">
+                                Durum
+                            </th>
                             <th style="width: 8%" class="text-center">
                                 Kategori
                             </th>
@@ -116,7 +118,9 @@
                                         </li>
                                     </ul>
                                 </td>
-
+                                <td>
+                                    @item.HeadingStatus
+                                </td>
                                 <td class="project-state">
                                     <span class=" @color">@item.Category.CategoryName</span>
                                 </td>
@@ -131,7 +135,7 @@
                                         </i>
                                         Düzenle
                                     </a>
-                                    <a class="btn btn-danger btn-sm" href="#">
+                                    <a class="btn btn-danger btn-sm" href="/Heading/DeleteHeading/@item.HeadingId">
                                         <i class="fas fa-trash">
                                         </i>
                                         Sil

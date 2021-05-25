@@ -8,13 +8,22 @@
 
 @using (Html.BeginForm("UpdateHeading","Heading", FormMethod.Post))
 {
-    <div class="form-group">
-        @Html.Label("Başlık Id")
-        @Html.TextBoxFor(x=>x.HeadingName, new {@class="form-control"})
-        <br />
-        @Html.Label("Kategori ismi")
-        @Html.DropDownListFor(x=>x.CategoryId,(List<SelectListItem>)ViewBag.category, new { @class = "form-control" })
-        <br />
-        <button class="btn btn-default" style="background-color:#ff6a00; color:white;">Değişiklikleri Kaydet</button>
-    </div>
+<div class="form-group">
+    @Html.Label("Başlık Id")
+    @Html.TextBoxFor(x => x.HeadingId, new { @class = "form-control" })
+    <br />
+    @Html.Label("Başlık Adı")
+    @Html.TextBoxFor(x => x.HeadingName, new { @class = "form-control" })
+    <br />
+    @Html.Label("Tarih")
+    @Html.TextBoxFor(x => x.HeadingDate, new { @class = "form-control" })
+    <br />
+    @Html.Label("Yazar Id")
+    @Html.TextBoxFor(x => x.WriterId, new { @class = "form-control" })
+    <br />
+    @Html.Label("Kategori ismi")
+    @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.category, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-default" style="background-color:#ff6a00; color:white;">Değişiklikleri Kaydet</button>
+</div>
 }
