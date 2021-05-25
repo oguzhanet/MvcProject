@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<button class="btn btn-default" data-toggle="modal" data-target="#Modal1" style="background-color:deepskyblue; margin-block-end:15px;">
+    Yeni Hakkımızda Yazı Giriş İşlemi
+</button>
+
+<div class="modal" id="Modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">
+                    Hakkımızda Metin Girişi
+                </h2>
+            </div>
+            
+            <form method="post" action="#">
+                <div class="modal-body">
+                    <label>Hakkımızda Metin 1</label>
+                    <input type="text" name="#" class="form-control" />
+                    <br />
+                    <label>Hakkımızda Metin 2</label>
+                    <input type="text" name="#" class="form-control" />
+                    <br />
+                    <label>Hakkımızda Görsel 1</label>
+                    <input type="text" name="#" class="form-control" />
+                    <br />
+                    <label>Hakkımızda Görsel 1</label>
+                    <input type="text" name="#" class="form-control" />
+                    <br />
+                    <button class="btn btn-info">Bilgileri Kaydet</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
