@@ -20,27 +20,27 @@ namespace MvcProject.Business.Concrete
 
         public List<About> GetAll()
         {
-            throw new NotImplementedException();
+            return _aboutDal.GetAll();
         }
 
         public About GetById(int id)
         {
-            throw new NotImplementedException();
+            return _aboutDal.Get(x => x.AboutId == id);
         }
 
         public void Add(About about)
         {
-            throw new NotImplementedException();
+            _aboutDal.Add(about);
         }
 
         public void Update(About about)
         {
-            throw new NotImplementedException();
+            _aboutDal.Update(about);
         }
 
         public void Delete(About about)
         {
-            throw new NotImplementedException();
+            _aboutDal.Delete(about);
         }
     }
 }

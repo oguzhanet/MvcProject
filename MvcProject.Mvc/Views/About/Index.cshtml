@@ -1,41 +1,38 @@
-﻿
+﻿@using MvcProject.Entities.Concrete
+@model List<About>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Index</h2>
+@*<h2>Hakkımızda Veri Listesi     @Html.Action("AboutPartial", "About")</h2>*@
 
-<button class="btn btn-default" data-toggle="modal" data-target="#Modal1" style="background-color:deepskyblue; margin-block-end:15px;">
-    Yeni Hakkımızda Yazı Giriş İşlemi
-</button>
-
-<div class="modal" id="Modal1">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title">
-                    Hakkımızda Metin Girişi
-                </h2>
-            </div>
-            
-            <form method="post" action="#">
-                <div class="modal-body">
-                    <label>Hakkımızda Metin 1</label>
-                    <input type="text" name="#" class="form-control" />
-                    <br />
-                    <label>Hakkımızda Metin 2</label>
-                    <input type="text" name="#" class="form-control" />
-                    <br />
-                    <label>Hakkımızda Görsel 1</label>
-                    <input type="text" name="#" class="form-control" />
-                    <br />
-                    <label>Hakkımızda Görsel 1</label>
-                    <input type="text" name="#" class="form-control" />
-                    <br />
-                    <button class="btn btn-info">Bilgileri Kaydet</button>
-                </div>
-            </form>
+<div>
+    <div class="row gx-5">
+        <div class="col" style="margin-top:15px; margin-bottom:5px;">
+            <h2>Hakkımızda Veri Listesi </h2>
+        </div>
+        <div class="col-7" style="margin-top:15px; margin-bottom:5px; margin-right:15px;">
+            @Html.Action("AboutPartial", "About")
         </div>
     </div>
 </div>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Hakkımda</th>
+        <th>Aktif Yap</th>
+        <th>Pasif Yap</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.AboutId</th>
+            <td>Başlık</td>
+            <td><a href="#" class="btn btn-warning">Aktif Yap</a></td>
+            <td><a href="#" class="btn btn-danger">Pasif Yap</a></td>
+        </tr>
+    }
+</table>
+
