@@ -18,9 +18,14 @@ namespace MvcProject.Business.Concrete
             _messageDal = messageDal;
         }
 
-        public List<Message> GetAll()
+        public List<Message> GetAllInbox()
         {
             return _messageDal.GetAll(x => x.ReceiverMail == "admin@gmail.com");
+        }
+
+        public List<Message> GetAllSendbox()
+        {
+            return _messageDal.GetAll(x => x.SenderMail == "admin@gmail.com");
         }
 
         public Message GetById(int id)
@@ -30,7 +35,7 @@ namespace MvcProject.Business.Concrete
 
         public void Add(Message message)
         {
-            throw new NotImplementedException();
+            _messageDal.Add(message);
         }
 
         public void Update(Message message)

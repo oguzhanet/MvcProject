@@ -2311,6 +2311,8 @@
     <Content Include="Views\Contact\GetContactDetails.cshtml" />
     <Content Include="Views\Contact\ContactPartial.cshtml" />
     <Content Include="Views\Message\Inbox.cshtml" />
+    <Content Include="Views\Message\Sendbox.cshtml" />
+    <Content Include="Views\Message\NewMessage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
