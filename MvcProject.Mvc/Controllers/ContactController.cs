@@ -1,5 +1,6 @@
 ﻿using MvcProject.Business.Concrete;
 using MvcProject.DataAccess.Concrete.EntityFramework;
+using MvcProject.Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,7 @@ namespace MvcProject.Mvc.Controllers
     {
         // GET: Contact
         ContactManager contactManager = new ContactManager(new EfContactDal());
+        MessageManager messageManager = new MessageManager(new EfMessageDal());
 
         public ActionResult Index()
         {
@@ -25,8 +27,17 @@ namespace MvcProject.Mvc.Controllers
             return View(contactValues);
         }
 
-        public PartialViewResult ContactPartial()
+        public PartialViewResult ContactPartial(Message message)
         {
+            var contacts = contactManager.GetAll().Count();
+            ViewBag.contact = contacts;
+
+            var result = messageManager.GetAllSendbox();
+            ViewBag.result = result.Count();
+
+            var result2 = messageManager.GetAllInbox().Count();
+            ViewBag.result2 = result2;
+
             return PartialView();
         }
     }

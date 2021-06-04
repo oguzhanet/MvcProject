@@ -47,5 +47,10 @@ namespace MvcProject.Business.Concrete
         {
             throw new NotImplementedException();
         }
+
+        public List<Message> IsDraft()
+        {
+            return _messageDal.GetAllById(x => x.IsDraft == true);
+        }
     }
 }

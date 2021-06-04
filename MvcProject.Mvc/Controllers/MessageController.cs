@@ -36,5 +36,11 @@ namespace MvcProject.Mvc.Controllers
         {
             return View();
         }
+
+        public ActionResult Draft()
+        {
+            var result = messageManager.IsDraft();
+            return View(result);
+        }
     }
 }

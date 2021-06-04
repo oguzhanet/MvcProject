@@ -100,6 +100,10 @@
     <Compile Include="Migrations\202106011013027_mig_add_messagE.designer.cs">
       <DependentUpon>202106011013027_mig_add_messagE.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106041152418_add_isdraft.cs" />
+    <Compile Include="Migrations\202106041152418_add_isdraft.designer.cs">
+      <DependentUpon>202106041152418_add_isdraft.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -141,6 +145,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106011013027_mig_add_messagE.resx">
       <DependentUpon>202106011013027_mig_add_messagE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106041152418_add_isdraft.resx">
+      <DependentUpon>202106041152418_add_isdraft.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

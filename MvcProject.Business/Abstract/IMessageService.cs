@@ -11,6 +11,7 @@ namespace MvcProject.Business.Abstract
     {
         List<Message> GetAllInbox();
         List<Message> GetAllSendbox();
+        List<Message> IsDraft();
         Message GetById(int id);
         void Add(Message message);
         void Update(Message message);
