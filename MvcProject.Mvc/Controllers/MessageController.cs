@@ -46,24 +46,46 @@ namespace MvcProject.Mvc.Controllers
             return View();
         }
 
-        [HttpPost]
-        public ActionResult NewMessage(Message message)
+        [HttpPost] //Burası refaktor edilecek şuanlık bu şekide..
+        public ActionResult NewMessage(Message message, string parameter)
         {
             ValidationResult results = messageValidator.Validate(message);
-            if (results.IsValid)
+            if (parameter == "send")
             {
-                message.IsDraft = false;
-                message.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
-                messageManager.Add(message);
-                return RedirectToAction("Sendbox");
-            }
-            else
-            {
-                foreach (var item in results.Errors)
+                if (results.IsValid)
                 {
-                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                    message.IsDraft = false;
+                    message.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+                    messageManager.Add(message);
+                    return RedirectToAction("Sendbox");
+                }
+                else
+                {
+                    foreach (var item in results.Errors)
+                    {
+                        ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                    }
                 }
             }
+
+            else if (parameter=="draft")
+            {
+                if (results.IsValid)
+                {
+                    message.IsDraft = true;
+                    message.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+                    messageManager.Add(message);
+                    return RedirectToAction("Draft");
+                }
+                else
+                {
+                    foreach (var item in results.Errors)
+                    {
+                        ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                    }
+                }
+            }
+            
             return View();
         }
 
@@ -71,22 +93,6 @@ namespace MvcProject.Mvc.Controllers
         {
             var result = messageManager.IsDraft();
             return View(result);
-        }
-
-        [HttpGet]
-        public ActionResult SaveDraft()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public ActionResult SaveDraft(Message message)
-        {
-            message.SenderMail = "admin@gmail.com";
-            message.MessageDate =Convert.ToDateTime(DateTime.Now.ToShortDateString());
-            message.IsDraft = true;
-            messageManager.SaveDraftAdd(message);
-            return RedirectToAction("Draft");
         }
     }
 }
