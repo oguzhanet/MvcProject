@@ -56,6 +56,7 @@
     <Compile Include="Abstract\IContactDal.cs" />
     <Compile Include="Abstract\IContentDal.cs" />
     <Compile Include="Abstract\IHeadingDal.cs" />
+    <Compile Include="Abstract\IImageFileDal.cs" />
     <Compile Include="Abstract\IMessageDal.cs" />
     <Compile Include="Abstract\IRepository.cs" />
     <Compile Include="Abstract\IWriterDal.cs" />
@@ -65,6 +66,7 @@
     <Compile Include="Concrete\EntityFramework\EfContactDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfContentDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfHeadingDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfImageFileDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfMessageDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfWriterDal.cs" />
     <Compile Include="Concrete\EntityFramework\GenericRepository.cs" />
@@ -111,6 +113,10 @@
     <Compile Include="Migrations\202106051352419__allow.cs" />
     <Compile Include="Migrations\202106051352419__allow.designer.cs">
       <DependentUpon>202106051352419__allow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106051909526_mig_ımage_file.cs" />
+    <Compile Include="Migrations\202106051909526_mig_ımage_file.designer.cs">
+      <DependentUpon>202106051909526_mig_ımage_file.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -162,6 +168,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106051352419__allow.resx">
       <DependentUpon>202106051352419__allow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106051909526_mig_ımage_file.resx">
+      <DependentUpon>202106051909526_mig_ımage_file.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

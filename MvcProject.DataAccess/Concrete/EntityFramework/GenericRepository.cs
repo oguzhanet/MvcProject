@@ -1,4 +1,5 @@
-﻿using MvcProject.DataAccess.Abstract;
+﻿using DevFramework.Core.Entities;
+using MvcProject.DataAccess.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace MvcProject.DataAccess.Concrete.EntityFramework
 {
+    //Burası yerine Core Katmanındaki EfEntityRepositoryBase Kullanıyorum.
     public class GenericRepository<T> : IRepository<T> where T : class
     {
         Context c = new Context();

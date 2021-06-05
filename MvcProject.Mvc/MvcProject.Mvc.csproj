@@ -153,6 +153,8 @@
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\ContentController.cs" />
+    <Compile Include="Controllers\ErrorPageController.cs" />
+    <Compile Include="Controllers\GalleryController.cs" />
     <Compile Include="Controllers\HeadingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
@@ -321,6 +323,15 @@
     <Content Include="AdminLTE-3.0.4\docs\_layouts\home.html" />
     <Content Include="AdminLTE-3.0.4\docs\_layouts\page.html" />
     <Content Include="AdminLTE-3.0.4\docs\_layouts\post.html" />
+    <Content Include="AdminLTE-3.0.4\Images\balat-4634367.jpg" />
+    <Content Include="AdminLTE-3.0.4\Images\ciragan-4657306.jpg" />
+    <Content Include="AdminLTE-3.0.4\Images\city-4866138.jpg" />
+    <Content Include="AdminLTE-3.0.4\Images\cragan-palace-208312.jpg" />
+    <Content Include="AdminLTE-3.0.4\Images\dolmabahce-4003032.jpg" />
+    <Content Include="AdminLTE-3.0.4\Images\dome-4105990.jpg" />
+    <Content Include="AdminLTE-3.0.4\Images\eminonu-4772596.jpg" />
+    <Content Include="AdminLTE-3.0.4\Images\galata-4021613.jpg" />
+    <Content Include="AdminLTE-3.0.4\Images\istanbul-2367193.jpg" />
     <Content Include="AdminLTE-3.0.4\index.html" />
     <Content Include="AdminLTE-3.0.4\index2.html" />
     <Content Include="AdminLTE-3.0.4\index3.html" />
@@ -2002,6 +2013,10 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Error\css\style.css" />
+    <Content Include="Error\img\bg.jpg" />
+    <Content Include="Error\index.html" />
+    <Content Include="Error\readme.txt" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -2316,6 +2331,8 @@
     <Content Include="Views\Message\Draft.cshtml" />
     <Content Include="Views\Message\GetInBoxMessageDetails.cshtml" />
     <Content Include="Views\Message\GetSendBoxMessageDetails.cshtml" />
+    <Content Include="Views\ErrorPage\Page404.cshtml" />
+    <Content Include="Views\Gallery\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
