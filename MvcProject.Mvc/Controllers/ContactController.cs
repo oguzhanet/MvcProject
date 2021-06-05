@@ -27,16 +27,19 @@ namespace MvcProject.Mvc.Controllers
             return View(contactValues);
         }
 
-        public PartialViewResult ContactPartial(Message message)
+        public PartialViewResult ContactPartial()
         {
             var contacts = contactManager.GetAll().Count();
             ViewBag.contact = contacts;
 
-            var result = messageManager.GetAllSendbox();
-            ViewBag.result = result.Count();
+            var result = messageManager.GetAllSendbox().Count();
+            ViewBag.result = result;
 
             var result2 = messageManager.GetAllInbox().Count();
             ViewBag.result2 = result2;
+
+            var draft = messageManager.GetAll().Where(x => x.IsDraft == true).Count();
+            ViewBag.draft = draft;
 
             return PartialView();
         }

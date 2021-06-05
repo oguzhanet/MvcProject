@@ -9,6 +9,7 @@ namespace MvcProject.Business.Abstract
 {
     public interface IMessageService
     {
+        List<Message> GetAll();
         List<Message> GetAllInbox();
         List<Message> GetAllSendbox();
         List<Message> IsDraft();
@@ -16,5 +17,6 @@ namespace MvcProject.Business.Abstract
         void Add(Message message);
         void Update(Message message);
         void Delete(Message message);
+        void SaveDraftAdd(Message message);
     }
 }

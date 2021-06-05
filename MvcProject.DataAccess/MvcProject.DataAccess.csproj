@@ -104,6 +104,10 @@
     <Compile Include="Migrations\202106041152418_add_isdraft.designer.cs">
       <DependentUpon>202106041152418_add_isdraft.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106051216222_mig_contactdate.cs" />
+    <Compile Include="Migrations\202106051216222_mig_contactdate.designer.cs">
+      <DependentUpon>202106051216222_mig_contactdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -148,6 +152,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106041152418_add_isdraft.resx">
       <DependentUpon>202106041152418_add_isdraft.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106051216222_mig_contactdate.resx">
+      <DependentUpon>202106051216222_mig_contactdate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

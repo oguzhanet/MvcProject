@@ -17,6 +17,10 @@ namespace MvcProject.Business.Concrete
         {
             _messageDal = messageDal;
         }
+        public List<Message> GetAll()
+        {
+            return _messageDal.GetAll();
+        }
 
         public List<Message> GetAllInbox()
         {
@@ -25,12 +29,12 @@ namespace MvcProject.Business.Concrete
 
         public List<Message> GetAllSendbox()
         {
-            return _messageDal.GetAll(x => x.SenderMail == "admin@gmail.com");
+            return _messageDal.GetAll(x => x.SenderMail == "admin@gmail.com").Where(x=>x.IsDraft==false).ToList();
         }
 
         public Message GetById(int id)
         {
-            throw new NotImplementedException();
+            return _messageDal.Get(x => x.MessageId == id);
         }
 
         public void Add(Message message)
@@ -51,6 +55,11 @@ namespace MvcProject.Business.Concrete
         public List<Message> IsDraft()
         {
             return _messageDal.GetAllById(x => x.IsDraft == true);
+        }
+     
+        public void SaveDraftAdd(Message message)
+        {
+            _messageDal.Add(message);
         }
     }
 }
