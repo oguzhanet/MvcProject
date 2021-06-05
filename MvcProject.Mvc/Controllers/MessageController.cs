@@ -54,6 +54,7 @@ namespace MvcProject.Mvc.Controllers
             {
                 if (results.IsValid)
                 {
+                    message.SenderMail = "admin@gmail.com";
                     message.IsDraft = false;
                     message.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
                     messageManager.Add(message);
@@ -72,6 +73,7 @@ namespace MvcProject.Mvc.Controllers
             {
                 if (results.IsValid)
                 {
+                    message.SenderMail = "admin@gmail.com";
                     message.IsDraft = true;
                     message.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
                     messageManager.Add(message);
