@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MvcProject.Entities.Concrete
 {
-    public class Admin:IEntity
+    public class Admin : IEntity
     {
         [Key]
         public int AdminId { get; set; }

@@ -159,6 +159,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
+    <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\StatisticsController.cs" />
     <Compile Include="Controllers\WriterController.cs" />
     <Compile Include="Global.asax.cs">
@@ -166,6 +167,7 @@
     </Compile>
     <Compile Include="Filters\ExceptionHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Roles\AdminRoleProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdminLTE-3.0.4\build\config\postcss.config.js" />
@@ -379,6 +381,20 @@
     <Content Include="AdminLTE-3.0.4\LoginAdmin\vendor\select2\select2.js" />
     <Content Include="AdminLTE-3.0.4\LoginAdmin\vendor\select2\select2.min.css" />
     <Content Include="AdminLTE-3.0.4\LoginAdmin\vendor\select2\select2.min.js" />
+    <Content Include="AdminLTE-3.0.4\LoginRegister\css\style.css" />
+    <Content Include="AdminLTE-3.0.4\LoginRegister\fonts\material-icon\css\material-design-iconic-font.css" />
+    <Content Include="AdminLTE-3.0.4\LoginRegister\fonts\material-icon\css\material-design-iconic-font.min.css" />
+    <Content Include="AdminLTE-3.0.4\LoginRegister\fonts\material-icon\fonts\Material-Design-Iconic-Font.svg" />
+    <Content Include="AdminLTE-3.0.4\LoginRegister\fonts\montserrat\montserrat-v12-latin-900.svg" />
+    <Content Include="AdminLTE-3.0.4\LoginRegister\fonts\montserrat\OFL.txt" />
+    <Content Include="AdminLTE-3.0.4\LoginRegister\images\checked.gif" />
+    <Content Include="AdminLTE-3.0.4\LoginRegister\images\signup-bg.jpg" />
+    <Content Include="AdminLTE-3.0.4\LoginRegister\images\unchecked.gif" />
+    <Content Include="AdminLTE-3.0.4\LoginRegister\index.html" />
+    <Content Include="AdminLTE-3.0.4\LoginRegister\js\main.js" />
+    <Content Include="AdminLTE-3.0.4\LoginRegister\readme.txt" />
+    <Content Include="AdminLTE-3.0.4\LoginRegister\vendor\jquery\jquery-ui.min.js" />
+    <Content Include="AdminLTE-3.0.4\LoginRegister\vendor\jquery\jquery.min.js" />
     <Content Include="AdminLTE-3.0.4\LoginUser\css\main.css" />
     <Content Include="AdminLTE-3.0.4\LoginUser\css\util.css" />
     <Content Include="AdminLTE-3.0.4\LoginUser\fonts\font-awesome-4.7.0\css\font-awesome.css" />
@@ -2490,6 +2506,48 @@
     <Content Include="AdminLTE-3.0.4\LoginUser\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
     <Content Include="AdminLTE-3.0.4\LoginUser\vendor\bootstrap\css\bootstrap.css.map" />
     <Content Include="AdminLTE-3.0.4\LoginUser\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="AdminLTE-3.0.4\LoginRegister\.sass-cache\21880c0ffe15753a53f8402e9f64e1077e071510\style.scssc" />
+    <Content Include="AdminLTE-3.0.4\LoginRegister\.sass-cache\2af427b2894d1e78c5806e231aa35d00838a84e0\style.scssc" />
+    <Content Include="AdminLTE-3.0.4\LoginRegister\.sass-cache\632f5d1dd893d2e8764de51b8ca4120e25043113\extend.scssc" />
+    <Content Include="AdminLTE-3.0.4\LoginRegister\.sass-cache\632f5d1dd893d2e8764de51b8ca4120e25043113\fonts.scssc" />
+    <Content Include="AdminLTE-3.0.4\LoginRegister\.sass-cache\632f5d1dd893d2e8764de51b8ca4120e25043113\global.scssc" />
+    <Content Include="AdminLTE-3.0.4\LoginRegister\.sass-cache\632f5d1dd893d2e8764de51b8ca4120e25043113\minxi.scssc" />
+    <Content Include="AdminLTE-3.0.4\LoginRegister\.sass-cache\632f5d1dd893d2e8764de51b8ca4120e25043113\variables.scssc" />
+    <Content Include="AdminLTE-3.0.4\LoginRegister\.sass-cache\643489b018602f15119d8f44aeb7fc79468873a9\main.scssc" />
+    <Content Include="AdminLTE-3.0.4\LoginRegister\.sass-cache\643489b018602f15119d8f44aeb7fc79468873a9\responsive.scssc" />
+    <Content Include="AdminLTE-3.0.4\LoginRegister\.sass-cache\7643c8aa2e335ff5e104bc47d8dd7f1a0693bb39\extend.scssc" />
+    <Content Include="AdminLTE-3.0.4\LoginRegister\.sass-cache\7643c8aa2e335ff5e104bc47d8dd7f1a0693bb39\fonts.scssc" />
+    <Content Include="AdminLTE-3.0.4\LoginRegister\.sass-cache\7643c8aa2e335ff5e104bc47d8dd7f1a0693bb39\global.scssc" />
+    <Content Include="AdminLTE-3.0.4\LoginRegister\.sass-cache\7643c8aa2e335ff5e104bc47d8dd7f1a0693bb39\minxi.scssc" />
+    <Content Include="AdminLTE-3.0.4\LoginRegister\.sass-cache\7643c8aa2e335ff5e104bc47d8dd7f1a0693bb39\variables.scssc" />
+    <Content Include="AdminLTE-3.0.4\LoginRegister\.sass-cache\f49285f1317a1cafa93ab4f5de346f92bbc40d58\main.scssc" />
+    <Content Include="AdminLTE-3.0.4\LoginRegister\.sass-cache\f49285f1317a1cafa93ab4f5de346f92bbc40d58\responsive.scssc" />
+    <Content Include="AdminLTE-3.0.4\LoginRegister\css\style.css.map" />
+    <Content Include="AdminLTE-3.0.4\LoginRegister\fonts\material-icon\fonts\Material-Design-Iconic-Font.eot" />
+    <Content Include="AdminLTE-3.0.4\LoginRegister\fonts\material-icon\fonts\Material-Design-Iconic-Font.ttf" />
+    <Content Include="AdminLTE-3.0.4\LoginRegister\fonts\material-icon\fonts\Material-Design-Iconic-Font.woff" />
+    <Content Include="AdminLTE-3.0.4\LoginRegister\fonts\material-icon\fonts\Material-Design-Iconic-Font.woff2" />
+    <Content Include="AdminLTE-3.0.4\LoginRegister\fonts\montserrat\Montserrat-Bold.ttf" />
+    <Content Include="AdminLTE-3.0.4\LoginRegister\fonts\montserrat\Montserrat-BoldItalic.ttf" />
+    <Content Include="AdminLTE-3.0.4\LoginRegister\fonts\montserrat\Montserrat-ExtraLight.ttf" />
+    <Content Include="AdminLTE-3.0.4\LoginRegister\fonts\montserrat\Montserrat-ExtraLightItalic.ttf" />
+    <Content Include="AdminLTE-3.0.4\LoginRegister\fonts\montserrat\Montserrat-Italic.ttf" />
+    <Content Include="AdminLTE-3.0.4\LoginRegister\fonts\montserrat\Montserrat-Light.ttf" />
+    <Content Include="AdminLTE-3.0.4\LoginRegister\fonts\montserrat\Montserrat-Medium.ttf" />
+    <Content Include="AdminLTE-3.0.4\LoginRegister\fonts\montserrat\Montserrat-Regular.ttf" />
+    <Content Include="AdminLTE-3.0.4\LoginRegister\fonts\montserrat\Montserrat-SemiBold.ttf" />
+    <Content Include="AdminLTE-3.0.4\LoginRegister\fonts\montserrat\montserrat-v12-latin-900.eot" />
+    <Content Include="AdminLTE-3.0.4\LoginRegister\fonts\montserrat\montserrat-v12-latin-900.ttf" />
+    <Content Include="AdminLTE-3.0.4\LoginRegister\fonts\montserrat\montserrat-v12-latin-900.woff" />
+    <Content Include="AdminLTE-3.0.4\LoginRegister\fonts\montserrat\montserrat-v12-latin-900.woff2" />
+    <Content Include="AdminLTE-3.0.4\LoginRegister\scss\common\extend.scss" />
+    <Content Include="AdminLTE-3.0.4\LoginRegister\scss\common\fonts.scss" />
+    <Content Include="AdminLTE-3.0.4\LoginRegister\scss\common\global.scss" />
+    <Content Include="AdminLTE-3.0.4\LoginRegister\scss\common\minxi.scss" />
+    <Content Include="AdminLTE-3.0.4\LoginRegister\scss\common\variables.scss" />
+    <Content Include="AdminLTE-3.0.4\LoginRegister\scss\layouts\main.scss" />
+    <Content Include="AdminLTE-3.0.4\LoginRegister\scss\layouts\responsive.scss" />
+    <Content Include="AdminLTE-3.0.4\LoginRegister\scss\style.scss" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -2549,6 +2607,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Register\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
