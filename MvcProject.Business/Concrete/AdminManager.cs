@@ -20,12 +20,12 @@ namespace MvcProject.Business.Concrete
 
         public List<Admin> GetAll()
         {
-            throw new NotImplementedException();
+            return _adminDal.GetAll();
         }
 
         public Admin GetById(int id)
         {
-            throw new NotImplementedException();
+            return _adminDal.GetById(x => x.AdminId == id);
         }
 
         public void Add(Admin admin)
@@ -35,12 +35,12 @@ namespace MvcProject.Business.Concrete
 
         public void Update(Admin admin)
         {
-            throw new NotImplementedException();
+            _adminDal.Update(admin);
         }
 
         public void Delete(Admin admin)
         {
-            throw new NotImplementedException();
+            _adminDal.Delete(admin);
         }
     }
 }

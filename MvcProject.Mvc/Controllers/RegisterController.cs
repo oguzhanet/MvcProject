@@ -30,7 +30,7 @@ namespace MvcProject.Mvc.Controllers
             string password = admin.AdminPassword;
             string result = Convert.ToBase64String(sha1.ComputeHash(Encoding.UTF8.GetBytes(password)));
             admin.AdminPassword = result;
-            admin.AdminRole = "A";
+            admin.AdminRole = "B";
             adminManager.Add(admin);
             return RedirectToAction("Index", "Login");
         }
