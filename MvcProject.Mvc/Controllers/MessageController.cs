@@ -96,5 +96,28 @@ namespace MvcProject.Mvc.Controllers
             var result = messageManager.IsDraft();
             return View(result);
         }
+
+        public ActionResult IsRead(int id)
+        {
+            var result= messageManager.GetById(id);
+            if (result.IsRead==false)
+            {
+                result.IsRead = true;
+            }
+            messageManager.Update(result);
+            return RedirectToAction("ReadMessage");
+        }
+
+        public ActionResult ReadMessage()
+        {
+            var readMessage = messageManager.GetAll().Where(x => x.IsRead == true).ToList();
+            return View(readMessage);
+        }
+
+        public ActionResult UnReadMessage()
+        {
+            var unReadMessage = messageManager.GetAllUnRead();
+            return View(unReadMessage);
+        }
     }
 }

@@ -32,6 +32,11 @@ namespace MvcProject.Business.Concrete
             return _messageDal.GetAll(x => x.SenderMail == "admin@gmail.com").Where(x=>x.IsDraft==false).ToList();
         }
 
+        public List<Message> GetAllUnRead()
+        {
+            return _messageDal.GetAll(x => x.ReceiverMail == "admin@gmail.com").Where(x => x.IsRead == false).ToList();
+        }
+
         public Message GetById(int id)
         {
             return _messageDal.Get(x => x.MessageId == id);
@@ -44,12 +49,12 @@ namespace MvcProject.Business.Concrete
 
         public void Update(Message message)
         {
-            throw new NotImplementedException();
+            _messageDal.Update(message);
         }
 
         public void Delete(Message message)
         {
-            throw new NotImplementedException();
+            _messageDal.Delete(message);
         }
 
         public List<Message> IsDraft()

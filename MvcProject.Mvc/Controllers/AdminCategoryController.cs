@@ -11,7 +11,7 @@ using MvcProject.Entities.Concrete;
 
 namespace MvcProject.Mvc.Controllers
 {
-    [Authorize(Roles ="A,B")]
+    //[Authorize(Roles ="A,B")]
     public class AdminCategoryController : Controller
     {
         CategoryManager categoryManager=new CategoryManager(new EfCategoryDal());

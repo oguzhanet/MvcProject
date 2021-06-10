@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\IAboutDal.cs" />
+    <Compile Include="Abstract\IAdminDal.cs" />
     <Compile Include="Abstract\ICategoryDal.cs" />
     <Compile Include="Abstract\IContactDal.cs" />
     <Compile Include="Abstract\IContentDal.cs" />
@@ -59,15 +60,20 @@
     <Compile Include="Abstract\IImageFileDal.cs" />
     <Compile Include="Abstract\IMessageDal.cs" />
     <Compile Include="Abstract\IRepository.cs" />
+    <Compile Include="Abstract\ITalentCardDal.cs" />
+    <Compile Include="Abstract\ITalentCardSkillDal.cs" />
     <Compile Include="Abstract\IWriterDal.cs" />
     <Compile Include="Concrete\Context.cs" />
     <Compile Include="Concrete\EntityFramework\EfAboutDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfAdminDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfCategoryDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfContactDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfContentDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfHeadingDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfImageFileDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfMessageDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfTalentCardDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfTalentCardSkillDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfWriterDal.cs" />
     <Compile Include="Concrete\EntityFramework\GenericRepository.cs" />
     <Compile Include="Migrations\202105051950288_mig1.cs" />
@@ -121,6 +127,50 @@
     <Compile Include="Migrations\202106091007406_add_admin_table.cs" />
     <Compile Include="Migrations\202106091007406_add_admin_table.designer.cs">
       <DependentUpon>202106091007406_add_admin_table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106091830421_mig_adminpass.cs" />
+    <Compile Include="Migrations\202106091830421_mig_adminpass.designer.cs">
+      <DependentUpon>202106091830421_mig_adminpass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106101000337_mig_aboutstatus.cs" />
+    <Compile Include="Migrations\202106101000337_mig_aboutstatus.designer.cs">
+      <DependentUpon>202106101000337_mig_aboutstatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106101144234_mig_Skill.cs" />
+    <Compile Include="Migrations\202106101144234_mig_Skill.designer.cs">
+      <DependentUpon>202106101144234_mig_Skill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106101158046_mig_Skillpoint.cs" />
+    <Compile Include="Migrations\202106101158046_mig_Skillpoint.designer.cs">
+      <DependentUpon>202106101158046_mig_Skillpoint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106101203437_mig_Skillid.cs" />
+    <Compile Include="Migrations\202106101203437_mig_Skillid.designer.cs">
+      <DependentUpon>202106101203437_mig_Skillid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106101245570_mig_SkillP.cs" />
+    <Compile Include="Migrations\202106101245570_mig_SkillP.designer.cs">
+      <DependentUpon>202106101245570_mig_SkillP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106101248010_mig_SkillP10.cs" />
+    <Compile Include="Migrations\202106101248010_mig_SkillP10.designer.cs">
+      <DependentUpon>202106101248010_mig_SkillP10.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106101355300_mig_SkillP11.cs" />
+    <Compile Include="Migrations\202106101355300_mig_SkillP11.designer.cs">
+      <DependentUpon>202106101355300_mig_SkillP11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106101401101_mig_SkillP12.cs" />
+    <Compile Include="Migrations\202106101401101_mig_SkillP12.designer.cs">
+      <DependentUpon>202106101401101_mig_SkillP12.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106101406064_mig_SkillP13.cs" />
+    <Compile Include="Migrations\202106101406064_mig_SkillP13.designer.cs">
+      <DependentUpon>202106101406064_mig_SkillP13.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106101648252_mig_isread.cs" />
+    <Compile Include="Migrations\202106101648252_mig_isread.designer.cs">
+      <DependentUpon>202106101648252_mig_isread.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -178,6 +228,39 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106091007406_add_admin_table.resx">
       <DependentUpon>202106091007406_add_admin_table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106091830421_mig_adminpass.resx">
+      <DependentUpon>202106091830421_mig_adminpass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106101000337_mig_aboutstatus.resx">
+      <DependentUpon>202106101000337_mig_aboutstatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106101144234_mig_Skill.resx">
+      <DependentUpon>202106101144234_mig_Skill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106101158046_mig_Skillpoint.resx">
+      <DependentUpon>202106101158046_mig_Skillpoint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106101203437_mig_Skillid.resx">
+      <DependentUpon>202106101203437_mig_Skillid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106101245570_mig_SkillP.resx">
+      <DependentUpon>202106101245570_mig_SkillP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106101248010_mig_SkillP10.resx">
+      <DependentUpon>202106101248010_mig_SkillP10.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106101355300_mig_SkillP11.resx">
+      <DependentUpon>202106101355300_mig_SkillP11.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106101401101_mig_SkillP12.resx">
+      <DependentUpon>202106101401101_mig_SkillP12.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106101406064_mig_SkillP13.resx">
+      <DependentUpon>202106101406064_mig_SkillP13.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106101648252_mig_isread.resx">
+      <DependentUpon>202106101648252_mig_isread.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

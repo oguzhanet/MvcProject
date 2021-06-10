@@ -41,6 +41,13 @@ namespace MvcProject.Mvc.Controllers
             var draft = messageManager.GetAll().Where(x => x.IsDraft == true).Count();
             ViewBag.draft = draft;
 
+
+            var readMessage = messageManager.GetAll().Where(x => x.IsRead == true).Count();
+            ViewBag.readMessage = readMessage;
+
+            var unReadMessage = messageManager.GetAllUnRead().Count();
+            ViewBag.unReadMessage = unReadMessage;
+
             return PartialView();
         }
     }

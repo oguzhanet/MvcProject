@@ -5,6 +5,9 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
+@{ string message = "";}
+@{ string color = "";}
+
 <!DOCTYPE html>
 <html>
 
@@ -71,6 +74,23 @@
                                 <tbody>
                                     @foreach (var item in Model)
                                     {
+                                        if (item.IsRead==false)
+                                        {
+                                            message = "Okundu olarak İşaretle";
+                                        }
+                                        if (item.IsRead == true)
+                                        {
+                                            message = "Okundu olarak İşaretlendi";
+                                        }
+                                        if (item.IsRead==false)
+                                        {
+                                            color = "btn btn-info btn-sm";
+                                        }
+                                        if (item.IsRead == true)
+                                        {
+                                            color = "btn btn-danger btn-sm";
+                                        }
+
                                         <tr>
                                             <td>
                                                 <div class="icheck-primary">
@@ -81,10 +101,17 @@
                                             <td class="mailbox-star"><a href="/Message/GetInBoxMessageDetails/@item.MessageId"><i class="fas fa-star text-warning"></i></a></td>
                                             <td class="mailbox-name"><a href="/Message/GetInBoxMessageDetails/@item.MessageId">@item.SenderMail</a></td>
                                             <td class="mailbox-subject">
-                                                <b>@item.Subject</b> - @{ HtmlString htmlString = new HtmlString(@item.MessageContent);}
+                                                <b>@item.Subject</b> - @item.MessageContent.Substring(0, 10)
                                             </td>
                                             <td class="mailbox-attachment"></td>
                                             <td class="mailbox-date"> @(((DateTime)item.MessageDate).ToString("dd/MMM/yyyy"))</td>
+                                            <td>
+                                                <a class="@color" href="/Message/IsRead/@item.MessageId">
+                                                    <i class="fas fa-pencil-alt">
+                                                    </i>
+                                                    @message
+                                                </a>
+                                            </td>
                                         </tr>
                                     }
                                 </tbody>
