@@ -41,7 +41,8 @@ namespace MvcProject.Mvc.Controllers
                 return RedirectToAction("Index", "AdminCategory");
             }
 
-            return RedirectToAction("Index");
+            ViewBag.ErrorMessage = "Kullanıcı Adı veya Şifreniz Yanlış!";
+            return View();
         }
 
         public ActionResult LogOut()

@@ -63,7 +63,12 @@
                             Beni Hatırla
                         </label>
                     </div>
-
+                    if (ViewBag.ErrorMessage != null)
+                    {
+                        <div class="w-100 text-center mt-4 text">
+                            <p class="text-dark">@ViewBag.ErrorMessage</p>
+                        </div><br />
+                    }
                     <div class="container-login100-form-btn">
                         <button type="submit" class="login100-form-btn">
                             Giriş Yap
@@ -80,7 +85,7 @@
         </div>
     </div>
 
-
+    
     <div id="dropDownSelect1"></div>
 
     <!--===============================================================================================-->
