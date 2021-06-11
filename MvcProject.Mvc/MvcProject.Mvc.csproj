@@ -171,13 +171,15 @@
     <Compile Include="Roles\AdminRoleProvider.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="3-4 OdevResimleri\AdminGirişHatalıIse.png" />
+    <Content Include="3-4 OdevResimleri\AdminGirişPaneli.png" />
     <Content Include="3-4 OdevResimleri\AdminRegisterHashing.png" />
     <Content Include="3-4 OdevResimleri\AuthorizeVeRole.png" />
     <Content Include="3-4 OdevResimleri\GelenKutusu.png" />
     <Content Include="3-4 OdevResimleri\HakkımızdaAktifPasif.png" />
     <Content Include="3-4 OdevResimleri\Kart1.png" />
     <Content Include="3-4 OdevResimleri\Kart2Devamı.png" />
-    <Content Include="3-4 OdevResimleri\LoginHashing.png" />
+    <Content Include="3-4 OdevResimleri\LoginHashingVeMessage.png" />
     <Content Include="3-4 OdevResimleri\OkunmamışMesaj.png" />
     <Content Include="3-4 OdevResimleri\OkunmuşMesaj.png" />
     <Content Include="3-4 OdevResimleri\VeriTabanı.png" />
