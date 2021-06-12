@@ -1,7 +1,7 @@
 ﻿@model MvcProject.Entities.Concrete.Message
 @{
     ViewBag.Title = "NewMessage";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -39,10 +39,10 @@
     <section class="content">
         <div class="container-fluid">
             <div class="row">
-                @Html.Action("ContactPartial", "Contact")
+                @Html.Action("MessagePartial", "WriterPanelMessage")
                 <!-- /.col -->
                 <div class="col-md-9">
-                    @using (Html.BeginForm("NewMessage", "Message", FormMethod.Post))
+                    @using (Html.BeginForm("NewMessage", "WriterPanelMessage", FormMethod.Post))
                     {
                         <div class="card card-primary card-outline">
 
@@ -84,7 +84,7 @@
                                     <button type="submit" formmethod="post" name="parameter" value="draft" class="btn btn-default"><i class="fas fa-pencil-alt"></i> Taslaklara Kaydet </button>
                                     <button type="submit" name="parameter" value="send" class="btn btn-primary"><i class="far fa-envelope"></i> Gönder </button>
                                 </div>
-                                <a href="/Message/NewMessage/" class="btn btn-default"><i class="fas fa-times"></i> İptal Et </a>
+                                <a href="/WriterPanelMessage/NewMessage/" class="btn btn-default"><i class="fas fa-times"></i> İptal Et </a>
                                 @*<button type="reset" class="btn btn-default"><i class="fas fa-times"></i> İptal Et</button>*@
                             </div>
 
@@ -121,4 +121,3 @@
         })</script>
 </body>
 </html>
-

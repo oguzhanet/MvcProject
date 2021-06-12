@@ -78,8 +78,8 @@
                                                     <label for="check1"></label>
                                                 </div>
                                             </td>
-                                            <td class="mailbox-star"><a href="/Message/GetSendBoxMessageDetails/@item.MessageId"><i class="fas fa-star text-warning"></i></a></td>
-                                            <td class="mailbox-name"><a href="/Message/GetSendBoxMessageDetails/@item.MessageId">@item.ReceiverMail</a></td>
+                                            <td class="mailbox-star"><a href="/WriterPanelMessage/GetSendBoxMessageDetails/@item.MessageId"><i class="fas fa-star text-warning"></i></a></td>
+                                            <td class="mailbox-name"><a href="/WriterPanelMessage/GetSendBoxMessageDetails/@item.MessageId">@item.ReceiverMail</a></td>
                                             <td class="mailbox-subject">
                                                 <b>@item.Subject</b> - @{ HtmlString htmlString = new HtmlString(@item.MessageContent);}
                                             </td>
