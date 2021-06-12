@@ -1,13 +1,11 @@
 ﻿@using MvcProject.Entities.Concrete
 @model List<Heading>
 @{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.Title = "MyHeading";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
 }
 
 @{ string color = "";}
-@{ string status = "";}
-@{ string statusName = "";}
 @{ string deleteName = "";}
 
 <!DOCTYPE html>
@@ -34,7 +32,7 @@
                 <h1>Başlıklar</h1>
             </div>
             <div class="col-7" style="margin-top:15px; margin-bottom:5px; margin-right:15px;">
-                <a href="/Heading/AddHeading/" class="btn btn-default" style="background-color:deepskyblue; margin-block-end:15px;">Yeni Başlık Oluşturun..</a>
+                <a href="/WriterPanel/NewHeading/" class="btn btn-default" style="background-color:deepskyblue; margin-block-end:15px; color:white;">Yeni Başlık Oluşturun..</a>
             </div>
         </div>
     </div>
@@ -68,9 +66,6 @@
                             </th>
                             <th style="width: 11%" class="text-center">
                                 Oluşturan Yazar
-                            </th>
-                            <th style="width: 10%" class="text-center">
-                                Başlığın Durumu
                             </th>
                             <th style="width: 8%" class="text-center">
                                 Kategori
@@ -110,26 +105,6 @@
 
                             if (item.HeadingStatus == true)
                             {
-                                status = "badge badge-success";
-                            }
-
-                            if (item.HeadingStatus == false)
-                            {
-                                status = "badge badge-danger";
-                            }
-
-                            if (item.HeadingStatus == true)
-                            {
-                                statusName = "Aktif";
-                            }
-
-                            if (item.HeadingStatus == false)
-                            {
-                                statusName = "Pasif";
-                            }
-
-                            if (item.HeadingStatus == true)
-                            {
                                 deleteName = "Pasif  Yap";
                             }
 
@@ -162,12 +137,7 @@
                                         </li>
                                     </ul>
                                 </td>
-                                @*<td class="@status" style="margin-top:25px;">
-                                        @statusName
-                                    </td>*@
-                                <td class="project-state">
-                                    <h5> <span class="@status"> @statusName</span></h5>
-                                </td>
+
                                 <td class="project-state">
                                     <h5> <span class=" @color">@item.Category.CategoryName</span></h5>
                                 </td>
@@ -177,12 +147,12 @@
                                         </i>
                                         Başlığın İçerikleri
                                     </a>
-                                    <a class="btn btn-info btn-sm" href="/Heading/UpdateHeading/@item.HeadingId">
+                                    <a class="btn btn-info btn-sm" href="/WriterPanel/UpdateHeading/@item.HeadingId">
                                         <i class="fas fa-pencil-alt">
                                         </i>
                                         Düzenle
                                     </a>
-                                    <a class="btn btn-danger btn-sm" href="/Heading/DeleteHeading/@item.HeadingId">
+                                    <a class="btn btn-danger btn-sm" href="/WriterPanel/DeleteHeading/@item.HeadingId">
                                         <i class="fas fa-trash">
                                         </i>
                                         @deleteName
@@ -200,3 +170,5 @@
     <!-- /.content -->
 </body>
 </html>
+
+

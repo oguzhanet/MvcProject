@@ -163,6 +163,8 @@
     <Compile Include="Controllers\StatisticsController.cs" />
     <Compile Include="Controllers\TalentCardController.cs" />
     <Compile Include="Controllers\WriterController.cs" />
+    <Compile Include="Controllers\WriterPanelController.cs" />
+    <Compile Include="Controllers\WriterPanelMessageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -2631,6 +2633,12 @@
     <Content Include="Views\TalentCard\Index.cshtml" />
     <Content Include="Views\Message\ReadMessage.cshtml" />
     <Content Include="Views\Message\UnReadMessage.cshtml" />
+    <Content Include="Views\Shared\_WriterLayout.cshtml" />
+    <Content Include="Views\WriterPanel\WriterProfile.cshtml" />
+    <Content Include="Views\WriterPanel\MyHeading.cshtml" />
+    <Content Include="Views\WriterPanel\NewHeading.cshtml" />
+    <Content Include="Views\WriterPanel\UpdateHeading.cshtml" />
+    <Content Include="Views\WriterPanelMessage\Inbox.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -23,6 +23,11 @@ namespace MvcProject.Business.Concrete
             return _headingDal.GetAll();
         }
 
+        public List<Heading> GetAllByWriter(int id)
+        {
+            return _headingDal.GetAll(x => x.WriterId == id);
+        }
+
         public Heading GetById(int id)
         {
             return _headingDal.Get(x => x.HeadingId == id);

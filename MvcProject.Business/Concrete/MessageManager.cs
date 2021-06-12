@@ -24,17 +24,17 @@ namespace MvcProject.Business.Concrete
 
         public List<Message> GetAllInbox()
         {
-            return _messageDal.GetAll(x => x.ReceiverMail == "admin@gmail.com");
+            return _messageDal.GetAll(x => x.ReceiverMail == "kadir@gmail.com");
         }
 
         public List<Message> GetAllSendbox()
         {
-            return _messageDal.GetAll(x => x.SenderMail == "admin@gmail.com").Where(x=>x.IsDraft==false).ToList();
+            return _messageDal.GetAll(x => x.SenderMail == "kadir@gmail.com").Where(x=>x.IsDraft==false).ToList();
         }
 
         public List<Message> GetAllUnRead()
         {
-            return _messageDal.GetAll(x => x.ReceiverMail == "admin@gmail.com").Where(x => x.IsRead == false).ToList();
+            return _messageDal.GetAll(x => x.ReceiverMail == "kadir@gmail.com").Where(x => x.IsRead == false).ToList();
         }
 
         public Message GetById(int id)
