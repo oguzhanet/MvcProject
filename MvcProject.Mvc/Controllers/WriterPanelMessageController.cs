@@ -22,5 +22,15 @@ namespace MvcProject.Mvc.Controllers
             return View(messageList);
         }
 
+        public ActionResult Sendbox()
+        {
+            var messageList = messageManager.GetAllSendbox();
+            return View(messageList);
+        }
+
+        public PartialViewResult MessagePartial()
+        {
+            return PartialView();
+        }
     }
 }
