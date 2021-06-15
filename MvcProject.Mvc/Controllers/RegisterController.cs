@@ -12,6 +12,7 @@ using System.Web.Mvc;
 
 namespace MvcProject.Mvc.Controllers
 {
+    [AllowAnonymous]
     public class RegisterController : Controller
     {
         // GET: Register

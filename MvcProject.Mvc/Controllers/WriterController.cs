@@ -34,6 +34,7 @@ namespace MvcProject.Mvc.Controllers
             ValidationResult results = writerValidator.Validate(writer);
             if (results.IsValid)
             {
+                writer.WriterRole = "C";
                 writerManager.Add(writer);
                 return RedirectToAction("Index");
             }

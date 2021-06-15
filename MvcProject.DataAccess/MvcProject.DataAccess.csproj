@@ -172,6 +172,10 @@
     <Compile Include="Migrations\202106101648252_mig_isread.designer.cs">
       <DependentUpon>202106101648252_mig_isread.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106152008371_mig_writerrole.cs" />
+    <Compile Include="Migrations\202106152008371_mig_writerrole.designer.cs">
+      <DependentUpon>202106152008371_mig_writerrole.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -261,6 +265,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106101648252_mig_isread.resx">
       <DependentUpon>202106101648252_mig_isread.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106152008371_mig_writerrole.resx">
+      <DependentUpon>202106152008371_mig_writerrole.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

@@ -26,6 +26,8 @@ namespace MvcProject.Entities.Concrete
         public string WriterMail { get; set; }
         [StringLength(200)]
         public string WriterPassword { get; set; }
+        [StringLength(1)]
+        public string WriterRole { get; set; }
         public bool WriterStatus { get; set; }
         
         public ICollection<Heading> Headings { get; set; }

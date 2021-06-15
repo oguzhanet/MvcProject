@@ -40,7 +40,17 @@ namespace MvcProject.Mvc.Roles
         {
             Context context = new Context();
             var result = context.Admins.FirstOrDefault(x => x.AdminUserName == username);
-            return new string[] { result.AdminRole };
+            var resultWriter = context.Writers.FirstOrDefault(x => x.WriterMail == username);
+
+            if (result !=null)
+            {
+                return new string[] { result.AdminRole };
+            }
+            else if (resultWriter !=null)
+            {
+                return new string[] { resultWriter.WriterRole };
+            }
+            return new string[] { };
         }
 
         public override string[] GetUsersInRole(string roleName)
