@@ -11,7 +11,6 @@ using System.Web.Mvc;
 
 namespace MvcProject.Mvc.Controllers
 {
-    [AllowAnonymous]
     public class WriterPanelMessageController : Controller
     {
         // GET: WriterPanelMessage
