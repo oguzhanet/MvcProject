@@ -23,9 +23,9 @@ namespace MvcProject.Business.Concrete
             throw new NotImplementedException();
         }
 
-        public List<Content> GetAllByWriter()
+        public List<Content> GetAllByWriter(int id)
         {
-            return _contentDal.GetAll(x => x.WriterId == 2);
+            return _contentDal.GetAll(x => x.WriterId == id);
         }
 
         public List<Content> GetAllByHeadingId(int id)

@@ -80,5 +80,11 @@ namespace MvcProject.Mvc.Controllers
             ViewBag.ErrorMessage = "Kullanıcı Adı veya Şifreniz Yanlış!";
             return View();
         }
+
+        public ActionResult WriterLogOut()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("WriterLogin", "Login");
+        }
     }
 }
