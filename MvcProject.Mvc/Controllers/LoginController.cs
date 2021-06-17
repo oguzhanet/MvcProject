@@ -3,11 +3,14 @@ using MvcProject.Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Security.Cryptography;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using Newtonsoft;
+using Newtonsoft.Json;
 
 namespace MvcProject.Mvc.Controllers
 {
@@ -33,7 +36,7 @@ namespace MvcProject.Mvc.Controllers
             var adminUserInfo = context.Admins.FirstOrDefault(x => x.AdminUserName == admin.AdminUserName &&
               x.AdminPassword == result);
 
-          
+
             if (adminUserInfo != null)
             {
                 FormsAuthentication.SetAuthCookie(adminUserInfo.AdminUserName, false);
@@ -69,6 +72,17 @@ namespace MvcProject.Mvc.Controllers
             var writerUserInfo = context.Writers.FirstOrDefault(x => x.WriterMail == writer.WriterMail &&
               x.WriterPassword == result);
 
+            var response = Request["g-recaptcha-response"];
+            const string secret = "6LfHFTwbAAAAAB53V5ZcixAgVCi2aTXIuF-eLxF9";
+            var client = new WebClient();
+
+            var reply = client.DownloadString(string.Format("https://www.google.com/recaptcha/api/siteverify?secret={0}&response={1}", secret, response));
+            var captchaResponse = JsonConvert.DeserializeObject<CaptchaResponse>(reply);
+            if (!captchaResponse.Success)
+            {
+                TempData["Message"] = "Lütfen güvenliği doğrulayınız.";
+                return View();
+            }
 
             if (writerUserInfo != null)
             {
@@ -85,6 +99,15 @@ namespace MvcProject.Mvc.Controllers
         {
             FormsAuthentication.SignOut();
             return RedirectToAction("WriterLogin", "Login");
+        }
+
+        public class CaptchaResponse
+        {
+            [JsonProperty("success")]
+            public bool Success { get; set; }
+
+            [JsonProperty("error-codes")]
+            public List<string> ErrorCodes { get; set; }
         }
     }
 }

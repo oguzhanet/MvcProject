@@ -55,7 +55,9 @@
                             <i class="fa fa-lock" aria-hidden="true"></i>
                         </span>
                     </div>
-
+                    <div class="g-recaptcha" data-sitekey="6LfHFTwbAAAAANmnjvwAbdHH7jDlYZK8eTJFVUHu"></div>
+                    <br />
+                    @TempData["Message"]
                     if (ViewBag.ErrorMessage != null)
                     {
                         <div class="text-center" style="margin-bottom:5px; margin-left:5px;">
@@ -80,7 +82,7 @@
                         </a>
                     </div>
 
-                    <div class="text-center p-t-136">
+                    <div class="text-center p-t-75"> @*p-t-136 normal olan*@
                         <a class="txt2" href="#">
                             Hesabınız mı yok, hemem oluşturun!
                             <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
@@ -113,6 +115,6 @@
     </script>
     <!--===============================================================================================-->
     <script src="~/AdminLTE-3.0.4/LoginWriter/js/main.js"></script>
-
+    <script src='https://www.google.com/recaptcha/api.js' type="text/javascript"></script>
 </body>
 </html>
