@@ -15,6 +15,7 @@ namespace MvcProject.Mvc.Controllers
         // GET: WriterPanel
         HeadingManager headingManager = new HeadingManager(new EfHeadingDal());
         CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
+        Context context = new Context();
 
         public ActionResult WriterProfile()
         {
@@ -23,7 +24,6 @@ namespace MvcProject.Mvc.Controllers
 
         public ActionResult MyHeading(string parameter)
         {
-            Context context = new Context();
             parameter = (string)Session["WriterMail"];
             var writerIdInfo = context.Writers.Where(x => x.WriterMail == parameter).Select(z => z.WriterId).FirstOrDefault();
 
@@ -48,9 +48,11 @@ namespace MvcProject.Mvc.Controllers
         [HttpPost]
         public ActionResult NewHeading(Heading heading)
         {
+            string result = (string)Session["WriterMail"];
+            var writerIdInfo = context.Writers.Where(x => x.WriterMail == result).Select(z => z.WriterId).FirstOrDefault();
             heading.HeadingDate = DateTime.Parse(DateTime.Now.ToShortDateString());
             heading.HeadingStatus = true;
-            heading.WriterId = 2;
+            heading.WriterId = writerIdInfo;
             headingManager.Add(heading);
             return RedirectToAction("MyHeading");
         }
