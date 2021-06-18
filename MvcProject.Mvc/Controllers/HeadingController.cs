@@ -1,4 +1,5 @@
-﻿using MvcProject.Business.Concrete;
+﻿using MvcProject.Business.Abstract;
+using MvcProject.Business.Concrete;
 using MvcProject.DataAccess.Concrete.EntityFramework;
 using MvcProject.Entities.Concrete;
 using System;
@@ -12,26 +13,37 @@ namespace MvcProject.Mvc.Controllers
     public class HeadingController : Controller
     {
         // GET: Heading
-        HeadingManager headingManager = new HeadingManager(new EfHeadingDal());
-        CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
-        WriterManager writerManager = new WriterManager(new EfWriterDal());
+        //HeadingManager headingManager = new HeadingManager(new EfHeadingDal());
+        //CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
+        //WriterManager writerManager = new WriterManager(new EfWriterDal());
+        private IHeadingService _headingService;
+        private ICategoryService _categoryService;
+        private IWriterService _writerService;
+        public HeadingController(IHeadingService headingService, ICategoryService categoryService, IWriterService writerService)
+        {
+            _headingService = headingService;
+            _categoryService = categoryService;
+            _writerService = writerService;
+        }
+
+        
         public ActionResult Index()
         {
-            var headingValues = headingManager.GetAll();
+            var headingValues = _headingService.GetAll();
             return View(headingValues);
         }
 
         [HttpGet]
         public ActionResult AddHeading()
         {
-            List<SelectListItem> valueCategory = (from category in categoryManager.GetAll()
+            List<SelectListItem> valueCategory = (from category in _categoryService.GetAll()
                                                   select new SelectListItem
                                                   {
                                                       Text = category.CategoryName,
                                                       Value = category.CategoryId.ToString()
                                                   }).ToList();
 
-            List<SelectListItem> valueWriter = (from writer in writerManager.GetAll()
+            List<SelectListItem> valueWriter = (from writer in _writerService.GetAll()
                                                 select new SelectListItem
                                                 {
                                                     Text = writer.WriterName + " " + writer.WriterSurName,
@@ -46,14 +58,14 @@ namespace MvcProject.Mvc.Controllers
         public ActionResult AddHeading(Heading heading)
         {
             heading.HeadingDate = DateTime.Parse(DateTime.Now.ToShortDateString());
-            headingManager.Add(heading);
+            _headingService.Add(heading);
             return RedirectToAction("Index");
         }
 
         [HttpGet]
         public ActionResult UpdateHeading(int id)
         {
-            List<SelectListItem> valueCategory = (from category in categoryManager.GetAll()
+            List<SelectListItem> valueCategory = (from category in _categoryService.GetAll()
                                                   select new SelectListItem
                                                   {
                                                       Text = category.CategoryName,
@@ -61,20 +73,20 @@ namespace MvcProject.Mvc.Controllers
                                                   }).ToList();
             ViewBag.category = valueCategory;
 
-            var headingValues = headingManager.GetById(id);
+            var headingValues = _headingService.GetById(id);
             return View(headingValues);
         }
 
         [HttpPost]
         public ActionResult UpdateHeading(Heading heading)
         {
-            headingManager.Update(heading);
+            _headingService.Update(heading);
             return RedirectToAction("Index");
         }
 
         public ActionResult DeleteHeading(int id)
         {
-            var headingValue = headingManager.GetById(id);
+            var headingValue = _headingService.GetById(id);
 
             if (headingValue.HeadingStatus == true)
             {
@@ -85,8 +97,8 @@ namespace MvcProject.Mvc.Controllers
             {
                 headingValue.HeadingStatus = true;
             }
-           
-            headingManager.Delete(headingValue);
+
+            _headingService.Delete(headingValue);
             return RedirectToAction("Index");
         }
     }

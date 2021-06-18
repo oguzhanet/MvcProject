@@ -21,6 +21,5 @@ namespace MvcProject.DataAccess.Concrete
         public DbSet<Admin> Admins { get; set; }
         public DbSet<TalentCard> TalentCards { get; set; }
         public DbSet<TalentCardSkill> talentCardSkills { get; set; }
-
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using FluentValidation.Results;
+using MvcProject.Business.Abstract;
 using MvcProject.Business.Concrete;
 using MvcProject.Business.ValidationRules.FluentValidation;
 using MvcProject.DataAccess.Concrete.EntityFramework;
@@ -14,11 +15,18 @@ namespace MvcProject.Mvc.Controllers
     public class WriterController : Controller
     {
         // GET: Writer
-        WriterManager writerManager=new WriterManager(new EfWriterDal());
+        //WriterManager writerManager=new WriterManager(new EfWriterDal());
+        private IWriterService _writerService;
+
+        public WriterController(IWriterService writerService)
+        {
+            _writerService = writerService;
+        }
+
         WriterValidator writerValidator = new WriterValidator();
         public ActionResult Index()
         {
-            var writerValues = writerManager.GetAll();
+            var writerValues = _writerService.GetAll();
             return View(writerValues);
         }
 
@@ -35,7 +43,7 @@ namespace MvcProject.Mvc.Controllers
             if (results.IsValid)
             {
                 writer.WriterRole = "C";
-                writerManager.Add(writer);
+                _writerService.Add(writer);
                 return RedirectToAction("Index");
             }
             else
@@ -51,7 +59,7 @@ namespace MvcProject.Mvc.Controllers
         [HttpGet]
         public ActionResult EditWriter(int id)
         {
-            var writerValue = writerManager.GetById(id);
+            var writerValue = _writerService.GetById(id);
             return View(writerValue);
         }
 
@@ -61,7 +69,7 @@ namespace MvcProject.Mvc.Controllers
             ValidationResult results = writerValidator.Validate(writer);
             if (results.IsValid)
             {
-                writerManager.Update(writer);
+                _writerService.Update(writer);
                 return RedirectToAction("Index");
             }
             else

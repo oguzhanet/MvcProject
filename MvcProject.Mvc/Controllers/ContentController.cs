@@ -1,4 +1,5 @@
-﻿using MvcProject.Business.Concrete;
+﻿using MvcProject.Business.Abstract;
+using MvcProject.Business.Concrete;
 using MvcProject.DataAccess.Concrete.EntityFramework;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,14 @@ namespace MvcProject.Mvc.Controllers
     public class ContentController : Controller
     {
         // GET: Content
-        ContentManager contentManager = new ContentManager(new EfContentDal());
+        //ContentManager contentManager = new ContentManager(new EfContentDal());
+        private IContentService _contentService;
+
+        public ContentController(IContentService contentService)
+        {
+            _contentService = contentService;
+        }
+
         public ActionResult Index()
         {
             return View();
@@ -19,7 +27,7 @@ namespace MvcProject.Mvc.Controllers
 
         public ActionResult ContentByHeading(int id)
         {
-            var contentValues = contentManager.GetAllByHeadingId(id);
+            var contentValues = _contentService.GetAllByHeadingId(id);
             return View(contentValues);
         }
     }

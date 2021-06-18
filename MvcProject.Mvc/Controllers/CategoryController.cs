@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using FluentValidation.Results;
+using MvcProject.Business.Abstract;
 using MvcProject.Business.Concrete;
 using MvcProject.Business.ValidationRules.FluentValidation;
 using MvcProject.DataAccess.Concrete;
@@ -16,7 +17,12 @@ namespace MvcProject.Mvc.Controllers
     public class CategoryController : Controller
     {
         // GET: Category
-        CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
+        private ICategoryService _categoryService;
+
+        public CategoryController(ICategoryService categoryService)
+        {
+            _categoryService = categoryService;
+        }
         public ActionResult Index()
         {
             return View();
@@ -24,7 +30,7 @@ namespace MvcProject.Mvc.Controllers
 
         public ActionResult GetCategoryList()
         {
-            var categoryValues = categoryManager.GetAll();
+            var categoryValues = _categoryService.GetAll();
             return View(categoryValues);
         }
 
@@ -42,7 +48,7 @@ namespace MvcProject.Mvc.Controllers
             ValidationResult result = categoryValidator.Validate(category);
             if (result.IsValid)
             {
-                categoryManager.Add(category);
+                _categoryService.Add(category);
                 return RedirectToAction("GetCategoryList");
             }
             else

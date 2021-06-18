@@ -1,4 +1,5 @@
-﻿using MvcProject.Business.Concrete;
+﻿using MvcProject.Business.Abstract;
+using MvcProject.Business.Concrete;
 using MvcProject.DataAccess.Concrete;
 using MvcProject.DataAccess.Concrete.EntityFramework;
 using MvcProject.Entities.Concrete;
@@ -16,7 +17,13 @@ namespace MvcProject.Mvc.Controllers
     public class RegisterController : Controller
     {
         // GET: Register
-        AdminManager adminManager = new AdminManager(new EfAdminDal());
+        //AdminManager adminManager = new AdminManager(new EfAdminDal());
+        private IAdminService _adminService;
+
+        public RegisterController(IAdminService adminService)
+        {
+            _adminService = adminService;
+        }
 
         [HttpGet]
         public ActionResult Index()
@@ -32,7 +39,7 @@ namespace MvcProject.Mvc.Controllers
             string result = Convert.ToBase64String(sha1.ComputeHash(Encoding.UTF8.GetBytes(password)));
             admin.AdminPassword = result;
             admin.AdminRole = "B";
-            adminManager.Add(admin);
+            _adminService.Add(admin);
             return RedirectToAction("Index", "Login");
         }
     }

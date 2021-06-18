@@ -1,4 +1,5 @@
-﻿using MvcProject.Business.Concrete;
+﻿using MvcProject.Business.Abstract;
+using MvcProject.Business.Concrete;
 using MvcProject.DataAccess.Concrete.EntityFramework;
 using MvcProject.Entities.Concrete;
 using System;
@@ -12,10 +13,17 @@ namespace MvcProject.Mvc.Controllers
     public class AboutController : Controller
     {
         // GET: About
-        AboutManager aboutManager = new AboutManager(new EfAboutDal());
+        //AboutManager aboutManager = new AboutManager(new EfAboutDal());
+        private IAboutService _aboutSercice;
+
+        public AboutController(IAboutService aboutSercice)
+        {
+            _aboutSercice = aboutSercice;
+        }
+
         public ActionResult Index()
         {
-            var aboutValues = aboutManager.GetAll();
+            var aboutValues = _aboutSercice.GetAll();
             return View(aboutValues);
         }
 
@@ -28,7 +36,7 @@ namespace MvcProject.Mvc.Controllers
         [HttpPost]
         public ActionResult AddAbout(About about)
         {
-            aboutManager.Add(about);
+            _aboutSercice.Add(about);
             return RedirectToAction("Index");
         }
 
@@ -39,9 +47,9 @@ namespace MvcProject.Mvc.Controllers
 
         public ActionResult StatusActiveAndPassive(int id)
         {
-            var aboutValue = aboutManager.GetById(id);
+            var aboutValue = _aboutSercice.GetById(id);
 
-            if (aboutValue.AboutStatus==true)
+            if (aboutValue.AboutStatus == true)
             {
                 aboutValue.AboutStatus = false;
             }
@@ -49,7 +57,7 @@ namespace MvcProject.Mvc.Controllers
             {
                 aboutValue.AboutStatus = true;
             }
-            aboutManager.Update(aboutValue);
+            _aboutSercice.Update(aboutValue);
             return RedirectToAction("Index");
         }
     }

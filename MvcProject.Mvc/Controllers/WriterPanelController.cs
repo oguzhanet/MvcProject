@@ -1,4 +1,5 @@
-﻿using MvcProject.Business.Concrete;
+﻿using MvcProject.Business.Abstract;
+using MvcProject.Business.Concrete;
 using MvcProject.DataAccess.Concrete;
 using MvcProject.DataAccess.Concrete.EntityFramework;
 using MvcProject.Entities.Concrete;
@@ -13,8 +14,18 @@ namespace MvcProject.Mvc.Controllers
     public class WriterPanelController : Controller
     {
         // GET: WriterPanel
-        HeadingManager headingManager = new HeadingManager(new EfHeadingDal());
-        CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
+        //HeadingManager headingManager = new HeadingManager(new EfHeadingDal());
+        //CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
+        private IHeadingService _headingService;
+        private ICategoryService _categoryService;
+
+        public WriterPanelController(IHeadingService headingService, ICategoryService categoryService)
+        {
+            _headingService = headingService;
+            _categoryService = categoryService;
+        }
+
+    
         Context context = new Context();
 
         public ActionResult WriterProfile()
@@ -27,14 +38,14 @@ namespace MvcProject.Mvc.Controllers
             parameter = (string)Session["WriterMail"];
             var writerIdInfo = context.Writers.Where(x => x.WriterMail == parameter).Select(z => z.WriterId).FirstOrDefault();
 
-            var values = headingManager.GetAllByWriter(writerIdInfo);
+            var values = _headingService.GetAllByWriter(writerIdInfo);
             return View(values);
         }
 
         [HttpGet]
         public ActionResult NewHeading()
         {
-            List<SelectListItem> valueCategory = (from category in categoryManager.GetAll()
+            List<SelectListItem> valueCategory = (from category in _categoryService.GetAll()
                                                   select new SelectListItem
                                                   {
                                                       Text = category.CategoryName,
@@ -53,14 +64,14 @@ namespace MvcProject.Mvc.Controllers
             heading.HeadingDate = DateTime.Parse(DateTime.Now.ToShortDateString());
             heading.HeadingStatus = true;
             heading.WriterId = writerIdInfo;
-            headingManager.Add(heading);
+            _headingService.Add(heading);
             return RedirectToAction("MyHeading");
         }
 
         [HttpGet]
         public ActionResult UpdateHeading(int id)
         {
-            List<SelectListItem> valueCategory = (from category in categoryManager.GetAll()
+            List<SelectListItem> valueCategory = (from category in _categoryService.GetAll()
                                                   select new SelectListItem
                                                   {
                                                       Text = category.CategoryName,
@@ -68,20 +79,20 @@ namespace MvcProject.Mvc.Controllers
                                                   }).ToList();
             ViewBag.category = valueCategory;
 
-            var headingValues = headingManager.GetById(id);
+            var headingValues = _headingService.GetById(id);
             return View(headingValues);
         }
 
         [HttpPost]
         public ActionResult UpdateHeading(Heading heading)
         {
-            headingManager.Update(heading);
+            _headingService.Update(heading);
             return RedirectToAction("MyHeading");
         }
 
         public ActionResult DeleteHeading(int id)
         {
-            var headingValue = headingManager.GetById(id);
+            var headingValue = _headingService.GetById(id);
 
             if (headingValue.HeadingStatus == true)
             {
@@ -93,7 +104,7 @@ namespace MvcProject.Mvc.Controllers
                 headingValue.HeadingStatus = true;
             }
 
-            headingManager.Delete(headingValue);
+            _headingService.Delete(headingValue);
             return RedirectToAction("MyHeading");
         }
     }

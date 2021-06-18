@@ -1,4 +1,5 @@
-﻿using MvcProject.Business.Concrete;
+﻿using MvcProject.Business.Abstract;
+using MvcProject.Business.Concrete;
 using MvcProject.DataAccess.Concrete;
 using MvcProject.DataAccess.Concrete.EntityFramework;
 using System;
@@ -12,11 +13,18 @@ namespace MvcProject.Mvc.Controllers
     public class TalentCardController : Controller
     {
         // GET: TalentCard
-        TalentCardManager talentCardManager = new TalentCardManager(new EfTalentCardDal());
+        //TalentCardManager talentCardManager = new TalentCardManager(new EfTalentCardDal());
+        private ITalentCardService _talentCardService;
+
+        public TalentCardController(ITalentCardService talentCardService)
+        {
+            _talentCardService = talentCardService;
+        }
+
         public ActionResult Index()
         {
             Context context = new Context();
-            var cardValues = talentCardManager.GetAll();
+            var cardValues = _talentCardService.GetAll();
 
             var result = context.TalentCards.Sum(x => x.SkillPoint) * 250 / 100;
             ViewBag.result = result;
