@@ -20,7 +20,7 @@ namespace MvcProject.Business.Concrete
 
         public List<Content> GetAll()
         {
-            throw new NotImplementedException();
+            return _contentDal.GetAll();
         }
 
         public List<Content> GetAllByWriter(int id)
