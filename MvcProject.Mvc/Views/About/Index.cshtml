@@ -25,6 +25,7 @@
     <tr>
         <th>Id</th>
         <th>Hakkımda</th>
+        <th>Durum</th>
         <th>Aktif veya Pasif İşlemi</th>
     </tr>
     @foreach (var item in Model)
@@ -37,17 +38,19 @@
         {
             status = "Aktif Yap";
         }
-        if (item.AboutStatus==true)
+        if (item.AboutStatus == true)
         {
             statusButton = "btn btn-danger";
         }
-        if (item.AboutStatus==false)
+        if (item.AboutStatus == false)
         {
             statusButton = "btn btn-warning";
         }
+
         <tr>
             <th>@item.AboutId</th>
             <td>Başlık</td>
+            <td>@item.AboutStatus</td>
             <td><a href="/About/StatusActiveAndPassive/@item.AboutId" class="@statusButton">@status</a></td>
         </tr>
     }

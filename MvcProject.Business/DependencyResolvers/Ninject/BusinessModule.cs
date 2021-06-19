@@ -49,8 +49,6 @@ namespace MvcProject.Business.DependencyResolvers.Ninject
 
             Bind<IWriterService>().To<WriterManager>().InSingletonScope();
             Bind<IWriterDal>().To<EfWriterDal>().InSingletonScope();
-
-            Bind<DbContext>().To<Context>();
         }
     }
 }

@@ -13,48 +13,48 @@ namespace MvcProject.Mvc.Controllers
     public class ContactController : Controller
     {
         // GET: Contact
-        //ContactManager contactManager = new ContactManager(new EfContactDal());
-        //MessageManager messageManager = new MessageManager(new EfMessageDal());
-        private IContactService _contactService;
-        private IMessageService _messageService;
+        ContactManager contactManager = new ContactManager(new EfContactDal());
+        MessageManager messageManager = new MessageManager(new EfMessageDal());
+        //private IContactService _contactService;
+        //private IMessageService _messageService;
 
-        public ContactController(IContactService contactService, IMessageService messageService)
-        {
-            _contactService = contactService;
-            _messageService = messageService;
-        }
+        //public ContactController(IContactService contactService, IMessageService messageService)
+        //{
+        //    _contactService = contactService;
+        //    _messageService = messageService;
+        //}
 
         public ActionResult Index()
         {
-            var contactValues = _contactService.GetAll();
+            var contactValues = contactManager.GetAll();
             return View(contactValues);
         }
 
         public ActionResult GetContactDetails(int id)
         {
-            var contactValues = _contactService.GetById(id);
+            var contactValues = contactManager.GetById(id);
             return View(contactValues);
         }
 
         public PartialViewResult ContactPartial()
         {
-            var contacts = _contactService.GetAll().Count();
+            var contacts = contactManager.GetAll().Count();
             ViewBag.contact = contacts;
 
-            var result = _messageService.GetAllSendbox().Count();
+            var result = messageManager.GetAllSendbox().Count();
             ViewBag.result = result;
 
-            var result2 = _messageService.GetAllInbox().Count();
+            var result2 = messageManager.GetAllInbox().Count();
             ViewBag.result2 = result2;
 
-            var draft = _messageService.GetAll().Where(x => x.IsDraft == true).Count();
+            var draft = messageManager.GetAll().Where(x => x.IsDraft == true).Count();
             ViewBag.draft = draft;
 
 
-            var readMessage = _messageService.GetAll().Where(x => x.IsRead == true).Count();
+            var readMessage = messageManager.GetAll().Where(x => x.IsRead == true).Count();
             ViewBag.readMessage = readMessage;
 
-            var unReadMessage = _messageService.GetAllUnRead().Count();
+            var unReadMessage = messageManager.GetAllUnRead().Count();
             ViewBag.unReadMessage = unReadMessage;
 
             return PartialView();
