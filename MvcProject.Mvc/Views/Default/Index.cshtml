@@ -19,7 +19,7 @@
                             @foreach (var item in Model)
                             {
                                 <div class="time-label">
-                                    <span class="bg-success">@(((DateTime)item.ContentDate).ToString("dd-MMM-yyyy"))</span>
+                                    <span class="bg-success">@(((DateTime)item.ContentDate).ToString("dd-MMM-yyyy")) - @item.Writer.WriterName @item.Writer.WriterSurName</span>
                                 </div>
                                 <!-- /.timeline-label -->
                                 <!-- timeline item -->

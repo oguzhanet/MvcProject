@@ -107,5 +107,11 @@ namespace MvcProject.Mvc.Controllers
             _headingService.Delete(headingValue);
             return RedirectToAction("MyHeading");
         }
+
+        public ActionResult AllHeading()
+        {
+            var headings = _headingService.GetAll();
+            return View(headings);
+        }
     }
 }
