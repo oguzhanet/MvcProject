@@ -35,22 +35,22 @@ namespace MvcProject.Business.Concrete
 
         public Content GetById(int id)
         {
-            throw new NotImplementedException();
+            return _contentDal.GetById(x => x.ContentId == id);
         }
 
         public void Add(Content content)
         {
-            throw new NotImplementedException();
+            _contentDal.Add(content);
         }
 
         public void Update(Content content)
         {
-            throw new NotImplementedException();
+            _contentDal.Update(content);
         }
 
         public void Delete(Content content)
         {
-            throw new NotImplementedException();
+            _contentDal.Delete(content);
         }
     }
 }

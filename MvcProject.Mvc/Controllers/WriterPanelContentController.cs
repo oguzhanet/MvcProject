@@ -34,8 +34,9 @@ namespace MvcProject.Mvc.Controllers
         }
 
         [HttpGet]
-        public ActionResult AddContent()
+        public ActionResult AddContent(int id)
         {
+            ViewBag.result = id;
             return View();
         }
 
@@ -49,6 +50,11 @@ namespace MvcProject.Mvc.Controllers
             content.ContentStatus = true;
             _contentService.Add(content);
             return RedirectToAction("MyContent");
+        }
+
+        public ActionResult ToDoList()
+        {
+            return View();
         }
     }
 }

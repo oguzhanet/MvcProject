@@ -98,6 +98,7 @@ namespace MvcProject.Mvc.Controllers
         public ActionResult WriterLogOut()
         {
             FormsAuthentication.SignOut();
+            Session.Abandon();
             return RedirectToAction("WriterLogin", "Login");
         }
 
