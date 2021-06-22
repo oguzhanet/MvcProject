@@ -34,6 +34,7 @@ namespace MvcProject.Business.Concrete
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
         public void Add(Writer writer)
         {
+            CheckIfWriterExists(writer);
             _writerDal.Add(writer);
         }
 
@@ -47,6 +48,14 @@ namespace MvcProject.Business.Concrete
         public void Delete(Writer writer)
         {
             _writerDal.Delete(writer);
+        }
+
+        private void CheckIfWriterExists(Writer writer)
+        {
+            if (_writerDal.Get(x=>x.WriterMail==writer.WriterMail) != null)
+            {
+                throw new Exception("Bu kullanıcı daha Önce kayıt olmuştur.");
+            }
         }
     }
 }
