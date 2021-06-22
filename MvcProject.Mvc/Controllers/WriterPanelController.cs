@@ -14,18 +14,17 @@ namespace MvcProject.Mvc.Controllers
     public class WriterPanelController : Controller
     {
         // GET: WriterPanel
-        //HeadingManager headingManager = new HeadingManager(new EfHeadingDal());
-        //CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
-        private IHeadingService _headingService;
-        private ICategoryService _categoryService;
+        HeadingManager headingManager = new HeadingManager(new EfHeadingDal());
+        CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
+        //private IHeadingService _headingService;
+        //private ICategoryService _categoryService;
 
-        public WriterPanelController(IHeadingService headingService, ICategoryService categoryService)
-        {
-            _headingService = headingService;
-            _categoryService = categoryService;
-        }
+        //public WriterPanelController(IHeadingService headingService, ICategoryService categoryService)
+        //{
+        //    _headingService = headingService;
+        //    _categoryService = categoryService;
+        //}
 
-    
         Context context = new Context();
 
         public ActionResult WriterProfile()
@@ -38,14 +37,14 @@ namespace MvcProject.Mvc.Controllers
             parameter = (string)Session["WriterMail"];
             var writerIdInfo = context.Writers.Where(x => x.WriterMail == parameter).Select(z => z.WriterId).FirstOrDefault();
 
-            var values = _headingService.GetAllByWriter(writerIdInfo);
+            var values = headingManager.GetAllByWriter(writerIdInfo);
             return View(values);
         }
 
         [HttpGet]
         public ActionResult NewHeading()
         {
-            List<SelectListItem> valueCategory = (from category in _categoryService.GetAll()
+            List<SelectListItem> valueCategory = (from category in categoryManager.GetAll()
                                                   select new SelectListItem
                                                   {
                                                       Text = category.CategoryName,
@@ -64,14 +63,14 @@ namespace MvcProject.Mvc.Controllers
             heading.HeadingDate = DateTime.Parse(DateTime.Now.ToShortDateString());
             heading.HeadingStatus = true;
             heading.WriterId = writerIdInfo;
-            _headingService.Add(heading);
+            headingManager.Add(heading);
             return RedirectToAction("MyHeading");
         }
 
         [HttpGet]
         public ActionResult UpdateHeading(int id)
         {
-            List<SelectListItem> valueCategory = (from category in _categoryService.GetAll()
+            List<SelectListItem> valueCategory = (from category in categoryManager.GetAll()
                                                   select new SelectListItem
                                                   {
                                                       Text = category.CategoryName,
@@ -79,20 +78,20 @@ namespace MvcProject.Mvc.Controllers
                                                   }).ToList();
             ViewBag.category = valueCategory;
 
-            var headingValues = _headingService.GetById(id);
+            var headingValues = headingManager.GetById(id);
             return View(headingValues);
         }
 
         [HttpPost]
         public ActionResult UpdateHeading(Heading heading)
         {
-            _headingService.Update(heading);
+            headingManager.Update(heading);
             return RedirectToAction("MyHeading");
         }
 
         public ActionResult DeleteHeading(int id)
         {
-            var headingValue = _headingService.GetById(id);
+            var headingValue = headingManager.GetById(id);
 
             if (headingValue.HeadingStatus == true)
             {
@@ -104,13 +103,13 @@ namespace MvcProject.Mvc.Controllers
                 headingValue.HeadingStatus = true;
             }
 
-            _headingService.Delete(headingValue);
+            headingManager.Delete(headingValue);
             return RedirectToAction("MyHeading");
         }
 
         public ActionResult AllHeading()
         {
-            var headings = _headingService.GetAll();
+            var headings = headingManager.GetAll();
             return View(headings);
         }
     }
