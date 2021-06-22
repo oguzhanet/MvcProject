@@ -1,4 +1,6 @@
-﻿using MvcProject.Business.Abstract;
+﻿using DevFramework.Core.Aspects.Postsharp.CacheAspects;
+using DevFramework.Core.CrossCuttingConcerns.Caching.Microsoft;
+using MvcProject.Business.Abstract;
 using MvcProject.DataAccess.Abstract;
 using MvcProject.Entities.Concrete;
 using System;
@@ -18,16 +20,19 @@ namespace MvcProject.Business.Concrete
             _contentDal = contentDal;
         }
 
+        [CacheAspect(typeof(MemoryCacheManager))]
         public List<Content> GetAll()
         {
             return _contentDal.GetAll();
         }
 
+        [CacheAspect(typeof(MemoryCacheManager))]
         public List<Content> GetAllByWriter(int id)
         {
             return _contentDal.GetAll(x => x.WriterId == id);
         }
 
+        [CacheAspect(typeof(MemoryCacheManager))]
         public List<Content> GetAllByHeadingId(int id)
         {
             return _contentDal.GetAllById(x => x.HeadingId == id);
@@ -38,16 +43,19 @@ namespace MvcProject.Business.Concrete
             return _contentDal.GetById(x => x.ContentId == id);
         }
 
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         public void Add(Content content)
         {
             _contentDal.Add(content);
         }
 
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         public void Update(Content content)
         {
             _contentDal.Update(content);
         }
 
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         public void Delete(Content content)
         {
             _contentDal.Delete(content);

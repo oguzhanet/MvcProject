@@ -1,4 +1,6 @@
-﻿using MvcProject.Business.Abstract;
+﻿using DevFramework.Core.Aspects.Postsharp.CacheAspects;
+using DevFramework.Core.CrossCuttingConcerns.Caching.Microsoft;
+using MvcProject.Business.Abstract;
 using MvcProject.DataAccess.Abstract;
 using MvcProject.Entities.Concrete;
 using System;
@@ -18,6 +20,7 @@ namespace MvcProject.Business.Concrete
             _ImageFileDal = ımageFileDal;
         }
 
+        [CacheAspect(typeof(MemoryCacheManager))]
         public List<ImageFile> GetAll()
         {
             return _ImageFileDal.GetAll();

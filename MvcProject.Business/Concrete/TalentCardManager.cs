@@ -1,4 +1,6 @@
-﻿using MvcProject.Business.Abstract;
+﻿using DevFramework.Core.Aspects.Postsharp.CacheAspects;
+using DevFramework.Core.CrossCuttingConcerns.Caching.Microsoft;
+using MvcProject.Business.Abstract;
 using MvcProject.DataAccess.Abstract;
 using MvcProject.Entities.Concrete;
 using System;
@@ -18,27 +20,31 @@ namespace MvcProject.Business.Concrete
             _talentCardDal = talentCardDal;
         }
 
-        public void Add(TalentCard talentCard)
-        {
-            _talentCardDal.Add(talentCard);
-        }
-
-        public void Delete(TalentCard talentCard)
-        {
-            throw new NotImplementedException();
-        }
-
+        [CacheAspect(typeof(MemoryCacheManager))]
         public List<TalentCard> GetAll()
         {
             return _talentCardDal.GetAll();
         }
 
-        public TalentCard GetById(int id)
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        public void Add(TalentCard talentCard)
         {
-            throw new NotImplementedException();
+            _talentCardDal.Add(talentCard);
         }
 
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         public void Update(TalentCard talentCard)
+        {
+            _talentCardDal.Update(talentCard);
+        }
+
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        public void Delete(TalentCard talentCard)
+        {
+            _talentCardDal.Delete(talentCard);
+        }
+
+        public TalentCard GetById(int id)
         {
             throw new NotImplementedException();
         }
