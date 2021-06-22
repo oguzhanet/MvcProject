@@ -1,0 +1,33 @@
+﻿@model MvcProject.Entities.Concrete.About
+@{
+    ViewBag.Title = "UpdateAbout";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+
+<h2>Kategori güncelleme sayfası</h2>
+
+@using (Html.BeginForm("UpdateAbout", "About", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.Label("Id")
+    @Html.TextBoxFor(c => c.AboutId, new { @class = "form-control" })
+    <br />
+    @Html.Label("Hakkında Detay1")
+    @Html.TextAreaFor(c => c.AboutDetails1,3,30, new { @class = "form-control" })
+    <br />
+    @Html.Label("Hakkında Detay2")
+    @Html.TextAreaFor(c => c.AboutDetails2,3,30, new { @class = "form-control" })
+    <br />
+    @Html.Label("Hakkında Görsel1")
+    @Html.TextBoxFor(c => c.AboutImage1, new { @class = "form-control" })
+    <br />
+    @Html.Label("Hakkında Görsel2")
+    @Html.TextBoxFor(c => c.AboutImage2, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-default" style="background-color:#ff6a00; color:white;">Değişiklikleri Kaydet</button>
+</div>
+}
+
+

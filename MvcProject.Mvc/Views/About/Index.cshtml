@@ -25,6 +25,7 @@
         <th>Hakkımda</th>
         <th>Durum</th>
         <th>Aktif veya Pasif İşlemi</th>
+        <th>Güncelleme İşlemi</th>
     </tr>
     @foreach (var item in Model)
     {
@@ -50,6 +51,7 @@
             <td>Başlık</td>
             <td>@item.AboutStatus</td>
             <td><a href="/About/StatusActiveAndPassive/@item.AboutId" class="@statusButton">@status</a></td>
+            <td><a href="/About/UpdateAbout/@item.AboutId" class="btn btn-default" style="background-color:#ff6a00; color:white;">Güncelle</a></td>
         </tr>
     }
 </table>

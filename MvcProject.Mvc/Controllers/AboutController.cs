@@ -40,6 +40,20 @@ namespace MvcProject.Mvc.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
+        public ActionResult UpdateAbout(int id)
+        {
+            var aboutValues = aboutManager.GetById(id);
+            return View(aboutValues);
+        }
+
+        [HttpPost]
+        public ActionResult UpdateAbout(About about)
+        {
+            aboutManager.Update(about);
+            return RedirectToAction("Index");
+        }
+
         public PartialViewResult AboutPartial()
         {
             return PartialView();
