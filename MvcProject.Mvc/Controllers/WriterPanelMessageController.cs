@@ -66,12 +66,13 @@ namespace MvcProject.Mvc.Controllers
         [HttpPost] //Burası refaktor edilecek şuanlık bu şekide..
         public ActionResult NewMessage(Message message, string parameter)
         {
+            string sender = (string)Session["WriterMail"];
             ValidationResult results = messageValidator.Validate(message);
             if (parameter == "send")
             {
                 if (results.IsValid)
                 {
-                    message.SenderMail = "kadir@gmail.com";
+                    message.SenderMail = sender;
                     message.IsDraft = false;
                     message.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
                     _messageService.Add(message);
@@ -90,7 +91,7 @@ namespace MvcProject.Mvc.Controllers
             {
                 if (results.IsValid)
                 {
-                    message.SenderMail = "kadir@gmail.com";
+                    message.SenderMail = sender;
                     message.IsDraft = true;
                     message.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
                     _messageService.Add(message);
