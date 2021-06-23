@@ -11,9 +11,9 @@ namespace MvcProject.Business.Abstract
     {
         List<Writer> GetAll();
         Writer GetById(int id);
+        Writer GetWriter(string mail, string password);
         void Add(Writer writer);
         void Update(Writer writer);
         void Delete(Writer writer);
-
     }
 }

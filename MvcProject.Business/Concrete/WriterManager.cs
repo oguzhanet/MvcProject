@@ -57,5 +57,10 @@ namespace MvcProject.Business.Concrete
                 throw new Exception("Bu kullanıcı daha Önce kayıt olmuştur.");
             }
         }
+
+        public Writer GetWriter(string mail, string password)
+        {
+            return _writerDal.Get(x => x.WriterMail == mail && x.WriterPassword == password);
+        }
     }
 }

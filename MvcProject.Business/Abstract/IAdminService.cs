@@ -11,6 +11,7 @@ namespace MvcProject.Business.Abstract
     {
         List<Admin> GetAll();
         Admin GetById(int id);
+        Admin GetAdmin(string mail, string password);
         void Add(Admin admin);
         void Update(Admin admin);
         void Delete(Admin admin);

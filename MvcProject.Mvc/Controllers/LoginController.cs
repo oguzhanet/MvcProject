@@ -11,6 +11,7 @@ using System.Web.Mvc;
 using System.Web.Security;
 using Newtonsoft;
 using Newtonsoft.Json;
+using MvcProject.Business.Abstract;
 
 namespace MvcProject.Mvc.Controllers
 {
@@ -18,6 +19,13 @@ namespace MvcProject.Mvc.Controllers
     public class LoginController : Controller
     {
         // GET: Login
+        ILoginService _loginService;
+
+        public LoginController(ILoginService loginService)
+        {
+            _loginService = loginService;
+        }
+
         [HttpGet]
         public ActionResult Index()
         {
@@ -27,15 +35,16 @@ namespace MvcProject.Mvc.Controllers
         [HttpPost]
         public ActionResult Index(Admin admin)
         {
-            SHA1 sha1 = new SHA1CryptoServiceProvider();
-            string password = admin.AdminPassword;
-            string result = Convert.ToBase64String(sha1.ComputeHash(Encoding.UTF8.GetBytes(password)));
-            admin.AdminPassword = result;
+            //SHA1 sha1 = new SHA1CryptoServiceProvider();
+            //string password = admin.AdminPassword;
+            //string result = Convert.ToBase64String(sha1.ComputeHash(Encoding.UTF8.GetBytes(password)));
+            //admin.AdminPassword = result;
 
-            Context context = new Context();
-            var adminUserInfo = context.Admins.FirstOrDefault(x => x.AdminUserName == admin.AdminUserName &&
-              x.AdminPassword == result);
+            //Context context = new Context();
+            //var adminUserInfo = context.Admins.FirstOrDefault(x => x.AdminUserName == admin.AdminUserName &&
+            //  x.AdminPassword == result); //Business katmanına taşındı
 
+            var adminUserInfo = _loginService.AdminLogin(admin);
 
             if (adminUserInfo != null)
             {
@@ -63,14 +72,16 @@ namespace MvcProject.Mvc.Controllers
         [HttpPost]
         public ActionResult WriterLogin(Writer writer)
         {
-            SHA1 sha1 = new SHA1CryptoServiceProvider();
-            string password = writer.WriterPassword;
-            string result = Convert.ToBase64String(sha1.ComputeHash(Encoding.UTF8.GetBytes(password)));
-            writer.WriterPassword = result;
+            //SHA1 sha1 = new SHA1CryptoServiceProvider();
+            //string password = writer.WriterPassword;
+            //string result = Convert.ToBase64String(sha1.ComputeHash(Encoding.UTF8.GetBytes(password)));
+            //writer.WriterPassword = result;
 
-            Context context = new Context();
-            var writerUserInfo = context.Writers.FirstOrDefault(x => x.WriterMail == writer.WriterMail &&
-              x.WriterPassword == result);
+            //Context context = new Context();
+            //var writerUserInfo = context.Writers.FirstOrDefault(x => x.WriterMail == writer.WriterMail &&
+            //  x.WriterPassword == result); //Business Katmanına Taşındı
+
+            var writerUserInfo = _loginService.WriterLogin(writer);
 
             var response = Request["g-recaptcha-response"];
             const string secret = "6LfHFTwbAAAAAB53V5ZcixAgVCi2aTXIuF-eLxF9";

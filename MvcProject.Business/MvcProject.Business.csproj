@@ -80,6 +80,7 @@
     <Compile Include="Abstract\IContentService.cs" />
     <Compile Include="Abstract\IHeadingService.cs" />
     <Compile Include="Abstract\IImageFileService.cs" />
+    <Compile Include="Abstract\ILoginService.cs" />
     <Compile Include="Abstract\IMessageService.cs" />
     <Compile Include="Abstract\ITalentCardService.cs" />
     <Compile Include="Abstract\ITalentCardSkillService.cs" />
@@ -91,6 +92,7 @@
     <Compile Include="Concrete\ContentManager.cs" />
     <Compile Include="Concrete\HeadingManager.cs" />
     <Compile Include="Concrete\ImageFileManager.cs" />
+    <Compile Include="Concrete\LoginManager.cs" />
     <Compile Include="Concrete\MessageManager.cs" />
     <Compile Include="Concrete\TalentCardManager.cs" />
     <Compile Include="Concrete\TalentCardSkillManager.cs" />

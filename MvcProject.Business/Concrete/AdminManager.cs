@@ -42,5 +42,10 @@ namespace MvcProject.Business.Concrete
         {
             _adminDal.Delete(admin);
         }
+
+        public Admin GetAdmin(string mail, string password)
+        {
+            return _adminDal.Get(x => x.AdminUserName == mail && x.AdminPassword == password);
+        }
     }
 }
