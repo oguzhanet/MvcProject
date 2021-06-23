@@ -25,15 +25,15 @@ namespace MvcProject.Mvc.Controllers
 
         MessageValidator messageValidator = new MessageValidator();
 
-        public ActionResult Inbox()
+        public ActionResult Inbox(string parameter)
         {
-            var messageList = messageManager.GetAllInbox();
+            var messageList = messageManager.GetAllInbox(parameter);
             return View(messageList);
         }
 
-        public ActionResult Sendbox()
+        public ActionResult Sendbox(string p)
         {
-            var messageList = messageManager.GetAllSendbox();
+            var messageList = messageManager.GetAllSendbox(p);
             return View(messageList);
         }
 

@@ -27,15 +27,15 @@ namespace MvcProject.Business.Concrete
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        public List<Message> GetAllInbox()
+        public List<Message> GetAllInbox(string parameter)
         {
-            return _messageDal.GetAll(x => x.ReceiverMail == "kadir@gmail.com");
+            return _messageDal.GetAll(x => x.ReceiverMail == parameter);
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        public List<Message> GetAllSendbox()
+        public List<Message> GetAllSendbox(string parameter)
         {
-            return _messageDal.GetAll(x => x.SenderMail == "kadir@gmail.com").Where(x=>x.IsDraft==false).ToList();
+            return _messageDal.GetAll(x => x.SenderMail == parameter).Where(x=>x.IsDraft==false).ToList();
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]

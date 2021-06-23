@@ -2,6 +2,7 @@
 using MvcProject.Business.Abstract;
 using MvcProject.Business.Concrete;
 using MvcProject.Business.ValidationRules.FluentValidation;
+using MvcProject.DataAccess.Concrete;
 using MvcProject.DataAccess.Concrete.EntityFramework;
 using MvcProject.Entities.Concrete;
 using System;
@@ -27,13 +28,15 @@ namespace MvcProject.Mvc.Controllers
 
         public ActionResult Inbox()
         {
-            var messageList = _messageService.GetAllInbox();
+            string parameter = (string)Session["WriterMail"];
+            var messageList = _messageService.GetAllInbox(parameter);
             return View(messageList);
         }
 
         public ActionResult Sendbox()
         {
-            var messageList = _messageService.GetAllSendbox();
+            string parameter = (string)Session["WriterMail"];
+            var messageList = _messageService.GetAllSendbox(parameter);
             return View(messageList);
         }
 

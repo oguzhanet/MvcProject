@@ -10,8 +10,8 @@ namespace MvcProject.Business.Abstract
     public interface IMessageService
     {
         List<Message> GetAll();
-        List<Message> GetAllInbox();
-        List<Message> GetAllSendbox();
+        List<Message> GetAllInbox(string parameter);
+        List<Message> GetAllSendbox(string parameter);
         List<Message> GetAllUnRead();
         List<Message> IsDraft();
         Message GetById(int id);
