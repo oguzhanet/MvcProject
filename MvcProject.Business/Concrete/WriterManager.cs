@@ -50,17 +50,17 @@ namespace MvcProject.Business.Concrete
             _writerDal.Delete(writer);
         }
 
-        private void CheckIfWriterExists(Writer writer)
-        {
-            if (_writerDal.Get(x=>x.WriterMail==writer.WriterMail) != null)
-            {
-                throw new Exception("Bu kullanıcı daha Önce kayıt olmuştur.");
-            }
-        }
-
         public Writer GetWriter(string mail, string password)
         {
             return _writerDal.Get(x => x.WriterMail == mail && x.WriterPassword == password);
+        }
+
+        private void CheckIfWriterExists(Writer writer)
+        {
+            if (_writerDal.Get(x => x.WriterMail == writer.WriterMail) != null)
+            {
+                throw new Exception("Bu kullanıcı daha önce kayıt olmuştur.");
+            }
         }
     }
 }
