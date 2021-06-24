@@ -99,7 +99,7 @@ namespace MvcProject.Mvc.Controllers
             {
                 FormsAuthentication.SetAuthCookie(writerUserInfo.WriterMail, false);
                 Session["WriterMail"] = writerUserInfo.WriterMail;
-                return RedirectToAction("MyContent", "WriterPanelContent");
+                return RedirectToAction("WriterProfile", "WriterPanel");
             }
 
             ViewBag.ErrorMessage = "Kullanıcı Adı veya Şifreniz Yanlış!";
