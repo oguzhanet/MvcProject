@@ -34,16 +34,6 @@ namespace MvcProject.Mvc.Controllers
         Context context = new Context();
         WriterValidator writerValidator = new WriterValidator();
 
-        //[HttpGet]
-        //public ActionResult WriterProfile(int id=0)
-        //{
-        //    string parameter = (string)Session["WriterMail"];
-        //    id = context.Writers.Where(x => x.WriterMail == parameter).Select(z => z.WriterId).FirstOrDefault();
-           
-        //    var writerValue = writerManager.GetById(id);
-        //    return View(writerValue);
-        //}
-
         [HttpGet]
         public ActionResult WriterProfile(int id=0)
         {

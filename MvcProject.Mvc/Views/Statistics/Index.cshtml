@@ -5,69 +5,190 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<br/>
 <h2>İstatistikler Tablosu</h2>
-<br/>
 
-<div class="col-md-6">
-    <div class="info-box">
-        <span class="info-box-icon bg-gradient-cyan"><i class="far fa-envelope"></i></span>
+<!--
+author: W3layouts
+author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <title></title>
+    <!-- custom-theme -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Esteem Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script type="application/x-javascript">
+        addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+               function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- //custom-theme -->
+    @*<link href="~/Templates/web3/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />*@
+    <link href="~/AdminLTE-3.0.4/web3/css/component.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/AdminLTE-3.0.4/web3/css/export.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/AdminLTE-3.0.4/web3/css/style_grid.css" rel="stylesheet" type="text/css" media="all" />
+    @*<link href="~/Templates/web3/css/style.css" rel="stylesheet" type="text/css" media="all" />*@
 
-        <div class="info-box-content">
-            <span class="info-box-text">1) Toplam Kategori Sayısı</span>
-            <span class="info-box-number">@ViewBag.result</span>
+    <!-- font-awesome-icons -->
+    <link href="~/web3/css/font-awesome.css" rel="stylesheet">
+    <!-- //font-awesome-icons -->
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet">
+</head>
+<body>
+    <!-- banner -->
+    <div class="clearfix"></div>
+
+    <ul class="ca-menu">
+        <li>
+            <a href="#">
+                <i class="fa fa-sticky-note" aria-hidden="true"></i>
+                <div class="ca-content">
+                    <h4 class="ca-main">@ViewBag.result</h4>
+                    <h3 class="ca-sub">Toplam Kategori Sayısı</h3>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class="fa fa-calendar" aria-hidden="true"></i>
+                <div class="ca-content">
+                    <h4 class="ca-main one">@ViewBag.result2</h4>
+                    <h3 class="ca-sub one">Yazılım Kategorisine Ait Başlık</h3>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class="fa fa-user-clock" aria-hidden="true"></i>
+                <div class="ca-content">
+                    <h4 class="ca-main two">@ViewBag.result3</h4>
+                    <h3 class="ca-sub two">Yazar Adında 'A' Harfi Geçen Yazar</h3>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class="fa fa-book-open" aria-hidden="true"></i>
+                <div class="ca-content">
+                    <h4 class="ca-main three">@ViewBag.result4</h4>
+                    <h3 class="ca-sub three">En Fazla Başlığa Sahip Kategori</h3>
+                </div>
+            </a>
+        </li>
+
+    </ul>
+
+    <ul class="ca-menu">
+        <li>
+            <a href="#">
+                <i class="fa fa-list" aria-hidden="true"></i>
+                <div class="ca-content">
+                    <h4 class="ca-main">@ViewBag.result5</h4>
+                    <h3 class="ca-sub">Kategoride True ile False Farkı</h3>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class="fa fa-adjust" aria-hidden="true"></i>
+                <div class="ca-content">
+                    <h4 class="ca-main one">@ViewBag.result6</h4>
+                    <h3 class="ca-sub one">Hakkımızda İçerikleri</h3>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class="fa fa-user" aria-hidden="true"></i>
+                <div class="ca-content">
+                    <h4 class="ca-main two">@ViewBag.result7</h4>
+                    <h3 class="ca-sub two">Admin Sayısı</h3>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class="fa fa-user-check" aria-hidden="true"></i>
+                <div class="ca-content">
+
+                    <h4 class="ca-main three">@ViewBag.result8</h4>
+
+                    <h3 class="ca-sub three">Yazar Sayısı</h3>
+                </div>
+            </a>
+        </li>
+
+    </ul>
+</body>
+</html>
+
+
+
+@*<br/>
+    <h2>İstatistikler Tablosu</h2>
+    <br/>
+
+    <div class="col-md-6">
+        <div class="info-box">
+            <span class="info-box-icon bg-gradient-cyan"><i class="far fa-envelope"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-box-text">1) Toplam Kategori Sayısı</span>
+                <span class="info-box-number">@ViewBag.result</span>
+            </div>
+
         </div>
- 
-    </div>
-  
-</div>
-<div class="col-md-6">
-    <div class="info-box">
-        <span class="info-box-icon bg-gradient-green"><i class="far fa-envelope"></i></span>
 
-        <div class="info-box-content">
-            <span class="info-box-text">2) Başlık Tablosunda "Yazılım" Kategorisine Ait Başlık Sayısı</span>
-            <span class="info-box-number">@ViewBag.result2</span>
+    </div>
+    <div class="col-md-6">
+        <div class="info-box">
+            <span class="info-box-icon bg-gradient-green"><i class="far fa-envelope"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-box-text">2) Başlık Tablosunda "Yazılım" Kategorisine Ait Başlık Sayısı</span>
+                <span class="info-box-number">@ViewBag.result2</span>
+            </div>
+
         </div>
 
     </div>
+    <div class="col-md-6">
+        <div class="info-box">
+            <span class="info-box-icon bg-gradient-dark"><i class="far fa-envelope"></i></span>
 
-</div>
-<div class="col-md-6">
-    <div class="info-box">
-        <span class="info-box-icon bg-gradient-dark"><i class="far fa-envelope"></i></span>
+            <div class="info-box-content">
+                <span class="info-box-text">3) Yazar Adında 'a' Harfi Geçen Yazar Sayısı</span>
+                <span class="info-box-number">@ViewBag.result3</span>
+            </div>
 
-        <div class="info-box-content">
-            <span class="info-box-text">3) Yazar Adında 'a' Harfi Geçen Yazar Sayısı</span>
-            <span class="info-box-number">@ViewBag.result3</span>
         </div>
- 
-    </div>
- 
-</div>
-<div class="col-md-6">
-    <div class="info-box">
-        <span class="info-box-icon bg-gradient-maroon"><i class="far fa-envelope"></i></span>
 
-        <div class="info-box-content">
-            <span class="info-box-text">4) En Fazla Başlığa Sahip Kategori Adı</span>
-            <span class="info-box-number">@ViewBag.result4</span>
+    </div>
+    <div class="col-md-6">
+        <div class="info-box">
+            <span class="info-box-icon bg-gradient-maroon"><i class="far fa-envelope"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-box-text">4) En Fazla Başlığa Sahip Kategori Adı</span>
+                <span class="info-box-number">@ViewBag.result4</span>
+            </div>
+
         </div>
- 
-    </div>
- 
-</div>
-<div class="col-md-6">
-    <div class="info-box">
-        <span class="info-box-icon bg-gradient-warning"><i class="far fa-envelope"></i></span>
 
-        <div class="info-box-content">
-            <span class="info-box-text">5) Kategori Tablosunda Durumu True Olan Kategoriler İle </span>
-            <a>False Olan Kategoriler Arasındaki Sayısal Fark</a>
-            <span class="info-box-number">@ViewBag.result5</span>
+    </div>
+    <div class="col-md-6">
+        <div class="info-box">
+            <span class="info-box-icon bg-gradient-warning"><i class="far fa-envelope"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-box-text">5) Kategori Tablosunda Durumu True Olan Kategoriler İle </span>
+                <a>False Olan Kategoriler Arasındaki Sayısal Fark</a>
+                <span class="info-box-number">@ViewBag.result5</span>
+            </div>
+
         </div>
- 
-    </div>
- 
-</div>
 
+    </div>*@

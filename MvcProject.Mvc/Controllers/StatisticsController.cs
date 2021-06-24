@@ -30,6 +30,15 @@ namespace MvcProject.Mvc.Controllers
                           context.Categories.Where(c => c.CategoryStatus == false).Count();
             ViewBag.result5 = result5;
 
+            var result6 = context.Abouts.Count().ToString();
+            ViewBag.result6 = result6;
+
+            var result7 = context.Admins.Count().ToString();
+            ViewBag.result7 = result7;
+
+            var result8 = context.Writers.Count().ToString();
+            ViewBag.result8 = result8;
+
             return View();
         }
     }
