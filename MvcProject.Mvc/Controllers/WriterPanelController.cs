@@ -34,13 +34,47 @@ namespace MvcProject.Mvc.Controllers
         Context context = new Context();
         WriterValidator writerValidator = new WriterValidator();
 
+        //[HttpGet]
+        //public ActionResult WriterProfile(int id=0)
+        //{
+        //    string parameter = (string)Session["WriterMail"];
+        //    id = context.Writers.Where(x => x.WriterMail == parameter).Select(z => z.WriterId).FirstOrDefault();
+           
+        //    var writerValue = writerManager.GetById(id);
+        //    return View(writerValue);
+        //}
+
         [HttpGet]
         public ActionResult WriterProfile(int id=0)
         {
             string parameter = (string)Session["WriterMail"];
+            //var writerValue = context.Writers.FirstOrDefault(x => x.WriterMail == parameter);
+
             id = context.Writers.Where(x => x.WriterMail == parameter).Select(z => z.WriterId).FirstOrDefault();
-           
             var writerValue = writerManager.GetById(id);
+
+            var writerName = context.Writers.Where(x => x.WriterMail == parameter).Select(z => z.WriterName + " " + z.WriterSurName).FirstOrDefault();
+            ViewBag.writerName = writerName;
+
+            var writerImage = context.Writers.Where(x => x.WriterMail == parameter).Select(z => z.WriterImage).FirstOrDefault();
+            ViewBag.writerImage = writerImage;
+
+            var writerMail = context.Writers.Where(x => x.WriterMail == parameter).Select(z => z.WriterMail).FirstOrDefault();
+            ViewBag.writerMail = writerMail;
+
+            var writerAbout = context.Writers.Where(x => x.WriterMail == parameter).Select(z => z.WriterAbout).FirstOrDefault();
+            ViewBag.writerAbout = writerAbout;
+
+            var writerTitle = context.Writers.Where(x => x.WriterMail == parameter).Select(z => z.WriterTitle).FirstOrDefault();
+            ViewBag.writerTitle = writerTitle;
+
+            var writerId = context.Writers.Where(x => x.WriterMail == parameter).Select(z => z.WriterId).FirstOrDefault();
+            var writerTitles = context.Contents.Where(x => x.WriterId == writerId).Count();
+            ViewBag.writerTitles = writerTitles;
+
+            var writerMessage = context.Messages.Where(x => x.ReceiverMail == parameter).Count();
+            ViewBag.writerMessage = writerMessage;
+
             return View(writerValue);
         }
 
@@ -50,9 +84,10 @@ namespace MvcProject.Mvc.Controllers
             ValidationResult results = writerValidator.Validate(writer);
             if (results.IsValid)
             {
+                writer.WriterStatus = true;
                 writer.WriterRole = "C";
                 writerManager.Update(writer);
-                return RedirectToAction("AllHeading");
+                return RedirectToAction("WriterProfile");
             }
             else
             {

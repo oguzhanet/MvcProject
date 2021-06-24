@@ -4,44 +4,406 @@
     Layout = "~/Views/Shared/_WriterLayout.cshtml";
 }
 
-<br />
-<h2>Profil Düzenleme Sayfası</h2>
+<!DOCTYPE html>
 
-@using (Html.BeginForm("WriterProfile", "WriterPanel", FormMethod.Post))
-{
-<div class="form-group">
-    @Html.HiddenFor(x => x.WriterId, new { @class = "form-control" })
+<html>
 
-    @Html.Label("Yazar Adı")
-    @Html.TextBoxFor(x => x.WriterName, new { @class = "form-control" })
-    @Html.ValidationMessageFor(x => x.WriterName, "", new { @class = "text-danger" })
-    <br />
-    @Html.Label("Yazar Soyadı")
-    @Html.TextBoxFor(x => x.WriterSurName, new { @class = "form-control" })
-    @Html.ValidationMessageFor(x => x.WriterSurName, "", new { @class = "text-danger" })
-    <br />
-    @Html.Label("Yazar Ünvanı")
-    @Html.TextBoxFor(x => x.WriterTitle, new { @class = "form-control" })
-    @Html.ValidationMessageFor(x => x.WriterTitle, "", new { @class = "text-danger" })
-    <br />
-    @Html.Label("Yazar Mail")
-    @Html.TextBoxFor(x => x.WriterMail, new { @class = "form-control" })
-    @Html.ValidationMessageFor(x => x.WriterMail, "", new { @class = "text-danger" })
-    <br />
-    @Html.Label("Yazar Hakkkında")
-    @Html.TextBoxFor(x => x.WriterAbout, new { @class = "form-control" })
-    @Html.ValidationMessageFor(x => x.WriterAbout, "", new { @class = "text-danger" })
-    <br />
-    @Html.Label("Yazar Görsel Linki")
-    @Html.TextBoxFor(x => x.WriterImage, new { @class = "form-control" })
-    @Html.ValidationMessageFor(x => x.WriterImage, "", new { @class = "text-danger" })
-    <br />
-    @Html.Label("Yazar Sifresi")
-    @Html.TextBoxFor(x => x.WriterPassword, new { @class = "form-control" })
-    @Html.ValidationMessageFor(x => x.WriterPassword, "", new { @class = "text-danger" })
-    <br />
-    <button class="btn btn-default" style="background-color:#ff6a00; color:white;">Değişiklikleri Kaydet</button>
-    <br /><br /><br />
-</div>
-}
+<head>
+
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Kullanıcı Paneli</title>
+
+    <!-- Tell the browser to be responsive to screen width -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet" href="~/AdminLTE-3.0.4/plugins/fontawesome-free/css/all.min.css">
+
+    <!-- Ionicons -->
+
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+    <!-- Theme style -->
+
+    <link rel="stylesheet" href="~/AdminLTE-3.0.4/dist/css/adminlte.min.css">
+
+    <!-- Google Font: Source Sans Pro -->
+
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+</head>
+
+<body class="hold-transition sidebar-mini">
+
+    <!-- Navbar -->
+    <!-- Content Wrapper. Contains page content -->
+    <!-- Content Header (Page header) -->
+
+    <section class="content-header">
+
+        <div class="container-fluid">
+
+            <div class="row mb-2">
+
+                <div class="col-sm-6">
+
+                    <h1>Profilim</h1>
+
+                </div>
+
+            </div>
+
+        </div><!-- /.container-fluid -->
+
+    </section>
+
+    <!-- Main content -->
+
+    <section class="content">
+
+        <div class="container-fluid">
+
+            <div class="row">
+
+                <div class="col-md-3">
+
+                    <!-- Profile Image -->
+
+                    <div class="card card-primary card-outline">
+
+                        <div class="card-body box-profile">
+
+                            <div class="text-center">
+
+
+                                @if (@ViewBag.writerImage == null)
+                                {
+                                    <img class="profile-user-img img-fluid img-circle"
+                                         src="~/AdminLTE-3.0.4/dist/img/2.png"
+                                         alt="User profile picture">
+                                }
+                                else
+                                {
+                                    <img class="profile-user-img img-fluid img-circle"
+                                         src="@ViewBag.writerImage"
+                                         alt="User profile picture">
+                                }
+
+
+                            </div>
+
+
+
+                            <h3 class="profile-username text-center">@ViewBag.writerName</h3>
+
+
+
+                            <p class="text-muted text-center">Yazar Paneli Üyesi</p>
+
+
+
+                            <ul class="list-group list-group-unbordered mb-3">
+
+                                <li class="list-group-item">
+
+                                    <b>Yazdığım İçerik Sayısı</b> <a class="float-right">@ViewBag.writerTitles</a>
+
+                                </li>
+
+                                <li class="list-group-item">
+
+                                    <b>Gelen Mesaj Sayısı</b> <a class="float-right">@ViewBag.writerMessage</a>
+
+                                </li>
+
+                            </ul>
+
+
+
+                            <a href="/WriterPanelMessage/Inbox/" class="btn btn-primary btn-block"><b>Gelen Kutusu</b></a>
+
+                        </div>
+
+                        <!-- /.card-body -->
+
+                    </div>
+
+                    <!-- /.card -->
+                    <!-- About Me Box -->
+
+                    <div class="card card-primary">
+
+                        <div class="card-header">
+
+                            <h3 class="card-title">Hakkımda</h3>
+
+                        </div>
+
+                        <!-- /.card-header -->
+
+                        <div class="card-body">
+
+                            <strong><i class="fas fa-book mr-1"></i> Eğitim/Meslek Bilgisi</strong>
+                            <p class="text-muted">
+
+                                @ViewBag.writerTitle
+
+                            </p>
+                            <hr>
+
+                            <strong><i class="fas fa-phone-square mr-1"></i> Telefon</strong>
+                            <p class="text-muted">@ViewBag.memberPhone</p>
+                            <hr>
+
+                            <strong><i class="fas fa-pencil-alt mr-1"></i> Hakkımda</strong>
+
+                            <p class="text-muted">
+
+                                @ViewBag.writerAbout
+
+                            </p>
+                            <hr>
+
+                            <strong><i class="far fa-file-alt mr-1"></i> Mail Adresi</strong>
+                            <p class="text-muted">@ViewBag.writerMail</p>
+
+                        </div>
+
+                        <!-- /.card-body -->
+
+                    </div>
+
+                    <!-- /.card -->
+
+                </div>
+
+                <!-- /.col -->
+
+                <div class="col-md-9">
+
+                    <div class="card">
+
+                        <div class="card-header p-2">
+
+                            <ul class="nav nav-pills">
+
+                                <li class="nav-item"><a class="nav-link active" href="#settings" data-toggle="tab">Ayarlar</a></li>
+
+                            </ul>
+
+                        </div><!-- /.card-header -->
+
+                        <div class="card-body">
+
+                            <div class="tab-content">
+
+                                <div class="active tab-pane" id="settings">
+
+                                    @using (Html.BeginForm("WriterProfile", "WriterPanel", FormMethod.Post))
+
+                                    {
+
+                                        <form class="form-horizontal">
+
+                                            @Html.HiddenFor(x => x.WriterId, new { @class = "form-control" })
+                                            <div class="form-group row">
+
+                                                <label for="inputName" class="col-sm-2 col-form-label">İsim</label>
+
+                                                <div class="col-sm-10">
+
+                                                    @Html.TextBoxFor(x => x.WriterName, new { @class = "form-control" })
+
+                                                </div>
+
+                                            </div>
+
+                                            <div class="form-group row">
+
+                                                <label for="inputName" class="col-sm-2 col-form-label">Soyisim</label>
+
+                                                <div class="col-sm-10">
+
+                                                    @Html.TextBoxFor(x => x.WriterSurName, new { @class = "form-control" })
+
+                                                </div>
+
+                                            </div>
+
+                                            <div class="form-group row">
+
+                                                <label for="inputName" class="col-sm-2 col-form-label">Eğitim/Meslek</label>
+
+                                                <div class="col-sm-10">
+
+                                                    @Html.TextBoxFor(x => x.WriterTitle, new { @class = "form-control" })
+
+                                                </div>
+
+                                            </div>
+
+                                            <div class="form-group row">
+
+                                                <label for="inputName" class="col-sm-2 col-form-label">Mail Adresi</label>
+
+                                                <div class="col-sm-10">
+
+                                                    @Html.TextBoxFor(x => x.WriterMail, new { @class = "form-control" })
+
+                                                </div>
+
+                                            </div>
+
+                                            <div class="form-group row">
+
+                                                <label for="inputName" class="col-sm-2 col-form-label">Hakkımda Kısmı</label>
+
+                                                <div class="col-sm-10">
+
+                                                    @Html.TextAreaFor(x => x.WriterAbout, new { @class = "form-control" })
+
+                                                </div>
+
+                                            </div>
+
+                                            <div class="form-group row">
+
+                                                <label for="inputName" class="col-sm-2 col-form-label">Fotoğraf Linki</label>
+
+                                                <div class="col-sm-10">
+
+                                                    @Html.TextBoxFor(x => x.WriterImage, new { @class = "form-control" })
+
+                                                </div>
+
+                                            </div>
+
+                                            <div class="form-group row">
+
+                                                <label for="inputName" class="col-sm-2 col-form-label">Şifre</label>
+
+                                                <div class="col-sm-10">
+
+                                                    @Html.TextBoxFor(x => x.WriterPassword, new { @class = "form-control" })
+
+                                                </div>
+
+                                            </div>
+
+                                            <div class="form-group row">
+
+                                                <div class="offset-sm-2 col-sm-10">
+
+                                                    <button type="submit" class="btn btn-danger">Güncelle</button>
+
+                                                </div>
+
+                                            </div>
+
+                                        </form>
+
+                                    }
+
+                                </div>
+
+                                <!-- /.tab-pane -->
+
+                            </div>
+
+                            <!-- /.tab-content -->
+
+                        </div><!-- /.card-body -->
+
+                    </div>
+
+                    <!-- /.nav-tabs-custom -->
+
+                </div>
+
+                <!-- /.col -->
+
+            </div>
+
+            <!-- /.row -->
+
+        </div><!-- /.container-fluid -->
+
+    </section>
+
+    <!-- /.content -->
+    <!-- Control Sidebar -->
+
+    <aside class="control-sidebar control-sidebar-dark">
+
+        <!-- Control sidebar content goes here -->
+
+    </aside>
+
+    <!-- /.control-sidebar -->
+    <!-- ./wrapper -->
+    <!-- jQuery -->
+
+    <script src="~/AdminLTE-3.0.4/plugins/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap 4 -->
+
+    <script src="~/AdminLTE-3.0.4//plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- AdminLTE App -->
+
+    <script src="~/AdminLTE-3.0.4/dist/js/adminlte.min.js"></script>
+
+    <!-- AdminLTE for demo purposes -->
+    <script src="~/AdminLTE-3.0.4/dist/js/demo.js"></script>
+</body>
+
+</html>
+
+@*<br />
+    <h2>Profil Düzenleme Sayfası</h2>
+
+    @using (Html.BeginForm("WriterProfile", "WriterPanel", FormMethod.Post))
+    {
+    <div class="form-group">
+        @Html.HiddenFor(x => x.WriterId, new { @class = "form-control" })
+
+        @Html.Label("Yazar Adı")
+        @Html.TextBoxFor(x => x.WriterName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.WriterName, "", new { @class = "text-danger" })
+        <br />
+        @Html.Label("Yazar Soyadı")
+        @Html.TextBoxFor(x => x.WriterSurName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.WriterSurName, "", new { @class = "text-danger" })
+        <br />
+        @Html.Label("Yazar Ünvanı")
+        @Html.TextBoxFor(x => x.WriterTitle, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.WriterTitle, "", new { @class = "text-danger" })
+        <br />
+        @Html.Label("Yazar Mail")
+        @Html.TextBoxFor(x => x.WriterMail, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.WriterMail, "", new { @class = "text-danger" })
+        <br />
+        @Html.Label("Yazar Hakkkında")
+        @Html.TextBoxFor(x => x.WriterAbout, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.WriterAbout, "", new { @class = "text-danger" })
+        <br />
+        @Html.Label("Yazar Görsel Linki")
+        @Html.TextBoxFor(x => x.WriterImage, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.WriterImage, "", new { @class = "text-danger" })
+        <br />
+        @Html.Label("Yazar Sifresi")
+        @Html.TextBoxFor(x => x.WriterPassword, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.WriterPassword, "", new { @class = "text-danger" })
+        <br />
+        <button class="btn btn-default" style="background-color:#ff6a00; color:white;">Değişiklikleri Kaydet</button>
+        <br /><br /><br />
+    </div>
+    }*@
 
