@@ -154,7 +154,6 @@ namespace MvcProject.Mvc.Controllers
             {
                 headingValue.HeadingStatus = false;
             }
-
             else
             {
                 headingValue.HeadingStatus = true;
