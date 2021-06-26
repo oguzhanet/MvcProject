@@ -12,6 +12,8 @@ using PagedList;
 using PagedList.Mvc;
 using FluentValidation.Results;
 using MvcProject.Business.ValidationRules.FluentValidation;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace MvcProject.Mvc.Controllers
 {
@@ -35,7 +37,7 @@ namespace MvcProject.Mvc.Controllers
         WriterValidator writerValidator = new WriterValidator();
 
         [HttpGet]
-        public ActionResult WriterProfile(int id=0)
+        public ActionResult WriterProfile(Writer writer, int id=0)
         {
             string parameter = (string)Session["WriterMail"];
             //var writerValue = context.Writers.FirstOrDefault(x => x.WriterMail == parameter);
@@ -74,6 +76,14 @@ namespace MvcProject.Mvc.Controllers
             ValidationResult results = writerValidator.Validate(writer);
             if (results.IsValid)
             {
+                //if (writer.WriterPassword !=null)
+                //{
+                //    SHA1 sha1 = new SHA1CryptoServiceProvider();
+                //    string password = writer.WriterPassword;
+                //    string result = Convert.ToBase64String(sha1.ComputeHash(Encoding.UTF8.GetBytes(password)));
+                //    writer.WriterPassword = result;
+                //}
+              
                 writer.WriterStatus = true;
                 writer.WriterRole = "C";
                 writerManager.Update(writer);
