@@ -83,8 +83,7 @@ namespace MvcProject.Mvc.Controllers
                 {
                     writer.WriterPassword = result;
                 }
-                var result1 = context.Writers.Find(writer.WriterId);
-                writer.WriterPassword = result1.WriterPassword;
+   
                 writer.WriterStatus = true;
                 writer.WriterRole = "C";
                 writerManager.Update(writer);
