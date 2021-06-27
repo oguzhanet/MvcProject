@@ -112,9 +112,7 @@ namespace MvcProject.Mvc.Controllers
 
         [HttpPost]
         public ActionResult WriterProfilePassword(Writer writer)
-        {
-         
-
+        {    
             if (writer.WriterPassword != null)
             {
                 SHA1 sha1 = new SHA1CryptoServiceProvider();
@@ -130,7 +128,6 @@ namespace MvcProject.Mvc.Controllers
             writer.WriterMail = result1.WriterMail;
             writer.WriterAbout = result1.WriterAbout;
             writer.WriterTitle = result1.WriterTitle;
-
             writer.WriterStatus = true;
             writer.WriterRole = "C";
 
