@@ -37,7 +37,7 @@ namespace MvcProject.Mvc.Controllers
         WriterValidator writerValidator = new WriterValidator();
 
         [HttpGet]
-        public ActionResult WriterProfile(Writer writer, int id=0)
+        public ActionResult WriterProfile(int id=0)
         {
             string parameter = (string)Session["WriterMail"];
             //var writerValue = context.Writers.FirstOrDefault(x => x.WriterMail == parameter);
@@ -79,12 +79,12 @@ namespace MvcProject.Mvc.Controllers
                 SHA1 sha1 = new SHA1CryptoServiceProvider();
                 string password = writer.WriterPassword;
                 string result = Convert.ToBase64String(sha1.ComputeHash(Encoding.UTF8.GetBytes(password)));
-
-                if (writer.WriterPassword != null)
+                if (writer.WriterPassword == null)
                 {
                     writer.WriterPassword = result;
                 }
-
+                var result1 = context.Writers.Find(writer.WriterId);
+                writer.WriterPassword = result1.WriterPassword;
                 writer.WriterStatus = true;
                 writer.WriterRole = "C";
                 writerManager.Update(writer);
@@ -98,6 +98,44 @@ namespace MvcProject.Mvc.Controllers
                 }
             }
             return View();
+        }
+
+
+        [HttpGet]
+        public ActionResult WriterProfilePassword(int id = 0)
+        {
+            string parameter = (string)Session["WriterMail"];
+            id = context.Writers.Where(x => x.WriterMail == parameter).Select(z => z.WriterId).FirstOrDefault();
+            var writerValue = writerManager.GetById(id);
+            return View(writerValue);
+        }
+
+        [HttpPost]
+        public ActionResult WriterProfilePassword(Writer writer)
+        {
+         
+
+            if (writer.WriterPassword != null)
+            {
+                SHA1 sha1 = new SHA1CryptoServiceProvider();
+                string password = writer.WriterPassword;
+                string result = Convert.ToBase64String(sha1.ComputeHash(Encoding.UTF8.GetBytes(password)));
+                writer.WriterPassword = result;
+            }
+            var result1 = context.Writers.Find(writer.WriterId);
+            
+            writer.WriterName = result1.WriterName;
+            writer.WriterSurName = result1.WriterSurName;
+            writer.WriterImage = result1.WriterImage;
+            writer.WriterMail = result1.WriterMail;
+            writer.WriterAbout = result1.WriterAbout;
+            writer.WriterTitle = result1.WriterTitle;
+
+            writer.WriterStatus = true;
+            writer.WriterRole = "C";
+
+            writerManager.Update(writer);
+            return RedirectToAction("WriterProfile");
         }
 
         public ActionResult MyHeading(string parameter)

@@ -287,11 +287,11 @@
 
                                             <div class="form-group row">
 
-                                                <label for="inputName" class="col-sm-2 col-form-label">Şifre</label>
+                                                @*<label for="inputName" class="col-sm-2 col-form-label">Şifre</label>*@
 
                                                 <div class="col-sm-10">
 
-                                                    @Html.TextBoxFor(x => x.WriterPassword, new { @class = "form-control" })
+                                                    @Html.HiddenFor(x => x.WriterPassword, new { @class = "form-control" })
 
                                                 </div>
 
@@ -301,8 +301,10 @@
 
                                                 <div class="offset-sm-2 col-sm-10">
 
-                                                    <button type="submit" class="btn btn-danger">Güncelle</button>
-
+                                                    <button type="submit" class="btn btn-danger">Bilgileri Güncelle</button>
+                                             
+                                                        <a href="/WriterPanel/WriterProfilePassword/" class="btn btn-default" style="background-color:#ff6a00; color:white; margin-left:472px;">Şifre Güncelle</a>
+                                               
                                                 </div>
 
                                             </div>
