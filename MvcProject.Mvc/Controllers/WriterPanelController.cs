@@ -76,14 +76,15 @@ namespace MvcProject.Mvc.Controllers
             ValidationResult results = writerValidator.Validate(writer);
             if (results.IsValid)
             {
-                //if (writer.WriterPassword !=null)
-                //{
-                //    SHA1 sha1 = new SHA1CryptoServiceProvider();
-                //    string password = writer.WriterPassword;
-                //    string result = Convert.ToBase64String(sha1.ComputeHash(Encoding.UTF8.GetBytes(password)));
-                //    writer.WriterPassword = result;
-                //}
-              
+                SHA1 sha1 = new SHA1CryptoServiceProvider();
+                string password = writer.WriterPassword;
+                string result = Convert.ToBase64String(sha1.ComputeHash(Encoding.UTF8.GetBytes(password)));
+
+                if (writer.WriterPassword != null)
+                {
+                    writer.WriterPassword = result;
+                }
+
                 writer.WriterStatus = true;
                 writer.WriterRole = "C";
                 writerManager.Update(writer);
