@@ -56,7 +56,50 @@ namespace MvcProject.Business.Concrete
             return _writerDal.Get(x => x.WriterMail == mail && x.WriterPassword == password);
         }
 
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         public void UpdateWriterPanel(Writer writer)
+        {
+            WriterUpdate(writer);
+            _writerDal.Update(writer);
+        }
+
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        public void UpdatePasswordWriterPanel(Writer writer)
+        {
+            WriterPasswordUpdate(writer);
+            _writerDal.Update(writer);
+        }
+
+        private void CheckIfWriterExists(Writer writer)
+        {
+            if (_writerDal.Get(x => x.WriterMail == writer.WriterMail) != null)
+            {
+                throw new Exception("Bu kullanıcı daha önce kayıt olmuştur.");
+            }
+        }
+
+        private void WriterPasswordUpdate(Writer writer)
+        {
+            if (writer.WriterPassword != null)
+            {
+                SHA1 sha1 = new SHA1CryptoServiceProvider();
+                string password = writer.WriterPassword;
+                string result = Convert.ToBase64String(sha1.ComputeHash(Encoding.UTF8.GetBytes(password)));
+                writer.WriterPassword = result;
+            }
+            var writerInfo = GetById(writer.WriterId);
+
+            writer.WriterName = writerInfo.WriterName;
+            writer.WriterSurName = writerInfo.WriterSurName;
+            writer.WriterImage = writerInfo.WriterImage;
+            writer.WriterMail = writerInfo.WriterMail;
+            writer.WriterAbout = writerInfo.WriterAbout;
+            writer.WriterTitle = writerInfo.WriterTitle;
+            writer.WriterStatus = true;
+            writer.WriterRole = "C";
+        }
+
+        private void WriterUpdate(Writer writer)
         {
             SHA1 sha1 = new SHA1CryptoServiceProvider();
             string password = writer.WriterPassword;
@@ -68,37 +111,6 @@ namespace MvcProject.Business.Concrete
 
             writer.WriterStatus = true;
             writer.WriterRole = "C";
-            _writerDal.Update(writer);
-        }
-
-        public void UpdatePasswordWriterPanel(Writer writer)
-        {
-            if (writer.WriterPassword != null)
-            {
-                SHA1 sha1 = new SHA1CryptoServiceProvider();
-                string password = writer.WriterPassword;
-                string result = Convert.ToBase64String(sha1.ComputeHash(Encoding.UTF8.GetBytes(password)));
-                writer.WriterPassword = result;
-            }
-            var result1 = GetById(writer.WriterId);
-
-            writer.WriterName = result1.WriterName;
-            writer.WriterSurName = result1.WriterSurName;
-            writer.WriterImage = result1.WriterImage;
-            writer.WriterMail = result1.WriterMail;
-            writer.WriterAbout = result1.WriterAbout;
-            writer.WriterTitle = result1.WriterTitle;
-            writer.WriterStatus = true;
-            writer.WriterRole = "C";
-            _writerDal.Update(writer);
-        }
-
-        private void CheckIfWriterExists(Writer writer)
-        {
-            if (_writerDal.Get(x => x.WriterMail == writer.WriterMail) != null)
-            {
-                throw new Exception("Bu kullanıcı daha önce kayıt olmuştur.");
-            }
         }
     }
 }
