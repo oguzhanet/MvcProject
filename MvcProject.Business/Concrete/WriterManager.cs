@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using DevFramework.Core.Aspects.Postsharp.CacheAspects;
@@ -53,6 +54,43 @@ namespace MvcProject.Business.Concrete
         public Writer GetWriter(string mail, string password)
         {
             return _writerDal.Get(x => x.WriterMail == mail && x.WriterPassword == password);
+        }
+
+        public void UpdateWriterPanel(Writer writer)
+        {
+            SHA1 sha1 = new SHA1CryptoServiceProvider();
+            string password = writer.WriterPassword;
+            string result = Convert.ToBase64String(sha1.ComputeHash(Encoding.UTF8.GetBytes(password)));
+            if (writer.WriterPassword == null)
+            {
+                writer.WriterPassword = result;
+            }
+
+            writer.WriterStatus = true;
+            writer.WriterRole = "C";
+            _writerDal.Update(writer);
+        }
+
+        public void UpdatePasswordWriterPanel(Writer writer)
+        {
+            if (writer.WriterPassword != null)
+            {
+                SHA1 sha1 = new SHA1CryptoServiceProvider();
+                string password = writer.WriterPassword;
+                string result = Convert.ToBase64String(sha1.ComputeHash(Encoding.UTF8.GetBytes(password)));
+                writer.WriterPassword = result;
+            }
+            var result1 = GetById(writer.WriterId);
+
+            writer.WriterName = result1.WriterName;
+            writer.WriterSurName = result1.WriterSurName;
+            writer.WriterImage = result1.WriterImage;
+            writer.WriterMail = result1.WriterMail;
+            writer.WriterAbout = result1.WriterAbout;
+            writer.WriterTitle = result1.WriterTitle;
+            writer.WriterStatus = true;
+            writer.WriterRole = "C";
+            _writerDal.Update(writer);
         }
 
         private void CheckIfWriterExists(Writer writer)

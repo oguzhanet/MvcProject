@@ -76,17 +76,7 @@ namespace MvcProject.Mvc.Controllers
             ValidationResult results = writerValidator.Validate(writer);
             if (results.IsValid)
             {
-                SHA1 sha1 = new SHA1CryptoServiceProvider();
-                string password = writer.WriterPassword;
-                string result = Convert.ToBase64String(sha1.ComputeHash(Encoding.UTF8.GetBytes(password)));
-                if (writer.WriterPassword == null)
-                {
-                    writer.WriterPassword = result;
-                }
-   
-                writer.WriterStatus = true;
-                writer.WriterRole = "C";
-                writerManager.Update(writer);
+                writerManager.UpdateWriterPanel(writer);
                 return RedirectToAction("WriterProfile");
             }
             else
@@ -112,25 +102,7 @@ namespace MvcProject.Mvc.Controllers
         [HttpPost]
         public ActionResult WriterProfilePassword(Writer writer)
         {    
-            if (writer.WriterPassword != null)
-            {
-                SHA1 sha1 = new SHA1CryptoServiceProvider();
-                string password = writer.WriterPassword;
-                string result = Convert.ToBase64String(sha1.ComputeHash(Encoding.UTF8.GetBytes(password)));
-                writer.WriterPassword = result;
-            }
-            var result1 = context.Writers.Find(writer.WriterId);
-            
-            writer.WriterName = result1.WriterName;
-            writer.WriterSurName = result1.WriterSurName;
-            writer.WriterImage = result1.WriterImage;
-            writer.WriterMail = result1.WriterMail;
-            writer.WriterAbout = result1.WriterAbout;
-            writer.WriterTitle = result1.WriterTitle;
-            writer.WriterStatus = true;
-            writer.WriterRole = "C";
-
-            writerManager.Update(writer);
+            writerManager.UpdatePasswordWriterPanel(writer);
             return RedirectToAction("WriterProfile");
         }
 

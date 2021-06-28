@@ -14,6 +14,8 @@ namespace MvcProject.Business.Abstract
         Writer GetWriter(string mail, string password);
         void Add(Writer writer);
         void Update(Writer writer);
+        void UpdateWriterPanel(Writer writer);
+        void UpdatePasswordWriterPanel(Writer writer);
         void Delete(Writer writer);
     }
 }
