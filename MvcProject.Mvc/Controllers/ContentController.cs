@@ -1,5 +1,6 @@
 ﻿using MvcProject.Business.Abstract;
 using MvcProject.Business.Concrete;
+using MvcProject.DataAccess.Concrete;
 using MvcProject.DataAccess.Concrete.EntityFramework;
 using System;
 using System.Collections.Generic;
@@ -20,9 +21,17 @@ namespace MvcProject.Mvc.Controllers
             _contentService = contentService;
         }
 
+        Context context = new Context();
+
         public ActionResult Index()
         {
             return View();
+        }
+
+        public ActionResult GetAllContent(string parameter)
+        {
+            var values = _contentService.GetAll(parameter);
+            return View(values);
         }
 
         public ActionResult ContentByHeading(int id)

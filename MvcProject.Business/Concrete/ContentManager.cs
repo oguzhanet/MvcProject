@@ -60,5 +60,14 @@ namespace MvcProject.Business.Concrete
         {
             _contentDal.Delete(content);
         }
+
+        public List<Content> GetAll(string parameter)
+        {
+            if (parameter == null)
+            {
+                return _contentDal.GetAll();
+            }
+            return _contentDal.GetAll(x => x.ContentValue.Contains(parameter));
+        }
     }
 }

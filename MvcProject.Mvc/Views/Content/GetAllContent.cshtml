@@ -1,0 +1,20 @@
+﻿@using MvcProject.Entities.Concrete
+@model List<Content>
+@{
+    ViewBag.Title = "GetAllContent";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("GetAllContent", "Content", FormMethod.Post))
+{
+    <p> Arama İşlemi: @Html.TextBox("parameter")
+        <input type="submit" value="Ara" class="btn btn-success" />
+    </p>
+
+}
+
+@foreach (var item in Model)
+{
+    <p>@item.ContentValue</p>
+}
+
