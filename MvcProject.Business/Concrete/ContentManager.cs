@@ -27,6 +27,16 @@ namespace MvcProject.Business.Concrete
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
+        public List<Content> GetAll(string parameter)
+        {
+            if (parameter == null)
+            {
+                return _contentDal.GetAll();
+            }
+            return _contentDal.GetAll(x => x.ContentValue.Contains(parameter));
+        }
+
+        [CacheAspect(typeof(MemoryCacheManager))]
         public List<Content> GetAllByWriter(int id)
         {
             return _contentDal.GetAll(x => x.WriterId == id);
@@ -59,15 +69,6 @@ namespace MvcProject.Business.Concrete
         public void Delete(Content content)
         {
             _contentDal.Delete(content);
-        }
-
-        public List<Content> GetAll(string parameter)
-        {
-            if (parameter == null)
-            {
-                return _contentDal.GetAll();
-            }
-            return _contentDal.GetAll(x => x.ContentValue.Contains(parameter));
         }
     }
 }
