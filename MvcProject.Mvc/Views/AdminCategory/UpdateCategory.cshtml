@@ -4,7 +4,7 @@
     ViewBag.Title = "UpdateCategory";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-<br/>
+<br />
 
 <h2>Kategori güncelleme sayfası</h2>
 
@@ -12,15 +12,15 @@
 {
     <div class="form-group">
         @Html.Label("Kategori Id")
-        @Html.TextBoxFor(c=>c.CategoryId, new { @class = "form-control" })
-        <br/>
+        @Html.TextBoxFor(c => c.CategoryId, new { @class = "form-control" })
+        <br />
         @Html.Label("Kategori Adı")
-        @Html.TextBoxFor(c=>c.CategoryName, new { @class = "form-control" })
-        <br/>
+        @Html.TextBoxFor(c => c.CategoryName, new { @class = "form-control" })
+        <br />
         @Html.Label("Kategori Açıklaması")
-        @Html.TextAreaFor(c=>c.CategoryDescription, new { @class = "form-control" })
-        <br/>
+        @Html.TextAreaFor(c => c.CategoryDescription, new { @class = "form-control" })
+        <br />
         <button class="btn btn-default" style="background-color:#ff6a00; color:white;">Değişiklikleri Kaydet</button>
-        </div>
+    </div>
 }
 
