@@ -7,14 +7,37 @@
 
 @using (Html.BeginForm("GetAllContent", "Content", FormMethod.Post))
 {
-    <p> Arama İşlemi: @Html.TextBox("parameter")
-        <input type="submit" value="Ara" class="btn btn-success" />
-    </p>
-
+    @*<p> Arama İşlemi: @Html.TextBox("parameter")
+            <input type="submit" value="Ara" class="btn btn-success" />
+        </p>*@
+<div style="margin-bottom:15px;">
+    <table>
+        <tr>
+            <td>
+                <input style="margin-right:100px" type="text" class="form-control" name="parameter" placeholder="Aranacak yazıyı giriniz ve enter yapınız.." />
+            </td>
+            <td>
+                <input class="btn btn-success" style="margin-left:15px" type="submit" value="Ara" />
+            </td>
+        </tr>
+    </table>
+</div>
 }
 
-@foreach (var item in Model)
+<table class="table table-striped">
+    <tr style="background-color:rgb(252,178,22)">
+        <th>Yazılar</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.ContentValue</th>
+        </tr>
+    }
+</table>
+
+@*@foreach (var item in Model)
 {
     <p>@item.ContentValue</p>
-}
+}*@
 
