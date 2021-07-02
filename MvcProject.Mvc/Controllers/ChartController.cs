@@ -19,11 +19,11 @@ namespace MvcProject.Mvc.Controllers
             return View();
         }
 
-        public ActionResult CategoryChart()
-        {
-            var result = context.Categories.Count();
-            ViewBag.r = result;
-            return Json(categoryManager.GetAll(),JsonRequestBehavior.AllowGet);
-        }
+        //public ActionResult CategoryChart()
+        //{
+        //    var result = context.Categories.Count();
+        //    ViewBag.r = result;
+        //    return Json(categoryManager.GetAll(),JsonRequestBehavior.AllowGet);
+        //}
     }
 }
