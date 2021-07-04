@@ -15,17 +15,17 @@ namespace MvcProject.Mvc.Controllers
     //[Authorize(Roles ="A,B")]
     public class AdminCategoryController : Controller
     {
-        //CategoryManager categoryManager=new CategoryManager(new EfCategoryDal());
-        private ICategoryService _categoryService;
+        CategoryManager categoryManager=new CategoryManager(new EfCategoryDal());
+        //private ICategoryService _categoryService;
 
-        public AdminCategoryController(ICategoryService categoryService)
-        {
-            _categoryService = categoryService;
-        }
+        //public AdminCategoryController(ICategoryService categoryService)
+        //{
+        //    _categoryService = categoryService;
+        //}
 
         public ActionResult Index()
         {
-            var categoryValues = _categoryService.GetAll();
+            var categoryValues = categoryManager.GetAll();
             return View(categoryValues);
         }
 
@@ -42,8 +42,9 @@ namespace MvcProject.Mvc.Controllers
             ValidationResult result = validator.Validate(category);
             if (result.IsValid)
             {
-                _categoryService.Add(category);
-                return RedirectToAction("Index");
+                category.CategoryStatus = true;
+                categoryManager.Add(category);
+                return View();
             }
             else
             {
@@ -58,21 +59,22 @@ namespace MvcProject.Mvc.Controllers
         [HttpGet]
         public ActionResult UpdateCategory(int id)
         {
-            var categoryValue = _categoryService.GetById(id);
+            var categoryValue = categoryManager.GetById(id);
             return View(categoryValue);
         }
 
         [HttpPost]
         public ActionResult UpdateCategory(Category category)
         {
-            _categoryService.Update(category);
+            category.CategoryStatus = true;
+            categoryManager.Update(category);
             return RedirectToAction("Index");
         }
 
         public ActionResult DeleteCategory(int id)
         {
-            var categoryValue = _categoryService.GetById(id);
-            _categoryService.Delete(categoryValue);
+            var categoryValue = categoryManager.GetById(id);
+            categoryManager.Delete(categoryValue);
             return RedirectToAction("Index");
         }
     }
