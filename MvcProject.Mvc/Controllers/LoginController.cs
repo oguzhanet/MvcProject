@@ -12,6 +12,9 @@ using System.Web.Security;
 using Newtonsoft;
 using Newtonsoft.Json;
 using MvcProject.Business.Abstract;
+using MvcProject.Mvc.Models;
+using MvcProject.Business.Concrete;
+using MvcProject.DataAccess.Concrete.EntityFramework;
 
 namespace MvcProject.Mvc.Controllers
 {
@@ -20,7 +23,7 @@ namespace MvcProject.Mvc.Controllers
     {
         // GET: Login
         ILoginService _loginService;
-
+        WriterManager writerManager = new WriterManager(new EfWriterDal());
         public LoginController(ILoginService loginService)
         {
             _loginService = loginService;
@@ -35,15 +38,6 @@ namespace MvcProject.Mvc.Controllers
         [HttpPost]
         public ActionResult Index(Admin admin)
         {
-            //SHA1 sha1 = new SHA1CryptoServiceProvider();
-            //string password = admin.AdminPassword;
-            //string result = Convert.ToBase64String(sha1.ComputeHash(Encoding.UTF8.GetBytes(password)));
-            //admin.AdminPassword = result;
-
-            //Context context = new Context();
-            //var adminUserInfo = context.Admins.FirstOrDefault(x => x.AdminUserName == admin.AdminUserName &&
-            //  x.AdminPassword == result); //Business katmanına taşındı
-
             var adminUserInfo = _loginService.AdminLogin(admin);
 
             if (adminUserInfo != null)
@@ -72,15 +66,6 @@ namespace MvcProject.Mvc.Controllers
         [HttpPost]
         public ActionResult WriterLogin(Writer writer)
         {
-            //SHA1 sha1 = new SHA1CryptoServiceProvider();
-            //string password = writer.WriterPassword;
-            //string result = Convert.ToBase64String(sha1.ComputeHash(Encoding.UTF8.GetBytes(password)));
-            //writer.WriterPassword = result;
-
-            //Context context = new Context();
-            //var writerUserInfo = context.Writers.FirstOrDefault(x => x.WriterMail == writer.WriterMail &&
-            //  x.WriterPassword == result); //Business Katmanına Taşındı
-
             var writerUserInfo = _loginService.WriterLogin(writer);
 
             var response = Request["g-recaptcha-response"];
@@ -94,7 +79,7 @@ namespace MvcProject.Mvc.Controllers
                 TempData["Message"] = "Lütfen güvenliği doğrulayınız.";
                 return View();
             }
-
+     
             if (writerUserInfo != null)
             {
                 FormsAuthentication.SetAuthCookie(writerUserInfo.WriterMail, false);
@@ -111,15 +96,6 @@ namespace MvcProject.Mvc.Controllers
             FormsAuthentication.SignOut();
             Session.Abandon();
             return RedirectToAction("WriterLogin", "Login");
-        }
-
-        public class CaptchaResponse
-        {
-            [JsonProperty("success")]
-            public bool Success { get; set; }
-
-            [JsonProperty("error-codes")]
-            public List<string> ErrorCodes { get; set; }
         }
     }
 }
