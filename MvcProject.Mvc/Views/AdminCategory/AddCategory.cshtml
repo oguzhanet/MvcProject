@@ -15,7 +15,7 @@
         @Html.Label("Açıklama Yazınız")
         @Html.TextAreaFor(c => c.CategoryDescription, new { @class = "form-control" })
         @*@Html.ValidationMessage("CategoryException")*@
-        @Html.ValidationMessageFor(c => c.CategoryDescription)
+        @*@Html.ValidationMessageFor(c => c.CategoryDescription)*@
         <br />
         <button class="btn btn-info" id="added">Ekle</button>
     </div>
@@ -23,3 +23,14 @@
 
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="~/Scripts/jquery-3.4.1.js"></script>
+
+<script>
+    $('#added').click(function () {
+        swal({
+            title: "Eklendi!",
+            text: "Kategori Başarıyla Eklendi!",
+            icon: "success",
+            button: false
+        });
+    });
+</script>

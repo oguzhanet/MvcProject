@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 using FluentValidation.Results;
@@ -44,7 +45,8 @@ namespace MvcProject.Mvc.Controllers
             {
                 category.CategoryStatus = true;
                 categoryManager.Add(category);
-                return View();
+                Thread.Sleep(1500);
+                return RedirectToAction("Index");
             }
             else
             {
