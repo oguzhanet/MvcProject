@@ -2811,6 +2811,7 @@
     <Content Include="Views\Heading\HeadingReport.cshtml" />
     <Content Include="Views\Chart\Index.cshtml" />
     <Content Include="Views\Authorization\Index.cshtml" />
+    <Content Include="Views\Authorization\AdminUpdate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
