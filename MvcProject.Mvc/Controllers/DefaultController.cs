@@ -24,7 +24,7 @@ namespace MvcProject.Mvc.Controllers
             _contentService = contentService;
         }
 
-        public PartialViewResult Index(int id=0)
+        public PartialViewResult Index(int id=1)
         {
             var contentList = _contentService.GetAllByHeadingId(id);
             return PartialView(contentList);

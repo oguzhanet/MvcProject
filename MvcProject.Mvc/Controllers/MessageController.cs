@@ -105,7 +105,8 @@ namespace MvcProject.Mvc.Controllers
 
         public ActionResult Draft()
         {
-            var result = messageManager.IsDraft();
+            string parameter = (string)Session["AdminUserName"];
+            var result = messageManager.GetAllDraft(parameter).Where(x => x.IsDraft == true).ToList();
             return View(result);
         }
 
@@ -122,7 +123,8 @@ namespace MvcProject.Mvc.Controllers
 
         public ActionResult ReadMessage()
         {
-            var readMessage = messageManager.GetAll().Where(x => x.IsRead == true).ToList();
+            string parameter = (string)Session["AdminUserName"];
+            var readMessage = messageManager.GetAllRead(parameter).Where(x => x.IsRead == true).ToList();
             return View(readMessage);
         }
 
