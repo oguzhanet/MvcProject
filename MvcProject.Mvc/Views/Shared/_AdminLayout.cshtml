@@ -67,26 +67,28 @@ to get the desired effect
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
-    with font-awesome or any other icon font library -->
+                        with font-awesome or any other icon font library -->
+
+                        <li class="nav-item has-treeview ">
+                            <a href="/AdminCategory/Index/" class="nav-link">
+                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <p>
+                                    Kategoriler
+                                </p>
+                            </a>
+                        </li>
+
                         @if (User.IsInRole("A"))
                         {
-                            <li class="nav-item has-treeview ">
-                                <a href="/AdminCategory/Index/" class="nav-link">
-                                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                            <li class="nav-item">
+                                <a href="/Statistics/Index" class="nav-link">
+                                    <i class="nav-icon fas fa-copy"></i>
                                     <p>
-                                        Kategoriler
+                                        İstatistik Tablosu
                                     </p>
                                 </a>
                             </li>
                         }
-                        <li class="nav-item">
-                            <a href="/Statistics/Index" class="nav-link">
-                                <i class="nav-icon fas fa-copy"></i>
-                                <p>
-                                    İstatistik Tablosu
-                                </p>
-                            </a>
-                        </li>
                         <li class="nav-item">
                             <a href="/Heading/Index/" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
@@ -125,19 +127,19 @@ to get the desired effect
                                 <li class="nav-item">
                                     <a href="/Chart/Index/" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Grafik 1</p>
+                                        <p>Kategori Grafiği</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="pages/charts/flot.html" class="nav-link">
+                                    <a href="/Chart/About/" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Grafik 2</p>
+                                        <p>Hakkında Sayı Grafiği</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="pages/charts/inline.html" class="nav-link">
+                                    <a href="/Chart/Image/" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Grafik 3</p>
+                                        <p>Resim Sayı Grafiği</p>
                                     </a>
                                 </li>
                             </ul>
@@ -236,10 +238,10 @@ to get the desired effect
         </div>
 
         @*<br />
-        <br />
-        <br />
-        <br />
-        <br />*@
+            <br />
+            <br />
+            <br />
+            <br />*@
     </div>
     <!-- ./wrapper -->
     <!-- jQuery -->
