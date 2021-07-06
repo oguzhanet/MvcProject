@@ -56,19 +56,11 @@ to get the desired effect
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <a href="/WriterPanel/WriterProfile/" class="d-block"><i style="margin-left:20px;" class="nav-icon fas fa-address-book"></i> &nbsp; Yazar İşlemleri</a>
-                    @*<div class="image">
-            <img src="~/AdminLTE-3.0.4/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-        </div>
-        <div class="info">
-            <a href="/WriterPanel/WriterProfile/" class="d-block">Yazar İşlemleri</a>
-        </div>*@
                 </div>
 
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                        <!-- Add icons to the links using the .nav-icon class
-    with font-awesome or any other icon font library -->
                         <li class="nav-item has-treeview ">
                             <a href="/WriterPanel/WriterProfile/" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -96,7 +88,7 @@ to get the desired effect
                         </li>
                         <li class="nav-item has-treeview">
                             <a href="/WriterPanelMessage/Inbox/" class="nav-link">
-                                <i class="nav-icon fas fa-edit"></i>
+                                <i class="nav-icon far fa-envelope"></i>
                                 <p>
                                     Mesajlar
 
@@ -137,28 +129,15 @@ to get the desired effect
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
-            <!-- Content Header (Page header) -->
-            <!-- /.content-header -->
-            <!-- Main content -->
             <div class="content">
                 @RenderBody()
                 <!-- /.container-fluid -->
             </div>
             <!-- /.content -->
         </div>
-        <!-- /.content-wrapper -->
-        <!-- Control Sidebar -->
-        <!-- /.control-sidebar -->
-        <!-- Main Footer -->
-
-        @*<br />
-        <br />
-        <br />
-        <br />
+        @*
         <br />*@
     </div>
-    <!-- ./wrapper -->
-    <!-- REQUIRED SCRIPTS -->
     <!-- jQuery -->
     <script src="~/AdminLTE-3.0.4/plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap -->

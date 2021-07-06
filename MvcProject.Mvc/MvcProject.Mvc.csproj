@@ -2255,6 +2255,12 @@
     <Content Include="AdminLTE-3.0.4\web\webfonts\fa-brands-400.svg" />
     <Content Include="AdminLTE-3.0.4\web\webfonts\fa-regular-400.svg" />
     <Content Include="AdminLTE-3.0.4\web\webfonts\fa-solid-900.svg" />
+    <Content Include="AdminLTE-3.0.4\WriterResgister\css\sourcesanspro-font.css" />
+    <Content Include="AdminLTE-3.0.4\WriterResgister\css\style.css" />
+    <Content Include="AdminLTE-3.0.4\WriterResgister\fonts\Source_Sans_Pro\OFL.txt" />
+    <Content Include="AdminLTE-3.0.4\WriterResgister\images\form-v8.jpg" />
+    <Content Include="AdminLTE-3.0.4\WriterResgister\index.html" />
+    <Content Include="AdminLTE-3.0.4\WriterResgister\readme.txt" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -2727,6 +2733,18 @@
     <Content Include="AdminLTE-3.0.4\web\webfonts\fa-solid-900.ttf" />
     <Content Include="AdminLTE-3.0.4\web\webfonts\fa-solid-900.woff" />
     <Content Include="AdminLTE-3.0.4\web\webfonts\fa-solid-900.woff2" />
+    <Content Include="AdminLTE-3.0.4\WriterResgister\fonts\Source_Sans_Pro\SourceSansPro-Black.ttf" />
+    <Content Include="AdminLTE-3.0.4\WriterResgister\fonts\Source_Sans_Pro\SourceSansPro-BlackItalic.ttf" />
+    <Content Include="AdminLTE-3.0.4\WriterResgister\fonts\Source_Sans_Pro\SourceSansPro-Bold.ttf" />
+    <Content Include="AdminLTE-3.0.4\WriterResgister\fonts\Source_Sans_Pro\SourceSansPro-BoldItalic.ttf" />
+    <Content Include="AdminLTE-3.0.4\WriterResgister\fonts\Source_Sans_Pro\SourceSansPro-ExtraLight.ttf" />
+    <Content Include="AdminLTE-3.0.4\WriterResgister\fonts\Source_Sans_Pro\SourceSansPro-ExtraLightItalic.ttf" />
+    <Content Include="AdminLTE-3.0.4\WriterResgister\fonts\Source_Sans_Pro\SourceSansPro-Italic.ttf" />
+    <Content Include="AdminLTE-3.0.4\WriterResgister\fonts\Source_Sans_Pro\SourceSansPro-Light.ttf" />
+    <Content Include="AdminLTE-3.0.4\WriterResgister\fonts\Source_Sans_Pro\SourceSansPro-LightItalic.ttf" />
+    <Content Include="AdminLTE-3.0.4\WriterResgister\fonts\Source_Sans_Pro\SourceSansPro-Regular.ttf" />
+    <Content Include="AdminLTE-3.0.4\WriterResgister\fonts\Source_Sans_Pro\SourceSansPro-SemiBold.ttf" />
+    <Content Include="AdminLTE-3.0.4\WriterResgister\fonts\Source_Sans_Pro\SourceSansPro-SemiBoldItalic.ttf" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -2817,6 +2835,7 @@
     <Content Include="Views\WriterPanelMessage\UnReadMessagePanel.cshtml" />
     <Content Include="Views\WriterPanelMessage\ReadMessagePanel.cshtml" />
     <Content Include="Views\WriterPanelMessage\Draft.cshtml" />
+    <Content Include="Views\Register\WriterRegister.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

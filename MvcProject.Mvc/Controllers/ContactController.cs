@@ -48,10 +48,10 @@ namespace MvcProject.Mvc.Controllers
             var result2 = messageManager.GetAllInbox(parameter).Count();
             ViewBag.result2 = result2;
 
-            var draft = messageManager.GetAll().Where(x => x.IsDraft == true).Count();
+            var draft = messageManager.GetAllDraft(parameter).Where(x => x.IsDraft == true).Count();
             ViewBag.draft = draft;
 
-            var readMessage = messageManager.GetAll().Where(x => x.IsRead == true).Count();
+            var readMessage = messageManager.GetAllRead(parameter).Where(x => x.IsRead == true).Count();
             ViewBag.readMessage = readMessage;
 
             var unReadMessage = messageManager.GetAllUnRead(parameter).Count();
