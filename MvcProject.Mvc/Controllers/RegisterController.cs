@@ -42,5 +42,17 @@ namespace MvcProject.Mvc.Controllers
             _adminService.Add(admin);
             return RedirectToAction("Index", "Login");
         }
+
+        [HttpGet]
+        public ActionResult WriterRegister()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult WriterRegister(Writer writer)
+        {
+            return View();
+        }
     }
 }

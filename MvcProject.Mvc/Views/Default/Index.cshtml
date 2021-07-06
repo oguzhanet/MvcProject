@@ -15,9 +15,17 @@
                     <div class="col-md-12">
                         <!-- The time line -->
                         <div class="timeline">
+
+
                             <!-- timeline time label -->
                             @foreach (var item in Model)
                             {
+                                <a style="margin-left:60px" class="btn btn-info btn-sm" href="/WriterPanelContent/AddContent/@item.HeadingId">
+                                    <i class="fas fa-pencil-alt">
+                                    </i>
+                                    Bu Başlığa Yazın..
+                                </a>
+
                                 <div class="time-label">
                                     <span class="bg-success">@(((DateTime)item.ContentDate).ToString("dd-MMM-yyyy")) - @item.Writer.WriterName @item.Writer.WriterSurName</span>
                                 </div>
