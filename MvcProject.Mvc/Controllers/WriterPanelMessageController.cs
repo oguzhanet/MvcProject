@@ -16,44 +16,63 @@ namespace MvcProject.Mvc.Controllers
     public class WriterPanelMessageController : Controller
     {
         // GET: WriterPanelMessage
-        //MessageManager messageManager = new MessageManager(new EfMessageDal());
-        private IMessageService _messageService;
+        MessageManager messageManager = new MessageManager(new EfMessageDal());
+        ContactManager contactManager = new ContactManager(new EfContactDal());
+        //private IMessageService _messageService;
 
-        public WriterPanelMessageController(IMessageService messageService)
-        {
-            _messageService = messageService;
-        }
+        //public WriterPanelMessageController(IMessageService messageService)
+        //{
+        //    _messageService = messageService;
+        //}
 
         MessageValidator messageValidator = new MessageValidator();
 
         public ActionResult Inbox()
         {
             string parameter = (string)Session["WriterMail"];
-            var messageList = _messageService.GetAllInbox(parameter);
+            var messageList = messageManager.GetAllInbox(parameter);
             return View(messageList);
         }
 
         public ActionResult Sendbox()
         {
             string parameter = (string)Session["WriterMail"];
-            var messageList = _messageService.GetAllSendbox(parameter);
+            var messageList = messageManager.GetAllSendbox(parameter);
             return View(messageList);
         }
 
         public PartialViewResult MessagePartial()
         {
+            string parameter = (string)Session["WriterMail"];
+            var contacts = contactManager.GetAll().Count();
+            ViewBag.contact = contacts;
+
+            var result = messageManager.GetAllSendbox(parameter).Count();
+            ViewBag.result = result;
+
+            var result2 = messageManager.GetAllInbox(parameter).Count();
+            ViewBag.result2 = result2;
+
+            var draft = messageManager.GetAllDraft(parameter).Where(x => x.IsDraft == true).Count();
+            ViewBag.draft = draft;
+
+            var readMessage = messageManager.GetAllRead(parameter).Where(x => x.IsRead == true).Count();
+            ViewBag.readMessage = readMessage;
+
+            var unReadMessage = messageManager.GetAllUnRead(parameter).Count();
+            ViewBag.unReadMessage = unReadMessage;
             return PartialView();
         }
 
         public ActionResult GetInBoxMessageDetails(int id)
         {
-            var values = _messageService.GetById(id);
+            var values = messageManager.GetById(id);
             return View(values);
         }
 
         public ActionResult GetSendBoxMessageDetails(int id)
         {
-            var values = _messageService.GetById(id);
+            var values = messageManager.GetById(id);
             return View(values);
         }
 
@@ -75,7 +94,7 @@ namespace MvcProject.Mvc.Controllers
                     message.SenderMail = sender;
                     message.IsDraft = false;
                     message.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
-                    _messageService.Add(message);
+                    messageManager.Add(message);
                     return RedirectToAction("Sendbox");
                 }
                 else
@@ -94,7 +113,7 @@ namespace MvcProject.Mvc.Controllers
                     message.SenderMail = sender;
                     message.IsDraft = true;
                     message.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
-                    _messageService.Add(message);
+                    messageManager.Add(message);
                     return RedirectToAction("Draft");
                 }
                 else
@@ -108,5 +127,6 @@ namespace MvcProject.Mvc.Controllers
 
             return View();
         }
+
     }
 }

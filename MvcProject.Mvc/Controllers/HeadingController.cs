@@ -63,6 +63,8 @@ namespace MvcProject.Mvc.Controllers
         [HttpPost]
         public ActionResult AddHeading(Heading heading)
         {
+            heading.HeadingStatus = true;
+            heading.IsWriterHeading = true;
             heading.HeadingDate = DateTime.Parse(DateTime.Now.ToShortDateString());
             headingManager.Add(heading);
             return RedirectToAction("Index");
@@ -86,6 +88,8 @@ namespace MvcProject.Mvc.Controllers
         [HttpPost]
         public ActionResult UpdateHeading(Heading heading)
         {
+            heading.HeadingStatus = true;
+            heading.IsWriterHeading = true;
             headingManager.Update(heading);
             return RedirectToAction("Index");
         }

@@ -39,9 +39,21 @@ namespace MvcProject.Business.Concrete
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
-        public List<Message> GetAllUnRead()
+        public List<Message> GetAllUnRead(string parameter)
         {
-            return _messageDal.GetAll(x => x.ReceiverMail == "kadir@gmail.com").Where(x => x.IsRead == false).ToList();
+            return _messageDal.GetAll(x => x.ReceiverMail == parameter).Where(x => x.IsRead == false).ToList();
+        }
+
+        [CacheAspect(typeof(MemoryCacheManager))]
+        public List<Message> GetAllDraft(string parameter)
+        {
+            return _messageDal.GetAll(x => x.SenderMail == parameter);
+        }
+
+        [CacheAspect(typeof(MemoryCacheManager))]
+        public List<Message> GetAllRead(string parameter)
+        {
+            return _messageDal.GetAll(x => x.SenderMail == parameter);
         }
 
         public Message GetById(int id)

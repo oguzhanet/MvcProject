@@ -25,15 +25,17 @@ namespace MvcProject.Mvc.Controllers
 
         MessageValidator messageValidator = new MessageValidator();
 
-        public ActionResult Inbox(string parameter)
+        public ActionResult Inbox()
         {
+            string parameter = (string)Session["AdminUserName"];
             var messageList = messageManager.GetAllInbox(parameter);
             return View(messageList);
         }
 
-        public ActionResult Sendbox(string p)
+        public ActionResult Sendbox()
         {
-            var messageList = messageManager.GetAllSendbox(p);
+            string parameter = (string)Session["AdminUserName"];
+            var messageList = messageManager.GetAllSendbox(parameter);
             return View(messageList);
         }
 
@@ -59,11 +61,12 @@ namespace MvcProject.Mvc.Controllers
         public ActionResult NewMessage(Message message, string parameter)
         {
             ValidationResult results = messageValidator.Validate(message);
+            string adminValue = (string)Session["AdminUserName"];
             if (parameter == "send")
             {
                 if (results.IsValid)
                 {
-                    message.SenderMail = "admin@gmail.com";
+                    message.SenderMail = adminValue;
                     message.IsDraft = false;
                     message.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
                     messageManager.Add(message);
@@ -82,7 +85,7 @@ namespace MvcProject.Mvc.Controllers
             {
                 if (results.IsValid)
                 {
-                    message.SenderMail = "admin@gmail.com";
+                    message.SenderMail = adminValue;
                     message.IsDraft = true;
                     message.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
                     messageManager.Add(message);
@@ -125,7 +128,8 @@ namespace MvcProject.Mvc.Controllers
 
         public ActionResult UnReadMessage()
         {
-            var unReadMessage = messageManager.GetAllUnRead();
+            string parameter = (string)Session["AdminUserName"];
+            var unReadMessage = messageManager.GetAllUnRead(parameter);
             return View(unReadMessage);
         }
     }

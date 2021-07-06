@@ -12,7 +12,9 @@ namespace MvcProject.Business.Abstract
         List<Message> GetAll();
         List<Message> GetAllInbox(string parameter);
         List<Message> GetAllSendbox(string parameter);
-        List<Message> GetAllUnRead();
+        List<Message> GetAllUnRead(string parameter);
+        List<Message> GetAllDraft(string parameter);
+        List<Message> GetAllRead(string parameter);
         List<Message> IsDraft();
         Message GetById(int id);
         void Add(Message message);

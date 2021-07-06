@@ -36,25 +36,25 @@ namespace MvcProject.Mvc.Controllers
             return View(contactValues);
         }
 
-        public PartialViewResult ContactPartial(string p)
+        public PartialViewResult ContactPartial()
         {
+            string parameter = (string)Session["AdminUserName"];
             var contacts = contactManager.GetAll().Count();
             ViewBag.contact = contacts;
 
-            var result = messageManager.GetAllSendbox(p).Count();
+            var result = messageManager.GetAllSendbox(parameter).Count();
             ViewBag.result = result;
 
-            var result2 = messageManager.GetAllInbox(p).Count();
+            var result2 = messageManager.GetAllInbox(parameter).Count();
             ViewBag.result2 = result2;
 
             var draft = messageManager.GetAll().Where(x => x.IsDraft == true).Count();
             ViewBag.draft = draft;
 
-
             var readMessage = messageManager.GetAll().Where(x => x.IsRead == true).Count();
             ViewBag.readMessage = readMessage;
 
-            var unReadMessage = messageManager.GetAllUnRead().Count();
+            var unReadMessage = messageManager.GetAllUnRead(parameter).Count();
             ViewBag.unReadMessage = unReadMessage;
 
             return PartialView();

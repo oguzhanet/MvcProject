@@ -136,6 +136,7 @@ namespace MvcProject.Mvc.Controllers
             var writerIdInfo = context.Writers.Where(x => x.WriterMail == result).Select(z => z.WriterId).FirstOrDefault();
             heading.HeadingDate = DateTime.Parse(DateTime.Now.ToShortDateString());
             heading.HeadingStatus = true;
+            heading.IsWriterHeading = true;
             heading.WriterId = writerIdInfo;
             headingManager.Add(heading);
             return RedirectToAction("MyHeading");
@@ -167,13 +168,13 @@ namespace MvcProject.Mvc.Controllers
         {
             var headingValue = headingManager.GetById(id);
 
-            if (headingValue.HeadingStatus == true)
+            if (headingValue.IsWriterHeading == true)
             {
-                headingValue.HeadingStatus = false;
+                headingValue.IsWriterHeading = false;
             }
             else
             {
-                headingValue.HeadingStatus = true;
+                headingValue.IsWriterHeading = true;
             }
 
             headingManager.Delete(headingValue);

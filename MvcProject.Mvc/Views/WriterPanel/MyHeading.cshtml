@@ -12,19 +12,6 @@
 <html>
 
 <body class="hold-transition sidebar-mini">
-    <!-- Content Header (Page header) -->
-    <!--<section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1>Başlıklar</h1>
-                    <a href="/Heading/AddHeading/" class="btn btn-default" style="background-color:deepskyblue; margin-block-end:15px;">Yeni Başlık Oluştur</a>
-                </div>
-
-            </div>
-        </div>-->
-    <!-- /.container-fluid -->
-    <!--</section>-->
 
     <div>
         <div class="row gx-5">
@@ -103,12 +90,12 @@
                                 color = "badge badge-secondary";
                             }
 
-                            if (item.HeadingStatus == true)
+                            if (item.IsWriterHeading == true)
                             {
                                 deleteName = "Pasif  Yap";
                             }
 
-                            if (item.HeadingStatus == false)
+                            if (item.IsWriterHeading == false)
                             {
                                 deleteName = "Aktif  Yap";
                             }
