@@ -12,6 +12,8 @@ namespace MvcProject.Mvc.Controllers
     public class ChartController : Controller
     {
         CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
+        ImageFileManager ımageFileManager = new ImageFileManager(new EfImageFileDal());
+        AboutManager aboutManager = new AboutManager(new EfAboutDal());
         Context context = new Context();
         // GET: Chart
         public ActionResult Index()
@@ -19,11 +21,29 @@ namespace MvcProject.Mvc.Controllers
             return View();
         }
 
-        //public ActionResult CategoryChart()
-        //{
-        //    var result = context.Categories.Count();
-        //    ViewBag.r = result;
-        //    return Json(categoryManager.GetAll(),JsonRequestBehavior.AllowGet);
-        //}
+        public ActionResult About()
+        {
+            return View();
+        }
+
+        public ActionResult Image()
+        {
+            return View();
+        }
+
+        public ActionResult CategoryChart()
+        {
+            return Json(categoryManager.GetAll(), JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult AboutChart()
+        {
+            return Json(aboutManager.GetAll(), JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult HeadingChart()
+        {
+            return Json(ımageFileManager.GetAll(), JsonRequestBehavior.AllowGet);
+        }
     }
 }
