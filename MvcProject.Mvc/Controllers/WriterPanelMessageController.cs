@@ -128,5 +128,29 @@ namespace MvcProject.Mvc.Controllers
             return View();
         }
 
+        public ActionResult UnReadMessagePanel()
+        {
+            string parameter = (string)Session["WriterMail"];
+            var unReadMessage = messageManager.GetAllUnRead(parameter);
+            return View(unReadMessage);
+        }
+
+        public ActionResult IsRead(int id)
+        {
+            var result = messageManager.GetById(id);
+            if (result.IsRead == false)
+            {
+                result.IsRead = true;
+            }
+            messageManager.Update(result);
+            return RedirectToAction("ReadMessage");
+        }
+
+        public ActionResult ReadMessagePanel()
+        {
+            string parameter = (string)Session["WriterMail"];
+            var readMessage = messageManager.GetAllRead(parameter).Where(x => x.IsRead == true).ToList();
+            return View(readMessage);
+        }
     }
 }

@@ -2814,6 +2814,8 @@
     <Content Include="Views\Authorization\AdminUpdate.cshtml" />
     <Content Include="Views\Chart\About.cshtml" />
     <Content Include="Views\Chart\Image.cshtml" />
+    <Content Include="Views\WriterPanelMessage\UnReadMessagePanel.cshtml" />
+    <Content Include="Views\WriterPanelMessage\ReadMessagePanel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

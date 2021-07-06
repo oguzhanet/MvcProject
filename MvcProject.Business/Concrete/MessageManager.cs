@@ -53,7 +53,7 @@ namespace MvcProject.Business.Concrete
         [CacheAspect(typeof(MemoryCacheManager))]
         public List<Message> GetAllRead(string parameter)
         {
-            return _messageDal.GetAll(x => x.SenderMail == parameter);
+            return _messageDal.GetAll(x => x.ReceiverMail == parameter);
         }
 
         public Message GetById(int id)
