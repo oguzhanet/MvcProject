@@ -56,12 +56,6 @@ to get the desired effect
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <a href="#" class="d-block"><i style="margin-left:12px;" class="nav-icon fas fa-heading"></i> &nbsp; Açılan Başlıklar</a>
-                    @*<div class="image">
-            <img src="~/AdminLTE-3.0.4/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-        </div>
-        <div class="info">
-            <a href="#" class="d-block"> Açılan Başlıklar</a>
-        </div>*@
                 </div>
 
                 <!-- Sidebar Menu -->
@@ -72,11 +66,11 @@ to get the desired effect
                             <li class="nav-item">
                                 <a href="/Default/Headings/@item.HeadingId" class="nav-link">
                                     <p>
-                                        @if (item.HeadingName.Length < 20)
+                                        @if (item.HeadingName.Length < 25)
                                         {
                                             @item.HeadingName
                                         }
-                                        else if (item.HeadingName.Length >= 20)
+                                        else if (item.HeadingName.Length >= 25)
                                         {
                                             @item.HeadingName.Substring(0, item.HeadingName.Substring(0, 25).LastIndexOf(" ")) <b> ... </b> 
                                         }
