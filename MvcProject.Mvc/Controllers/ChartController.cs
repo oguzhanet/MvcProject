@@ -14,7 +14,7 @@ namespace MvcProject.Mvc.Controllers
         CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
         ImageFileManager ımageFileManager = new ImageFileManager(new EfImageFileDal());
         AboutManager aboutManager = new AboutManager(new EfAboutDal());
-        Context context = new Context();
+     
         // GET: Chart
         public ActionResult Index()
         {
