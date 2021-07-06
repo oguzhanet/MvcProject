@@ -152,5 +152,12 @@ namespace MvcProject.Mvc.Controllers
             var readMessage = messageManager.GetAllRead(parameter).Where(x => x.IsRead == true).ToList();
             return View(readMessage);
         }
+
+        public ActionResult Draft()
+        {
+            string parameter = (string)Session["WriterMail"];
+            var result = messageManager.GetAllDraft(parameter).Where(x => x.IsDraft == true).ToList();
+            return View(result);
+        }
     }
 }

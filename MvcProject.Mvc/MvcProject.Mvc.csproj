@@ -2816,6 +2816,7 @@
     <Content Include="Views\Chart\Image.cshtml" />
     <Content Include="Views\WriterPanelMessage\UnReadMessagePanel.cshtml" />
     <Content Include="Views\WriterPanelMessage\ReadMessagePanel.cshtml" />
+    <Content Include="Views\WriterPanelMessage\Draft.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
