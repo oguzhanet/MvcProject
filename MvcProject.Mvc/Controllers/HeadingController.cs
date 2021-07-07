@@ -2,6 +2,7 @@
 using MvcProject.Business.Concrete;
 using MvcProject.DataAccess.Concrete.EntityFramework;
 using MvcProject.Entities.Concrete;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,9 +28,9 @@ namespace MvcProject.Mvc.Controllers
         //}
 
 
-        public ActionResult Index()
+        public ActionResult Index(int page = 1)
         {
-            var headingValues = headingManager.GetAll();
+            var headingValues = headingManager.GetAll().ToPagedList(page, 5);
             return View(headingValues);
         }
 
