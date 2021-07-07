@@ -44,6 +44,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <!-- main -->
     <div class="main">
         <h1>Profil Kartım</h1>
+        <a href="/WriterPanel/WriterProfilePassword/" class="btn btn-default" style="background-color:#0094ff; margin-left:705px; color:white;">Yeni Kart Ekle</a>
         <div class="main-info w3l">
             <div class="main-row">
                 <!-- main-row-one -->
@@ -56,22 +57,32 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
                     </div>
                     <h3 class="title">Yeteneklerim</h3>
-                    <a href="/Statistics/Index/" style="margin-bottom:10px">İstatistiklere Dön</a>
-                    <div class="col-md-6 skills-right bar_group">
-                        <div class='bar_group__bar thin' label='@item.Skill &nbsp;&nbsp; @item.SkillPoint%' value='@ViewBag.result'></div>
-                        <div class='bar_group__bar thin' label='@item.Skill2 &nbsp;&nbsp; @item.SkillPoint2%' value='@ViewBag.result2'></div>
-                        <div class='bar_group__bar thin' label='@item.Skill3 &nbsp;&nbsp; @item.SkillPoint3%' value='@ViewBag.result3'></div>
-                        <div class='bar_group__bar thin' label='@item.Skill4 &nbsp;&nbsp; @item.SkillPoint4%' value='@ViewBag.result4'></div>
-                        <div class='bar_group__bar thin' label='@item.Skill5 &nbsp;&nbsp; @item.SkillPoint5%' value='@ViewBag.result5'></div>
-                        <div class='bar_group__bar thin' label='@item.Skill6 &nbsp;&nbsp; @item.SkillPoint6%' value='@ViewBag.result6'></div>
-                        <div class='bar_group__bar thin' label='@item.Skill7 &nbsp;&nbsp; @item.SkillPoint7%' value='@ViewBag.result7'></div>
-                        <div class='bar_group__bar thin' label='@item.Skill8 &nbsp;&nbsp; @item.SkillPoint8%' value='@ViewBag.result8'></div>
-                        <div class='bar_group__bar thin' label='@item.Skill9 &nbsp;&nbsp; @item.SkillPoint9%' value='@ViewBag.result9'></div>
-                        <div class='bar_group__bar thin' label='@item.Skill10 &nbsp;&nbsp; @item.SkillPoint10%' value='@ViewBag.result10'></div>
+                    <div class="form-group row">
+
+                        <div class="offset-sm-2 col-sm-10">
+
+                            <a href="/Statistics/Index/" style="margin-bottom:10px; color:aqua">İstatistiklere Dön</a>
+
+                            <a href="/WriterPanel/WriterProfilePassword/" class="btn btn-default" style="background-color:#ff6a00; margin-left:205px; color:white;">Bilgileri Güncelle</a>
+
+                        </div>
 
                     </div>
-                    <!--bar-js-->
-                    <script src="~/AdminLTE-3.0.4/Skills/js/bars.js"></script>
+
+
+                    <div class="col-md-6 skills-right bar_group">
+                        <div class='bar_group__bar thin' label='@item.Skill &nbsp;&nbsp; @item.SkillPoint%' value='@item.SkillPoint'></div>
+                        <div class='bar_group__bar thin' label='@item.Skill2 &nbsp;&nbsp; @item.SkillPoint2%' value='@item.SkillPoint2'></div>
+                        <div class='bar_group__bar thin' label='@item.Skill3 &nbsp;&nbsp; @item.SkillPoint3%' value='@item.SkillPoint3'></div>
+                        <div class='bar_group__bar thin' label='@item.Skill4 &nbsp;&nbsp; @item.SkillPoint4%' value='@item.SkillPoint4'></div>
+                        <div class='bar_group__bar thin' label='@item.Skill5 &nbsp;&nbsp; @item.SkillPoint5%' value='@item.SkillPoint5'></div>
+                        <div class='bar_group__bar thin' label='@item.Skill6 &nbsp;&nbsp; @item.SkillPoint6%' value='@item.SkillPoint6'></div>
+                        <div class='bar_group__bar thin' label='@item.Skill7 &nbsp;&nbsp; @item.SkillPoint7%' value='@item.SkillPoint7'></div>
+                        <div class='bar_group__bar thin' label='@item.Skill8 &nbsp;&nbsp; @item.SkillPoint8%' value='@item.SkillPoint8'></div>
+                        <div class='bar_group__bar thin' label='@item.Skill9 &nbsp;&nbsp; @item.SkillPoint9%' value='@item.SkillPoint9'></div>
+                        <div class='bar_group__bar thin' label='@item.Skill10 &nbsp;&nbsp; @item.SkillPoint10%' value='@item.SkillPoint10'></div>
+
+                    </div>
                     <div class="social-icons agileits">
                         <ul>
                             <li><a href="#"></a></li>
@@ -80,8 +91,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             <li><a href="#" class="gg"></a></li>
                         </ul>
                     </div>
-                    <div class="clear"> </div>
+                    <hr />
+                    <br />
                 }
+                <!--bar-js-->
+                <script src="~/AdminLTE-3.0.4/Skills/js/bars.js"></script>
+
+                <div class="clear"> </div>
+
             </div>
         </div>
         <!-- copyright -->
