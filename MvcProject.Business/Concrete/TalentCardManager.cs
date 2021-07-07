@@ -46,7 +46,7 @@ namespace MvcProject.Business.Concrete
 
         public TalentCard GetById(int id)
         {
-            throw new NotImplementedException();
+            return _talentCardDal.Get(x => x.CardId == id);
         }
     }
 }

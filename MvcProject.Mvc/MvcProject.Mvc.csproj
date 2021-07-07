@@ -2832,6 +2832,8 @@
     <Content Include="Views\WriterPanelMessage\ReadMessagePanel.cshtml" />
     <Content Include="Views\WriterPanelMessage\Draft.cshtml" />
     <Content Include="Views\Register\WriterRegister.cshtml" />
+    <Content Include="Views\TalentCard\AddCard.cshtml" />
+    <Content Include="Views\TalentCard\UpdateCard.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

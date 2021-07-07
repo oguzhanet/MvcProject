@@ -44,14 +44,22 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <!-- main -->
     <div class="main">
         <h1>Profil Kartım</h1>
-        <a href="/WriterPanel/WriterProfilePassword/" class="btn btn-default" style="background-color:#0094ff; margin-left:705px; color:white;">Yeni Kart Ekle</a>
+        <a href="/TalentCard/AddCard/" class="btn btn-default" style="background-color:#0094ff; margin-left:705px; color:white;">Yeni Kart Ekle</a>
         <div class="main-info w3l">
             <div class="main-row">
                 <!-- main-row-one -->
                 @foreach (var item in Model)
                 {
                     <div class="profile-grid logo wthree">
-                        <img src="~/AdminLTE-3.0.4/Skills/images/ben.jpeg" style="width:150px;" alt="">
+                        @if (item.Image != null)
+                        {
+                            <img src="@item.Image" style="width:150px;" alt="">
+                        }
+                        else
+                        {
+                            <img src="~/AdminLTE-3.0.4/Skills/images/img1.jpg" style="width:150px;" alt="">
+                        }
+
                         <h2>@item.Name @item.LastName </h2>
                         <p>@item.Text</p>
 
@@ -63,7 +71,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
                             <a href="/Statistics/Index/" style="margin-bottom:10px; color:aqua">İstatistiklere Dön</a>
 
-                            <a href="/WriterPanel/WriterProfilePassword/" class="btn btn-default" style="background-color:#ff6a00; margin-left:205px; color:white;">Bilgileri Güncelle</a>
+                            <a href="/TalentCard/UpdateCard/@item.CardId" class="btn btn-default" style="background-color:#ff6a00; margin-left:205px; color:white;">Bilgileri Güncelle</a>
 
                         </div>
 

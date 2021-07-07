@@ -2,6 +2,7 @@
 using MvcProject.Business.Concrete;
 using MvcProject.DataAccess.Concrete;
 using MvcProject.DataAccess.Concrete.EntityFramework;
+using MvcProject.Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,5 +28,31 @@ namespace MvcProject.Mvc.Controllers
             return View(cardValues);
         }
 
+        [HttpGet]
+        public ActionResult AddCard()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddCard(TalentCard talentCard)
+        {
+            talentCardManager.Add(talentCard);
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult UpdateCard(int id)
+        {
+            var cardValues = talentCardManager.GetById(id);
+            return View(cardValues);
+        }
+
+        [HttpPost]
+        public ActionResult UpdateCard(TalentCard talentCard)
+        {
+            talentCardManager.Update(talentCard);
+            return RedirectToAction("Index");
+        }
     }
 }

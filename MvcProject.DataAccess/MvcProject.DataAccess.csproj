@@ -180,6 +180,10 @@
     <Compile Include="Migrations\202107061125450_mig_writerheadingstatus.designer.cs">
       <DependentUpon>202107061125450_mig_writerheadingstatus.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107071647268_mig_cardimage.cs" />
+    <Compile Include="Migrations\202107071647268_mig_cardimage.designer.cs">
+      <DependentUpon>202107071647268_mig_cardimage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -275,6 +279,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202107061125450_mig_writerheadingstatus.resx">
       <DependentUpon>202107061125450_mig_writerheadingstatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107071647268_mig_cardimage.resx">
+      <DependentUpon>202107071647268_mig_cardimage.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

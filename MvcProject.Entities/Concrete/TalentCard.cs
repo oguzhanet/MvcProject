@@ -48,5 +48,7 @@ namespace MvcProject.Entities.Concrete
         [StringLength(20)]
         public string Skill10 { get; set; }
         public int SkillPoint10 { get; set; }
+        [StringLength(250)]
+        public string Image { get; set; }
     }
 }
