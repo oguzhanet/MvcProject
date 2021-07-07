@@ -10,5 +10,6 @@ namespace MvcProject.Business.Abstract
     public interface IImageFileService
     {
         List<ImageFile> GetAll();
+        void Add(ImageFile ımageFile);
     }
 }

@@ -2834,6 +2834,7 @@
     <Content Include="Views\Register\WriterRegister.cshtml" />
     <Content Include="Views\TalentCard\AddCard.cshtml" />
     <Content Include="Views\TalentCard\UpdateCard.cshtml" />
+    <Content Include="Views\Gallery\AddImage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

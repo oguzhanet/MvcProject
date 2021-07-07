@@ -1,0 +1,20 @@
+﻿@model MvcProject.Entities.Concrete.ImageFile
+@{
+    ViewBag.Title = "AddImage";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Görsel Ekleme Sayfası</h2>
+
+@using (Html.BeginForm("AddImage", "Gallery", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="form-group">
+        @Html.Label("Görsel Adı")
+        @Html.TextBoxFor(x => x.ImageName, new { @class = "form-control" })
+        <br />
+        <input type="file" name="ImagePath" class="btn btn-dark" />
+        <br />
+        <button style="margin-top:5px" class="btn btn-dark">Görseli Kaydet</button>
+    </div>
+}
+

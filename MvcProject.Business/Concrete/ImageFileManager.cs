@@ -18,12 +18,18 @@ namespace MvcProject.Business.Concrete
         public ImageFileManager(IImageFileDal ımageFileDal)
         {
             _ImageFileDal = ımageFileDal;
-        }
+        }  
 
         [CacheAspect(typeof(MemoryCacheManager))]
         public List<ImageFile> GetAll()
         {
             return _ImageFileDal.GetAll();
+        }
+
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
+        public void Add(ImageFile ımageFile)
+        {
+            _ImageFileDal.Add(ımageFile);
         }
     }
 }
