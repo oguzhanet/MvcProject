@@ -188,6 +188,7 @@
     <Compile Include="Roles\AdminRoleProvider.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="3-4 OdevResimleri\a11.png" />
     <Content Include="3-4 OdevResimleri\AdminGirişHatalıIse.png" />
     <Content Include="3-4 OdevResimleri\AdminGirişPaneli.png" />
     <Content Include="3-4 OdevResimleri\AdminRegisterHashing.png" />
