@@ -33,13 +33,6 @@ namespace MvcProject.Mvc.Controllers
         [HttpGet]
         public ActionResult AdminAdd()
         {
-            List<SelectListItem> valueAdmin = (from adm in adminManager.GetAll()
-                                               select new SelectListItem
-                                               {
-                                                   Text = adm.AdminRole,
-                                                   Value = adm.AdminRole
-                                               }).ToList();
-            ViewBag.valueAdmin = valueAdmin;
             return View();
         }
 
@@ -67,6 +60,13 @@ namespace MvcProject.Mvc.Controllers
             var adminValue = adminManager.GetById(admin.AdminId);
             admin.AdminPassword = adminValue.AdminPassword;
             adminManager.Update(admin);
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult AdminDelete(int id)
+        {
+            var adminValue = adminManager.GetById(id);
+            adminManager.Delete(adminValue);
             return RedirectToAction("Index");
         }
 

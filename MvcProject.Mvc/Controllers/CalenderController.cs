@@ -39,7 +39,6 @@ namespace MvcProject.Mvc.Controllers
                 end = end.AddDays(7);
             }
 
-
             return Json(events.ToArray(), JsonRequestBehavior.AllowGet);
         }
     }
