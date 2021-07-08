@@ -69,5 +69,10 @@ namespace MvcProject.Mvc.Controllers
             adminManager.Update(admin);
             return RedirectToAction("Index");
         }
+
+        public PartialViewResult AdminPartial()
+        {
+            return PartialView();
+        }
     }
 }

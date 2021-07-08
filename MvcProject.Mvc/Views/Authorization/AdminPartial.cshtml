@@ -1,0 +1,29 @@
+﻿
+<div class="col-7" style="margin-top:15px; margin-bottom:5px; margin-right:15px;">
+    <button data-toggle="modal" data-target="#Modal1" class="btn btn-default" style="background-color:deepskyblue; color:white; margin-block-end:15px;">Yeni Admin Ekleyin..</button>
+    <div class="modal" id="Modal1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title"> Admin Ekleme Paneli </h2>
+                </div>
+                @using (Html.BeginForm("AdminAdd", "Authorization", FormMethod.Post))
+                {
+                    <div class="modal-body">
+                        <label>Email</label>
+                        <input type="text" name="AdminUserName" class="form-control" />
+                        <br />
+                        <label>Şifre</label>
+                        <input type="text" name="AdminPassword" class="form-control" />
+                        <br />
+                        <label>Verilen Yetki</label>
+                        <input type="text" name="AdminRole" class="form-control" />
+                        <br />
+                        <button class="btn btn-info">Kaydet</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/AdminLTE-3.0.4/plugins/jquery/jquery.min.js"></script>

@@ -2222,6 +2222,9 @@
     <Content Include="AdminLTE-3.0.4\web\css\simpleLightbox.css" />
     <Content Include="AdminLTE-3.0.4\web\css\snow.css" />
     <Content Include="AdminLTE-3.0.4\web\css\style.css" />
+    <Content Include="AdminLTE-3.0.4\web\images\a1.png" />
+    <Content Include="AdminLTE-3.0.4\web\images\a2.png" />
+    <Content Include="AdminLTE-3.0.4\web\images\a3.png" />
     <Content Include="AdminLTE-3.0.4\web\images\banner.jpg" />
     <Content Include="AdminLTE-3.0.4\web\images\close.png" />
     <Content Include="AdminLTE-3.0.4\web\images\contact.jpg" />
@@ -2242,6 +2245,9 @@
     <Content Include="AdminLTE-3.0.4\web\images\serve.jpg" />
     <Content Include="AdminLTE-3.0.4\web\images\stats.jpg" />
     <Content Include="AdminLTE-3.0.4\web\images\testimonials.jpg" />
+    <Content Include="AdminLTE-3.0.4\web\images\w1.png" />
+    <Content Include="AdminLTE-3.0.4\web\images\w2.png" />
+    <Content Include="AdminLTE-3.0.4\web\images\w3.png" />
     <Content Include="AdminLTE-3.0.4\web\index.html" />
     <Content Include="AdminLTE-3.0.4\web\js\aos.js" />
     <Content Include="AdminLTE-3.0.4\web\js\bootstrap.js" />
@@ -2838,6 +2844,7 @@
     <Content Include="Views\TalentCard\UpdateCard.cshtml" />
     <Content Include="Views\Gallery\AddImage.cshtml" />
     <Content Include="Views\Calender\Index.cshtml" />
+    <Content Include="Views\Authorization\AdminPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
