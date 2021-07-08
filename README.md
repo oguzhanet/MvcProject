@@ -4,7 +4,7 @@
 
 [Site Yayını için tıklayınız](http://ozan12345-001-site1.htempurl.com/)
 
-[Yazar girişi için](http://ozan12345-001-site1.htempurl.com/Login/WriterLogin/)
+[Yazar girişi için](http://ozan12345-001-site1.htempurl.com/Login/WriterLogin/) <br/>
 Mail: kadir@gmail.com
 Şifre: 12345
 
