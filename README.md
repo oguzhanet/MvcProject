@@ -5,10 +5,10 @@
 [Site Yayını için tıklayınız](http://ozan12345-001-site1.htempurl.com/)
 
 [Yazar girişi için](http://ozan12345-001-site1.htempurl.com/Login/WriterLogin/) <br/>
-Mail: kadir@gmail.com
+Mail: kadir@gmail.com  <br/>
 Şifre: 12345
 
-{[Admin Girişi için](http://ozan12345-001-site1.htempurl.com/Login/Index/)
+[Admin Girişi için](http://ozan12345-001-site1.htempurl.com/Login/Index/) <br/>
 
-Kullanıcı Adı: ozan@gmail.com
+Kullanıcı Adı: ozan@gmail.com  <br/>
 Şifre: 12345
