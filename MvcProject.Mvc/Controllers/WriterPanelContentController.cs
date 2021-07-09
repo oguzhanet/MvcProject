@@ -6,6 +6,7 @@ using MvcProject.Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 
@@ -49,6 +50,7 @@ namespace MvcProject.Mvc.Controllers
             content.WriterId = writerIdInfo;
             content.ContentStatus = true;
             _contentService.Add(content);
+            Thread.Sleep(1500);
             return RedirectToAction("MyContent");
         }
 

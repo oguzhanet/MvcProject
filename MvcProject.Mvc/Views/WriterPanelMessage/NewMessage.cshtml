@@ -78,8 +78,8 @@
                             <!-- /.card-body -->
                             <div class="card-footer">
                                 <div class="float-right">
-                                    <button type="submit" formmethod="post" name="parameter" value="draft" class="btn btn-default"><i class="fas fa-pencil-alt"></i> Taslaklara Kaydet </button>
-                                    <button type="submit" name="parameter" value="send" class="btn btn-primary"><i class="far fa-envelope"></i> Gönder </button>
+                                    <button type="submit" formmethod="post" id="draft" name="parameter" value="draft" class="btn btn-default"><i class="fas fa-pencil-alt"></i> Taslaklara Kaydet </button>
+                                    <button type="submit" name="parameter" id="added" value="send" class="btn btn-primary"><i class="far fa-envelope"></i> Gönder </button>
                                 </div>
                                 <a href="/WriterPanelMessage/NewMessage/" class="btn btn-default"><i class="fas fa-times"></i> İptal Et </a>
                                 @*<button type="reset" class="btn btn-default"><i class="fas fa-times"></i> İptal Et</button>*@
@@ -96,10 +96,6 @@
         </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
-    <!-- /.content-wrapper -->
-    <!-- Control Sidebar -->
-    <!-- /.control-sidebar -->
-    <!-- ./wrapper -->
     <!-- jQuery -->
     <script src="~/AdminLTE-3.0.4/plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
@@ -116,5 +112,30 @@
             //Add text editor
             $('#compose-textarea').summernote()
         })</script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+
+    <script>
+        $('#added').click(function () {
+            swal({
+                title: "Gönderildi!",
+                text: "Mesaj Başarıyla Gönderildi!",
+                icon: "success",
+                button: false
+            });
+        });
+    </script>
+
+    <script>
+        $('#draft').click(function () {
+            swal({
+                title: "Eklendi!",
+                text: "Taslaklara Başarıyla Eklendi!",
+                icon: "success",
+                button: false
+            });
+        });
+    </script>
+
 </body>
 </html>

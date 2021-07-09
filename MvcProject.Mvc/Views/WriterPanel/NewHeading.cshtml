@@ -17,6 +17,20 @@
         @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.valueCategory,
        new { @class = "form-control" })
         <br />
-        <button class="btn btn-info">Başlık Oluştur</button>
+        <button class="btn btn-info" id="added">Başlık Oluştur</button>
     </div>
 }
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+
+<script>
+        $('#added').click(function () {
+            swal({
+                title: "Eklendi!",
+                text: "Başlık Başarıyla Eklendi!",
+                icon: "success",
+                button: false
+            });
+        });
+</script>

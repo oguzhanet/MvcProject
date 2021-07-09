@@ -14,6 +14,7 @@ using FluentValidation.Results;
 using MvcProject.Business.ValidationRules.FluentValidation;
 using System.Security.Cryptography;
 using System.Text;
+using System.Threading;
 
 namespace MvcProject.Mvc.Controllers
 {
@@ -139,6 +140,7 @@ namespace MvcProject.Mvc.Controllers
             heading.IsWriterHeading = true;
             heading.WriterId = writerIdInfo;
             headingManager.Add(heading);
+            Thread.Sleep(1500);
             return RedirectToAction("MyHeading");
         }
 

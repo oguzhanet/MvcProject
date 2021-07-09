@@ -11,10 +11,24 @@
     <div class="form-group">
         <input type="hidden" name="HeadingId" value="@ViewBag.result" />
         @Html.Label("İçeriğinizi yazınız")
-        @Html.TextAreaFor(x => x.ContentValue,4,30, new { @class = "form-control" })
+        @Html.TextAreaFor(x => x.ContentValue, 4, 30, new { @class = "form-control" })
         @Html.ValidationMessageFor(x => x.ContentValue)
         <br />
-        <button class="btn btn-info">Kaydet</button>
+        <button class="btn btn-info" id="added">Ekle</button>
     </div>
 }
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+
+<script>
+        $('#added').click(function () {
+            swal({
+                title: "Gönderildi!",
+                text: "İçerik Başarıyla Gönderildi!",
+                icon: "success",
+                button: false
+            });
+        });
+</script>
 

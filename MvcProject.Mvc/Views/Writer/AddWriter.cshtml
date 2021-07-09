@@ -8,36 +8,48 @@
 <br />
 @using (Html.BeginForm("AddWriter", "Writer", FormMethod.Post))
 {
-<div class="form-group">
-    @Html.Label("Yazar Adı")
-    @Html.TextBoxFor(x => x.WriterName, new { @class = "form-control" })
-    @Html.ValidationMessageFor(x => x.WriterName)
-    <br />
-    @Html.Label("Yazar Soyadı")
-    @Html.TextBoxFor(x => x.WriterSurName, new { @class = "form-control" })
-    @Html.ValidationMessageFor(x => x.WriterSurName)
-    <br />
-    @Html.Label("Yazar Ünvanı")
-    @Html.TextBoxFor(x => x.WriterTitle, new { @class = "form-control" })
-    @Html.ValidationMessageFor(x => x.WriterTitle, "", new { @class = "text-danger" })
-    <br />
-    @Html.Label("Yazar Mail")
-    @Html.TextBoxFor(x => x.WriterMail, new { @class = "form-control" })
-    @Html.ValidationMessageFor(x => x.WriterMail)
-    <br />
-    @Html.Label("Yazar Hakkkında")
-    @Html.TextBoxFor(x => x.WriterAbout, new { @class = "form-control" })
-    @Html.ValidationMessageFor(x => x.WriterAbout)
-    <br />
-    @Html.Label("Yazar Görsel Linki")
-    @Html.TextBoxFor(x => x.WriterImage, new { @class = "form-control" })
-    @Html.ValidationMessageFor(x => x.WriterImage)
-    <br />
-    @Html.Label("Yazar Sifresi")
-    @Html.TextBoxFor(x => x.WriterPassword, new { @class = "form-control" })
-    @Html.ValidationMessageFor(x => x.WriterPassword)
-    <br />
-    <button class="btn btn-info">Ekle</button>
-</div>
+    <div class="form-group">
+        @Html.Label("Yazar Adı")
+        @Html.TextBoxFor(x => x.WriterName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.WriterName)
+        <br />
+        @Html.Label("Yazar Soyadı")
+        @Html.TextBoxFor(x => x.WriterSurName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.WriterSurName)
+        <br />
+        @Html.Label("Yazar Ünvanı")
+        @Html.TextBoxFor(x => x.WriterTitle, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.WriterTitle, "", new { @class = "text-danger" })
+        <br />
+        @Html.Label("Yazar Mail")
+        @Html.TextBoxFor(x => x.WriterMail, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.WriterMail)
+        <br />
+        @Html.Label("Yazar Hakkkında")
+        @Html.TextBoxFor(x => x.WriterAbout, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.WriterAbout)
+        <br />
+        @Html.Label("Yazar Görsel Linki")
+        @Html.TextBoxFor(x => x.WriterImage, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.WriterImage)
+        <br />
+        @Html.Label("Yazar Sifresi")
+        @Html.TextBoxFor(x => x.WriterPassword, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.WriterPassword)
+        <br />
+        <button class="btn btn-info" id="added">Ekle</button>
+    </div>
 }
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
 
+<script>
+        $('#added').click(function () {
+            swal({
+                title: "Eklendi!",
+                text: "Yazar Başarıyla Eklendi!",
+                icon: "success",
+                button: false
+            });
+        });
+</script>
