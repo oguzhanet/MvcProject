@@ -7,155 +7,167 @@
 <h2>Yetenek Kartı Ekleme Sayfası</h2>
 @using (Html.BeginForm("AddCard", "TalentCard", FormMethod.Post))
 {
-<div class="form-group">
-    <div>
-        <div class="row gx-5">
-            <div class="col" style="margin-top:10px; margin-bottom:5px;">
+    <div class="form-group">
+        <div>
+            <div class="row gx-5">
+                <div class="col" style="margin-top:10px; margin-bottom:5px;">
 
-                @Html.Label("İsim")
-                @Html.TextBoxFor(c => c.Name, new { @class = "form-control" })
-            </div>
-            <div class="col-7" style="margin-top:10px; margin-bottom:5px; margin-right:15px;">
-                @Html.Label("Soyisim")
-                @Html.TextBoxFor(c => c.LastName, new { @class = "form-control" })
-            </div>
-        </div>
-    </div>
-    <div>
-        <div class="row gx-5">
-            <div class="col" style="margin-top:10px; margin-bottom:5px;">
-                @Html.Label("Hakkında")
-                @Html.TextBoxFor(c => c.Text, new { @class = "form-control" })
-            </div>
-            <div class="col-7" style="margin-top:10px; margin-bottom:5px; margin-right:15px;">
-                @Html.Label("Görsel Linki")
-                @Html.TextBoxFor(c => c.Image, new { @class = "form-control" })
+                    @Html.Label("İsim")
+                    @Html.TextBoxFor(c => c.Name, new { @class = "form-control" })
+                </div>
+                <div class="col-7" style="margin-top:10px; margin-bottom:5px; margin-right:15px;">
+                    @Html.Label("Soyisim")
+                    @Html.TextBoxFor(c => c.LastName, new { @class = "form-control" })
+                </div>
             </div>
         </div>
-    </div>
-    <div>
-        <div class="row gx-5">
-            <div class="col" style="margin-top:10px; margin-bottom:5px;">
-                @Html.Label("Yetenek")
-                @Html.TextBoxFor(c => c.Skill, new { @class = "form-control" })
-            </div>
-            <div class="col-7" style="margin-top:10px; margin-bottom:5px; margin-right:15px;">
-                @Html.Label("Yetenek Puanı")
-                @Html.TextBoxFor(c => c.SkillPoint, new { @class = "form-control" })
-            </div>
-        </div>
-    </div>
-    <div>
-        <div class="row gx-5">
-            <div class="col" style="margin-top:10px; margin-bottom:5px;">
-                @Html.Label("Yetenek 2")
-                @Html.TextBoxFor(c => c.Skill2, new { @class = "form-control" })
-            </div>
-            <div class="col-7" style="margin-top:10px; margin-bottom:5px; margin-right:15px;">
-                @Html.Label("Yetenek Puanı 2")
-                @Html.TextBoxFor(c => c.SkillPoint2, new { @class = "form-control" })
+        <div>
+            <div class="row gx-5">
+                <div class="col" style="margin-top:10px; margin-bottom:5px;">
+                    @Html.Label("Hakkında")
+                    @Html.TextBoxFor(c => c.Text, new { @class = "form-control" })
+                </div>
+                <div class="col-7" style="margin-top:10px; margin-bottom:5px; margin-right:15px;">
+                    @Html.Label("Görsel Linki")
+                    @Html.TextBoxFor(c => c.Image, new { @class = "form-control" })
+                </div>
             </div>
         </div>
-    </div>
-    <div>
-        <div class="row gx-5">
-            <div class="col" style="margin-top:10px; margin-bottom:5px;">
-                @Html.Label("Yetenek 3")
-                @Html.TextBoxFor(c => c.Skill3, new { @class = "form-control" })
-            </div>
-            <div class="col-7" style="margin-top:10px; margin-bottom:5px; margin-right:15px;">
-                @Html.Label("Yetenek Puanı 3")
-                @Html.TextBoxFor(c => c.SkillPoint3, new { @class = "form-control" })
-            </div>
-        </div>
-    </div>
-    <div>
-        <div class="row gx-5">
-            <div class="col" style="margin-top:10px; margin-bottom:5px;">
-                @Html.Label("Yetenek 4")
-                @Html.TextBoxFor(c => c.Skill4, new { @class = "form-control" })
-            </div>
-            <div class="col-7" style="margin-top:10px; margin-bottom:5px; margin-right:15px;">
-                @Html.Label("Yetenek Puanı 4")
-                @Html.TextBoxFor(c => c.SkillPoint4, new { @class = "form-control" })
+        <div>
+            <div class="row gx-5">
+                <div class="col" style="margin-top:10px; margin-bottom:5px;">
+                    @Html.Label("Yetenek")
+                    @Html.TextBoxFor(c => c.Skill, new { @class = "form-control" })
+                </div>
+                <div class="col-7" style="margin-top:10px; margin-bottom:5px; margin-right:15px;">
+                    @Html.Label("Yetenek Puanı")
+                    @Html.TextBoxFor(c => c.SkillPoint, new { @class = "form-control" })
+                </div>
             </div>
         </div>
-    </div>
-    <div>
-        <div class="row gx-5">
-            <div class="col" style="margin-top:10px; margin-bottom:5px;">
-                @Html.Label("Yetenek 5")
-                @Html.TextBoxFor(c => c.Skill5, new { @class = "form-control" })
-            </div>
-            <div class="col-7" style="margin-top:10px; margin-bottom:5px; margin-right:15px;">
-                @Html.Label("Yetenek Puanı 5")
-                @Html.TextBoxFor(c => c.SkillPoint5, new { @class = "form-control" })
-            </div>
-        </div>
-    </div>
-    <div>
-        <div class="row gx-5">
-            <div class="col" style="margin-top:10px; margin-bottom:5px;">
-                @Html.Label("Yetenek 6")
-                @Html.TextBoxFor(c => c.Skill6, new { @class = "form-control" })
-            </div>
-            <div class="col-7" style="margin-top:10px; margin-bottom:5px; margin-right:15px;">
-                @Html.Label("Yetenek Puanı 6")
-                @Html.TextBoxFor(c => c.SkillPoint6, new { @class = "form-control" })
+        <div>
+            <div class="row gx-5">
+                <div class="col" style="margin-top:10px; margin-bottom:5px;">
+                    @Html.Label("Yetenek 2")
+                    @Html.TextBoxFor(c => c.Skill2, new { @class = "form-control" })
+                </div>
+                <div class="col-7" style="margin-top:10px; margin-bottom:5px; margin-right:15px;">
+                    @Html.Label("Yetenek Puanı 2")
+                    @Html.TextBoxFor(c => c.SkillPoint2, new { @class = "form-control" })
+                </div>
             </div>
         </div>
-    </div>
-    <div>
-        <div class="row gx-5">
-            <div class="col" style="margin-top:10px; margin-bottom:5px;">
-                @Html.Label("Yetenek 7")
-                @Html.TextBoxFor(c => c.Skill7, new { @class = "form-control" })
-            </div>
-            <div class="col-7" style="margin-top:10px; margin-bottom:5px; margin-right:15px;">
-                @Html.Label("Yetenek Puanı 7")
-                @Html.TextBoxFor(c => c.SkillPoint7, new { @class = "form-control" })
-            </div>
-        </div>
-    </div>
-    <div>
-        <div class="row gx-5">
-            <div class="col" style="margin-top:10px; margin-bottom:5px;">
-                @Html.Label("Yetenek 8")
-                @Html.TextBoxFor(c => c.Skill8, new { @class = "form-control" })
-            </div>
-            <div class="col-7" style="margin-top:10px; margin-bottom:5px; margin-right:15px;">
-                @Html.Label("Yetenek Puanı 8")
-                @Html.TextBoxFor(c => c.SkillPoint8, new { @class = "form-control" })
+        <div>
+            <div class="row gx-5">
+                <div class="col" style="margin-top:10px; margin-bottom:5px;">
+                    @Html.Label("Yetenek 3")
+                    @Html.TextBoxFor(c => c.Skill3, new { @class = "form-control" })
+                </div>
+                <div class="col-7" style="margin-top:10px; margin-bottom:5px; margin-right:15px;">
+                    @Html.Label("Yetenek Puanı 3")
+                    @Html.TextBoxFor(c => c.SkillPoint3, new { @class = "form-control" })
+                </div>
             </div>
         </div>
-    </div>
-    <div>
-        <div class="row gx-5">
-            <div class="col" style="margin-top:10px; margin-bottom:5px;">
-                @Html.Label("Yetenek 9")
-                @Html.TextBoxFor(c => c.Skill9, new { @class = "form-control" })
-            </div>
-            <div class="col-7" style="margin-top:10px; margin-bottom:5px; margin-right:15px;">
-                @Html.Label("Yetenek Puanı 9")
-                @Html.TextBoxFor(c => c.SkillPoint9, new { @class = "form-control" })
-            </div>
-        </div>
-    </div>
-    <div>
-        <div class="row gx-5">
-            <div class="col" style="margin-top:10px; margin-bottom:5px;">
-                @Html.Label("Yetenek 10")
-                @Html.TextBoxFor(c => c.Skill10, new { @class = "form-control" })
-            </div>
-            <div class="col-7" style="margin-top:10px; margin-bottom:5px; margin-right:15px;">
-                @Html.Label("Yetenek Puanı 10")
-                @Html.TextBoxFor(c => c.SkillPoint10, new { @class = "form-control" })
+        <div>
+            <div class="row gx-5">
+                <div class="col" style="margin-top:10px; margin-bottom:5px;">
+                    @Html.Label("Yetenek 4")
+                    @Html.TextBoxFor(c => c.Skill4, new { @class = "form-control" })
+                </div>
+                <div class="col-7" style="margin-top:10px; margin-bottom:5px; margin-right:15px;">
+                    @Html.Label("Yetenek Puanı 4")
+                    @Html.TextBoxFor(c => c.SkillPoint4, new { @class = "form-control" })
+                </div>
             </div>
         </div>
-    </div>
+        <div>
+            <div class="row gx-5">
+                <div class="col" style="margin-top:10px; margin-bottom:5px;">
+                    @Html.Label("Yetenek 5")
+                    @Html.TextBoxFor(c => c.Skill5, new { @class = "form-control" })
+                </div>
+                <div class="col-7" style="margin-top:10px; margin-bottom:5px; margin-right:15px;">
+                    @Html.Label("Yetenek Puanı 5")
+                    @Html.TextBoxFor(c => c.SkillPoint5, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="row gx-5">
+                <div class="col" style="margin-top:10px; margin-bottom:5px;">
+                    @Html.Label("Yetenek 6")
+                    @Html.TextBoxFor(c => c.Skill6, new { @class = "form-control" })
+                </div>
+                <div class="col-7" style="margin-top:10px; margin-bottom:5px; margin-right:15px;">
+                    @Html.Label("Yetenek Puanı 6")
+                    @Html.TextBoxFor(c => c.SkillPoint6, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="row gx-5">
+                <div class="col" style="margin-top:10px; margin-bottom:5px;">
+                    @Html.Label("Yetenek 7")
+                    @Html.TextBoxFor(c => c.Skill7, new { @class = "form-control" })
+                </div>
+                <div class="col-7" style="margin-top:10px; margin-bottom:5px; margin-right:15px;">
+                    @Html.Label("Yetenek Puanı 7")
+                    @Html.TextBoxFor(c => c.SkillPoint7, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="row gx-5">
+                <div class="col" style="margin-top:10px; margin-bottom:5px;">
+                    @Html.Label("Yetenek 8")
+                    @Html.TextBoxFor(c => c.Skill8, new { @class = "form-control" })
+                </div>
+                <div class="col-7" style="margin-top:10px; margin-bottom:5px; margin-right:15px;">
+                    @Html.Label("Yetenek Puanı 8")
+                    @Html.TextBoxFor(c => c.SkillPoint8, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="row gx-5">
+                <div class="col" style="margin-top:10px; margin-bottom:5px;">
+                    @Html.Label("Yetenek 9")
+                    @Html.TextBoxFor(c => c.Skill9, new { @class = "form-control" })
+                </div>
+                <div class="col-7" style="margin-top:10px; margin-bottom:5px; margin-right:15px;">
+                    @Html.Label("Yetenek Puanı 9")
+                    @Html.TextBoxFor(c => c.SkillPoint9, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="row gx-5">
+                <div class="col" style="margin-top:10px; margin-bottom:5px;">
+                    @Html.Label("Yetenek 10")
+                    @Html.TextBoxFor(c => c.Skill10, new { @class = "form-control" })
+                </div>
+                <div class="col-7" style="margin-top:10px; margin-bottom:5px; margin-right:15px;">
+                    @Html.Label("Yetenek Puanı 10")
+                    @Html.TextBoxFor(c => c.SkillPoint10, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
 
-    <button class="btn btn-info" id="added">Ekle</button>
-</div>
+        <button class="btn btn-info" id="added">Ekle</button>
+    </div>
 }
 <br />
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
 
+<script>
+        $('#added').click(function () {
+            swal({
+                title: "Eklendi!",
+                text: "Kart Başarıyla Eklendi!",
+                icon: "success",
+                button: false
+            });
+        });
+</script>
