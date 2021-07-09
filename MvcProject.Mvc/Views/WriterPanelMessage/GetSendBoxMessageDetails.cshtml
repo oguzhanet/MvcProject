@@ -43,26 +43,7 @@
                                     <span class="mailbox-read-time float-right">@DateTime.Parse(Html.DisplayFor(x => x.MessageDate).ToString()).ToLongDateString()</span>
                                 </h6>
                             </div>
-                            <!-- /.mailbox-read-info -->
-                            @*<div class="mailbox-controls with-border text-center">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-default btn-sm" data-toggle="tooltip" data-container="body" title="Delete">
-                                            <i class="far fa-trash-alt"></i>
-                                        </button>
-                                        <button type="button" class="btn btn-default btn-sm" data-toggle="tooltip" data-container="body" title="Reply">
-                                            <i class="fas fa-reply"></i>
-                                        </button>
-                                        <button type="button" class="btn btn-default btn-sm" data-toggle="tooltip" data-container="body" title="Forward">
-                                            <i class="fas fa-share"></i>
-                                        </button>
-                                    </div>
 
-                                    <button type="button" class="btn btn-default btn-sm" data-toggle="tooltip" title="Print">
-                                        <i class="fas fa-print"></i>
-                                    </button>
-                                </div>*@
-
-                            <!-- /.mailbox-controls -->
                             <div class="mailbox-read-message">
                                 <p>@Html.DisplayFor(x => x.MessageContent)</p>
                             </div>

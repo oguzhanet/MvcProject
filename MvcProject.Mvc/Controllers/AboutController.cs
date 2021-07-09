@@ -5,6 +5,7 @@ using MvcProject.Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 
@@ -37,6 +38,7 @@ namespace MvcProject.Mvc.Controllers
         public ActionResult AddAbout(About about)
         {
             aboutManager.Add(about);
+            Thread.Sleep(1500);
             return RedirectToAction("Index");
         }
 

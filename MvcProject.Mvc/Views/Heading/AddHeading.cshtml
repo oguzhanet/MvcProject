@@ -14,15 +14,28 @@
         @Html.ValidationMessageFor(x => x.HeadingName)
         <br />
         @Html.Label("Kategori Adı")
-        @Html.DropDownListFor(x=>x.CategoryId, (List<SelectListItem>)ViewBag.category,
-       new { @class="form-control"})
+        @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.category,
+       new { @class = "form-control" })
         <br />
         @Html.Label("Yazar Adı")
-        @Html.DropDownListFor(x=>x.WriterId,(List<SelectListItem>)ViewBag.writer,
-       new { @class="form-control" })
+        @Html.DropDownListFor(x => x.WriterId, (List<SelectListItem>)ViewBag.writer,
+       new { @class = "form-control" })
         <br />
-        <button class="btn btn-info">Başlık Oluştur</button>
+        <button class="btn btn-info" id="added">Başlık Oluştur</button>
     </div>
 }
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+
+<script>
+    $('#added').click(function () {
+        swal({
+            title: "Eklendi!",
+            text: "Başlık Başarıyla Eklendi!",
+            icon: "success",
+            button: false
+        });
+    });
+</script>
 
 

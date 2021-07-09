@@ -7,6 +7,7 @@ using MvcProject.Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 
@@ -70,6 +71,7 @@ namespace MvcProject.Mvc.Controllers
                     message.IsDraft = false;
                     message.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
                     messageManager.Add(message);
+                    Thread.Sleep(1500);
                     return RedirectToAction("Sendbox");
                 }
                 else
@@ -89,6 +91,7 @@ namespace MvcProject.Mvc.Controllers
                     message.IsDraft = true;
                     message.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
                     messageManager.Add(message);
+                    Thread.Sleep(1500);
                     return RedirectToAction("Draft");
                 }
                 else

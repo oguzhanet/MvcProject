@@ -78,8 +78,8 @@
                             <!-- /.card-body -->
                             <div class="card-footer">
                                 <div class="float-right">
-                                    <button type="submit" formmethod="post" name="parameter" value="draft" class="btn btn-default"><i class="fas fa-pencil-alt"></i> Taslaklara Kaydet </button>
-                                    <button type="submit" name="parameter" value="send" class="btn btn-primary"><i class="far fa-envelope"></i> Gönder </button>
+                                    <button type="submit" formmethod="post" name="parameter" value="draft" class="btn btn-default" id="draft"><i class="fas fa-pencil-alt"></i> Taslaklara Kaydet </button>
+                                    <button type="submit" name="parameter" value="send" class="btn btn-primary" id="added"><i class="far fa-envelope"></i> Gönder </button>
                                 </div>
                                 <a href="/Message/NewMessage/" class="btn btn-default"><i class="fas fa-times"></i> İptal Et </a>
                                 @*<button type="reset" class="btn btn-default"><i class="fas fa-times"></i> İptal Et</button>*@
@@ -116,6 +116,29 @@
             //Add text editor
             $('#compose-textarea').summernote()
         })</script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+
+    <script>
+        $('#added').click(function () {
+            swal({
+                title: "Gönderildi!",
+                text: "Mesaj Başarıyla Gönderildi!",
+                icon: "success",
+                button: false
+            });
+        });
+    </script>
+    <script>
+        $('#draft').click(function () {
+            swal({
+                title: "Eklendi!",
+                text: "Taslaklara Eklendi!",
+                icon: "success",
+                button: false
+            });
+        });
+    </script>
 </body>
 </html>
 

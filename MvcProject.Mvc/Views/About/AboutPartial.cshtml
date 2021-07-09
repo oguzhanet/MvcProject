@@ -27,10 +27,22 @@
                     <label>Hakkımızda Görsel 2</label>
                     <input type="text" name="AboutImage2" class="form-control" />
                     <br />
-                    <button class="btn btn-info">Bilgileri Kaydet</button>
+                    <button class="btn btn-info" id="added">Bilgileri Kaydet</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
-<script src="~/AdminLTE-3.0.4/plugins/jquery/jquery.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+
+<script>
+    $('#added').click(function () {
+        swal({
+            title: "Eklendi!",
+            text: "Hakımızda Yazısı Eklendi!",
+            icon: "success",
+            button: false
+        });
+    });
+</script>
