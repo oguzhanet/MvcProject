@@ -80,6 +80,7 @@
     <Compile Include="Abstract\IContentService.cs" />
     <Compile Include="Abstract\IHeadingService.cs" />
     <Compile Include="Abstract\IImageFileService.cs" />
+    <Compile Include="Abstract\IInternService.cs" />
     <Compile Include="Abstract\ILoginService.cs" />
     <Compile Include="Abstract\IMessageService.cs" />
     <Compile Include="Abstract\ITalentCardService.cs" />
@@ -92,6 +93,7 @@
     <Compile Include="Concrete\ContentManager.cs" />
     <Compile Include="Concrete\HeadingManager.cs" />
     <Compile Include="Concrete\ImageFileManager.cs" />
+    <Compile Include="Concrete\InternManager.cs" />
     <Compile Include="Concrete\LoginManager.cs" />
     <Compile Include="Concrete\MessageManager.cs" />
     <Compile Include="Concrete\TalentCardManager.cs" />
@@ -104,6 +106,7 @@
     <Compile Include="ValidationRules\FluentValidation\ContactValidator.cs" />
     <Compile Include="ValidationRules\FluentValidation\ContentValidator.cs" />
     <Compile Include="ValidationRules\FluentValidation\HeadingValidator.cs" />
+    <Compile Include="ValidationRules\FluentValidation\InternValidator.cs" />
     <Compile Include="ValidationRules\FluentValidation\MessageValidator.cs" />
     <Compile Include="ValidationRules\FluentValidation\WriterValidator.cs" />
   </ItemGroup>

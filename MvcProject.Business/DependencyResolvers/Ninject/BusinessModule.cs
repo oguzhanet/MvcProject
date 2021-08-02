@@ -50,6 +50,9 @@ namespace MvcProject.Business.DependencyResolvers.Ninject
             Bind<IWriterService>().To<WriterManager>().InSingletonScope();
             Bind<IWriterDal>().To<EfWriterDal>().InSingletonScope();
 
+            Bind<IInternService>().To<InternManager>().InSingletonScope();
+            Bind<IInternDal>().To<EfInternDal>().InSingletonScope();
+
             Bind<ILoginService>().To<LoginManager>().InSingletonScope();
         }
     }

@@ -58,12 +58,14 @@
     <Compile Include="Abstract\IContentDal.cs" />
     <Compile Include="Abstract\IHeadingDal.cs" />
     <Compile Include="Abstract\IImageFileDal.cs" />
+    <Compile Include="Abstract\IInternDal.cs" />
     <Compile Include="Abstract\IMessageDal.cs" />
     <Compile Include="Abstract\IRepository.cs" />
     <Compile Include="Abstract\ITalentCardDal.cs" />
     <Compile Include="Abstract\ITalentCardSkillDal.cs" />
     <Compile Include="Abstract\IWriterDal.cs" />
     <Compile Include="Concrete\Context.cs" />
+    <Compile Include="Concrete\EfInternDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfAboutDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfAdminDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfCategoryDal.cs" />
@@ -200,6 +202,10 @@
     <Compile Include="Migrations\202107081018266_mig-imagnamelength.designer.cs">
       <DependentUpon>202107081018266_mig-imagnamelength.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202108021328557_mig_intern.cs" />
+    <Compile Include="Migrations\202108021328557_mig_intern.designer.cs">
+      <DependentUpon>202108021328557_mig_intern.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -310,6 +316,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202107081018266_mig-imagnamelength.resx">
       <DependentUpon>202107081018266_mig-imagnamelength.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108021328557_mig_intern.resx">
+      <DependentUpon>202108021328557_mig_intern.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

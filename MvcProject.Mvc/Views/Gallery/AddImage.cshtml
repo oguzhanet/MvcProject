@@ -14,7 +14,21 @@
         <br />
         <input type="file" name="ImagePath" class="btn btn-dark" />
         <br />
-        <button style="margin-top:5px" class="btn btn-dark">Görseli Kaydet</button>
+        <button style="margin-top:5px" class="btn btn-dark" id="added">Görseli Kaydet</button>
     </div>
 }
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+
+<script>
+    $('#added').click(function () {
+        swal({
+            title: "Eklendi!",
+            text: "Resim Başarıyla Eklendi!",
+            icon: "success",
+            button: false
+        });
+    });
+</script>
 

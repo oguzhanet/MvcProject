@@ -2846,6 +2846,8 @@
     <Content Include="Views\Gallery\AddImage.cshtml" />
     <Content Include="Views\Calender\Index.cshtml" />
     <Content Include="Views\Authorization\AdminPartial.cshtml" />
+    <Content Include="Views\Default\Intern.cshtml" />
+    <Content Include="Views\Default\Add.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

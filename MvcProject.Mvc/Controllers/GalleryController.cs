@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 
@@ -45,6 +46,7 @@ namespace MvcProject.Mvc.Controllers
                 Request.Files[0].SaveAs(Server.MapPath(path));
                 ımageFile.ImagePath = "/AdminLTE-3.0.4/Images/" + fileName + expansion;
                 _ımageFileService.Add(ımageFile);
+                Thread.Sleep(1500);
                 return RedirectToAction("Index");
 
             }
