@@ -22,12 +22,14 @@ namespace MvcProject.Mvc.Controllers
     public class LoginController : Controller
     {
         // GET: Login
-        ILoginService _loginService;
-        WriterManager writerManager = new WriterManager(new EfWriterDal());
+        private ILoginService _loginService;
+ 
         public LoginController(ILoginService loginService)
         {
             _loginService = loginService;
         }
+
+        WriterManager writerManager = new WriterManager(new EfWriterDal());
 
         [HttpGet]
         public ActionResult Index()

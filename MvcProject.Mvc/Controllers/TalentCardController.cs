@@ -15,13 +15,15 @@ namespace MvcProject.Mvc.Controllers
     public class TalentCardController : Controller
     {
         // GET: TalentCard
-        TalentCardManager talentCardManager = new TalentCardManager(new EfTalentCardDal());
-        //private ITalentCardService _talentCardService;
+        private ITalentCardService _talentCardService;
 
-        //public TalentCardController(ITalentCardService talentCardService)
-        //{
-        //    _talentCardService = talentCardService;
-        //}
+        public TalentCardController(ITalentCardService talentCardService)
+        {
+            _talentCardService = talentCardService;
+        }
+
+
+        TalentCardManager talentCardManager = new TalentCardManager(new EfTalentCardDal());
 
         public ActionResult Index()
         {

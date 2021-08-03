@@ -17,16 +17,18 @@ namespace MvcProject.Mvc.Controllers
     public class WriterPanelMessageController : Controller
     {
         // GET: WriterPanelMessage
+      
+        private IMessageService _messageService;
+        private MessageValidator _messageValidator;
+
+        public WriterPanelMessageController(IMessageService messageService, MessageValidator messageValidator)
+        {
+            _messageService = messageService;
+            _messageValidator = messageValidator;
+        }
+
         MessageManager messageManager = new MessageManager(new EfMessageDal());
         ContactManager contactManager = new ContactManager(new EfContactDal());
-        //private IMessageService _messageService;
-
-        //public WriterPanelMessageController(IMessageService messageService)
-        //{
-        //    _messageService = messageService;
-        //}
-
-        MessageValidator messageValidator = new MessageValidator();
 
         public ActionResult Inbox()
         {
@@ -87,7 +89,7 @@ namespace MvcProject.Mvc.Controllers
         public ActionResult NewMessage(Message message, string parameter)
         {
             string sender = (string)Session["WriterMail"];
-            ValidationResult results = messageValidator.Validate(message);
+            ValidationResult results = _messageValidator.Validate(message);
             if (parameter == "send")
             {
                 if (results.IsValid)

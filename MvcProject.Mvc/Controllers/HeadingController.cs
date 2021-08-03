@@ -15,19 +15,20 @@ namespace MvcProject.Mvc.Controllers
     public class HeadingController : Controller
     {
         // GET: Heading
+   
+        private IHeadingService _headingService;
+        private ICategoryService _categoryService;
+        private IWriterService _writerService;
+        public HeadingController(IHeadingService headingService, ICategoryService categoryService, IWriterService writerService)
+        {
+            _headingService = headingService;
+            _categoryService = categoryService;
+            _writerService = writerService;
+        }
+
         HeadingManager headingManager = new HeadingManager(new EfHeadingDal());
         CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
         WriterManager writerManager = new WriterManager(new EfWriterDal());
-        //private IHeadingService _headingService;
-        //private ICategoryService _categoryService;
-        //private IWriterService _writerService;
-        //public HeadingController(IHeadingService headingService, ICategoryService categoryService, IWriterService writerService)
-        //{
-        //    _headingService = headingService;
-        //    _categoryService = categoryService;
-        //    _writerService = writerService;
-        //}
-
 
         public ActionResult Index(int page = 1)
         {

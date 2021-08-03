@@ -13,17 +13,19 @@ namespace MvcProject.Mvc.Controllers
     public class ContactController : Controller
     {
         // GET: Contact
+     
+        private IContactService _contactService;
+        private IMessageService _messageService;
+
+        public ContactController(IContactService contactService, IMessageService messageService)
+        {
+            _contactService = contactService;
+            _messageService = messageService;
+        }
+
+
         ContactManager contactManager = new ContactManager(new EfContactDal());
         MessageManager messageManager = new MessageManager(new EfMessageDal());
-        //private IContactService _contactService;
-        //private IMessageService _messageService;
-
-        //public ContactController(IContactService contactService, IMessageService messageService)
-        //{
-        //    _contactService = contactService;
-        //    _messageService = messageService;
-        //}
-
         public ActionResult Index()
         {
             var contactValues = contactManager.GetAll();

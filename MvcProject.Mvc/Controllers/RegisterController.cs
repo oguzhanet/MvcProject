@@ -17,7 +17,7 @@ namespace MvcProject.Mvc.Controllers
     public class RegisterController : Controller
     {
         // GET: Register
-        //AdminManager adminManager = new AdminManager(new EfAdminDal());
+
         private IAdminService _adminService;
         private IWriterService _writerService;
 

@@ -14,14 +14,15 @@ namespace MvcProject.Mvc.Controllers
     public class AboutController : Controller
     {
         // GET: About
+        
+        private IAboutService _aboutSercice;
+
+        public AboutController(IAboutService aboutSercice)
+        {
+            _aboutSercice = aboutSercice;
+        }
+
         AboutManager aboutManager = new AboutManager(new EfAboutDal());
-        //private IAboutService _aboutSercice;
-
-        //public AboutController(IAboutService aboutSercice)
-        //{
-        //    _aboutSercice = aboutSercice;
-        //}
-
         public ActionResult Index()
         {
             var aboutValues = aboutManager.GetAll();

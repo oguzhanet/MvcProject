@@ -15,20 +15,21 @@ namespace MvcProject.Mvc.Controllers
     public class WriterPanelContentController : Controller
     {
         // GET: WriterPanelContent
-        //ContentManager contentManager = new ContentManager(new EfContentDal());
-        Context context = new Context();
+      
         private IContentService _contentService;
+        private Context _context;
 
-        public WriterPanelContentController(IContentService contentService)
+        public WriterPanelContentController(IContentService contentService, Context context)
         {
             _contentService = contentService;
+            _context = context;
         }
 
         public ActionResult MyContent(string parameter)
         {
             
             parameter = (string)Session["WriterMail"];
-            var writerIdInfo = context.Writers.Where(x => x.WriterMail == parameter).Select(z => z.WriterId).FirstOrDefault();
+            var writerIdInfo = _context.Writers.Where(x => x.WriterMail == parameter).Select(z => z.WriterId).FirstOrDefault();
             
             var contentValues = _contentService.GetAllByWriter(writerIdInfo);
             return View(contentValues);
@@ -45,7 +46,7 @@ namespace MvcProject.Mvc.Controllers
         public ActionResult AddContent(Content content)
         {
             string mail = (string)Session["WriterMail"];
-            var writerIdInfo = context.Writers.Where(x => x.WriterMail == mail).Select(z => z.WriterId).FirstOrDefault();
+            var writerIdInfo = _context.Writers.Where(x => x.WriterMail == mail).Select(z => z.WriterId).FirstOrDefault();
             content.ContentDate =DateTime.Parse(DateTime.Now.ToShortDateString());
             content.WriterId = writerIdInfo;
             content.ContentStatus = true;

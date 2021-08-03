@@ -16,14 +16,15 @@ namespace MvcProject.Mvc.Controllers
     public class AuthorizationController : Controller
     {
         // GET: Authorization
+      
+        private IAdminService _adminService;
+
+        public AuthorizationController(IAdminService adminService)
+        {
+            _adminService = adminService;
+        }
+
         AdminManager adminManager = new AdminManager(new EfAdminDal());
-        //private IAdminService _adminService;
-
-        //public AuthorizationController(IAdminService adminService)
-        //{
-        //    _adminService = adminService;
-        //}
-
         public ActionResult Index()
         {
             var adminValues = adminManager.GetAll();

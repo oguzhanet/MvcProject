@@ -16,15 +16,17 @@ namespace MvcProject.Mvc.Controllers
     public class MessageController : Controller
     {
         // GET: Message
+
+        private IMessageService _messageService;
+        private MessageValidator _messageValidator;
+
+        public MessageController(IMessageService messageService, MessageValidator messageValidator)
+        {
+            _messageService = messageService;
+            _messageValidator = messageValidator;
+        }
+
         MessageManager messageManager = new MessageManager(new EfMessageDal());
-        //private IMessageService _messageService;
-
-        //public MessageController(IMessageService messageService)
-        //{
-        //    _messageService = messageService;
-        //}
-
-        MessageValidator messageValidator = new MessageValidator();
 
         public ActionResult Inbox()
         {
@@ -61,7 +63,7 @@ namespace MvcProject.Mvc.Controllers
         [HttpPost] //Burası refaktor edilecek şuanlık bu şekide..
         public ActionResult NewMessage(Message message, string parameter)
         {
-            ValidationResult results = messageValidator.Validate(message);
+            ValidationResult results = _messageValidator.Validate(message);
             string adminValue = (string)Session["AdminUserName"];
             if (parameter == "send")
             {

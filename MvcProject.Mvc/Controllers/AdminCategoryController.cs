@@ -16,14 +16,17 @@ namespace MvcProject.Mvc.Controllers
     //[Authorize(Roles ="A,B")]
     public class AdminCategoryController : Controller
     {
-        CategoryManager categoryManager=new CategoryManager(new EfCategoryDal());
-        //private ICategoryService _categoryService;
+    
+        private ICategoryService _categoryService;
+        private CategoryValidator _validator;
 
-        //public AdminCategoryController(ICategoryService categoryService)
-        //{
-        //    _categoryService = categoryService;
-        //}
+        public AdminCategoryController(ICategoryService categoryService, CategoryValidator validator)
+        {
+            _categoryService = categoryService;
+            _validator = validator;
+        }
 
+        CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
         public ActionResult Index()
         {
             var categoryValues = categoryManager.GetAll();
@@ -39,8 +42,8 @@ namespace MvcProject.Mvc.Controllers
         [HttpPost]
         public ActionResult AddCategory(Category category)
         {
-            CategoryValidator validator=new CategoryValidator();
-            ValidationResult result = validator.Validate(category);
+            //CategoryValidator validator=new CategoryValidator();
+            ValidationResult result = _validator.Validate(category);
             if (result.IsValid)
             {
                 category.CategoryStatus = true;

@@ -16,15 +16,15 @@ namespace MvcProject.Mvc.Controllers
     public class WriterController : Controller
     {
         // GET: Writer
-        //WriterManager writerManager=new WriterManager(new EfWriterDal());
         private IWriterService _writerService;
+        private WriterValidator _writerValidator;
 
-        public WriterController(IWriterService writerService)
+        public WriterController(IWriterService writerService, WriterValidator writerValidator)
         {
             _writerService = writerService;
+            _writerValidator = writerValidator;
         }
 
-        WriterValidator writerValidator = new WriterValidator();
         public ActionResult Index()
         {
             var writerValues = _writerService.GetAll();
@@ -40,7 +40,7 @@ namespace MvcProject.Mvc.Controllers
         [HttpPost]
         public ActionResult AddWriter(Writer writer)
         {
-            ValidationResult results = writerValidator.Validate(writer);
+            ValidationResult results = _writerValidator.Validate(writer);
             if (results.IsValid)
             {
                 writer.WriterRole = "C";
@@ -68,7 +68,7 @@ namespace MvcProject.Mvc.Controllers
         [HttpPost]
         public ActionResult EditWriter(Writer writer)
         {
-            ValidationResult results = writerValidator.Validate(writer);
+            ValidationResult results = _writerValidator.Validate(writer);
             if (results.IsValid)
             {
                 writer.WriterRole = "C";

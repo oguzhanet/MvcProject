@@ -13,15 +13,13 @@ namespace MvcProject.Mvc.Controllers
     public class ContentController : Controller
     {
         // GET: Content
-        //ContentManager contentManager = new ContentManager(new EfContentDal());
+
         private IContentService _contentService;
 
         public ContentController(IContentService contentService)
         {
             _contentService = contentService;
         }
-
-        Context context = new Context();
 
         public ActionResult Index()
         {

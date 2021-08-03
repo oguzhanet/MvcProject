@@ -21,21 +21,25 @@ namespace MvcProject.Mvc.Controllers
     public class WriterPanelController : Controller
     {
         // GET: WriterPanel
+
+        private IHeadingService _headingService;
+        private ICategoryService _categoryService;
+        private Context _context;
+        private WriterValidator _writerValidator;
+
+        public WriterPanelController(IHeadingService headingService, ICategoryService categoryService, Context context, WriterValidator writerValidator)
+        {
+            _headingService = headingService;
+            _categoryService = categoryService;
+            _context = context;
+            _writerValidator = writerValidator;
+        }
+
         HeadingManager headingManager = new HeadingManager(new EfHeadingDal());
         CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
         WriterManager writerManager = new WriterManager(new EfWriterDal());
 
-        //private IHeadingService _headingService;
-        //private ICategoryService _categoryService;
-
-        //public WriterPanelController(IHeadingService headingService, ICategoryService categoryService)
-        //{
-        //    _headingService = headingService;
-        //    _categoryService = categoryService;
-        //}
-
-        Context context = new Context();
-        WriterValidator writerValidator = new WriterValidator();
+    
 
         [HttpGet]
         public ActionResult WriterProfile(int id=0)
@@ -43,29 +47,29 @@ namespace MvcProject.Mvc.Controllers
             string parameter = (string)Session["WriterMail"];
             //var writerValue = context.Writers.FirstOrDefault(x => x.WriterMail == parameter);
 
-            id = context.Writers.Where(x => x.WriterMail == parameter).Select(z => z.WriterId).FirstOrDefault();
+            id = _context.Writers.Where(x => x.WriterMail == parameter).Select(z => z.WriterId).FirstOrDefault();
             var writerValue = writerManager.GetById(id);
 
-            var writerName = context.Writers.Where(x => x.WriterMail == parameter).Select(z => z.WriterName + " " + z.WriterSurName).FirstOrDefault();
+            var writerName = _context.Writers.Where(x => x.WriterMail == parameter).Select(z => z.WriterName + " " + z.WriterSurName).FirstOrDefault();
             ViewBag.writerName = writerName;
 
-            var writerImage = context.Writers.Where(x => x.WriterMail == parameter).Select(z => z.WriterImage).FirstOrDefault();
+            var writerImage = _context.Writers.Where(x => x.WriterMail == parameter).Select(z => z.WriterImage).FirstOrDefault();
             ViewBag.writerImage = writerImage;
 
-            var writerMail = context.Writers.Where(x => x.WriterMail == parameter).Select(z => z.WriterMail).FirstOrDefault();
+            var writerMail = _context.Writers.Where(x => x.WriterMail == parameter).Select(z => z.WriterMail).FirstOrDefault();
             ViewBag.writerMail = writerMail;
 
-            var writerAbout = context.Writers.Where(x => x.WriterMail == parameter).Select(z => z.WriterAbout).FirstOrDefault();
+            var writerAbout = _context.Writers.Where(x => x.WriterMail == parameter).Select(z => z.WriterAbout).FirstOrDefault();
             ViewBag.writerAbout = writerAbout;
 
-            var writerTitle = context.Writers.Where(x => x.WriterMail == parameter).Select(z => z.WriterTitle).FirstOrDefault();
+            var writerTitle = _context.Writers.Where(x => x.WriterMail == parameter).Select(z => z.WriterTitle).FirstOrDefault();
             ViewBag.writerTitle = writerTitle;
 
-            var writerId = context.Writers.Where(x => x.WriterMail == parameter).Select(z => z.WriterId).FirstOrDefault();
-            var writerTitles = context.Contents.Where(x => x.WriterId == writerId).Count();
+            var writerId = _context.Writers.Where(x => x.WriterMail == parameter).Select(z => z.WriterId).FirstOrDefault();
+            var writerTitles = _context.Contents.Where(x => x.WriterId == writerId).Count();
             ViewBag.writerTitles = writerTitles;
 
-            var writerMessage = context.Messages.Where(x => x.ReceiverMail == parameter).Count();
+            var writerMessage = _context.Messages.Where(x => x.ReceiverMail == parameter).Count();
             ViewBag.writerMessage = writerMessage;
 
             return View(writerValue);
@@ -74,7 +78,7 @@ namespace MvcProject.Mvc.Controllers
         [HttpPost]
         public ActionResult WriterProfile(Writer writer)
         {
-            ValidationResult results = writerValidator.Validate(writer);
+            ValidationResult results = _writerValidator.Validate(writer);
             if (results.IsValid)
             {
                 writerManager.UpdateWriterPanel(writer);
@@ -95,7 +99,7 @@ namespace MvcProject.Mvc.Controllers
         public ActionResult WriterProfilePassword(int id = 0)
         {
             string parameter = (string)Session["WriterMail"];
-            id = context.Writers.Where(x => x.WriterMail == parameter).Select(z => z.WriterId).FirstOrDefault();
+            id = _context.Writers.Where(x => x.WriterMail == parameter).Select(z => z.WriterId).FirstOrDefault();
             var writerValue = writerManager.GetById(id);
             return View(writerValue);
         }
@@ -110,7 +114,7 @@ namespace MvcProject.Mvc.Controllers
         public ActionResult MyHeading(string parameter)
         {
             parameter = (string)Session["WriterMail"];
-            var writerIdInfo = context.Writers.Where(x => x.WriterMail == parameter).Select(z => z.WriterId).FirstOrDefault();
+            var writerIdInfo = _context.Writers.Where(x => x.WriterMail == parameter).Select(z => z.WriterId).FirstOrDefault();
 
             var values = headingManager.GetAllByWriter(writerIdInfo);
             return View(values);
@@ -134,7 +138,7 @@ namespace MvcProject.Mvc.Controllers
         public ActionResult NewHeading(Heading heading)
         {
             string result = (string)Session["WriterMail"];
-            var writerIdInfo = context.Writers.Where(x => x.WriterMail == result).Select(z => z.WriterId).FirstOrDefault();
+            var writerIdInfo = _context.Writers.Where(x => x.WriterMail == result).Select(z => z.WriterId).FirstOrDefault();
             heading.HeadingDate = DateTime.Parse(DateTime.Now.ToShortDateString());
             heading.HeadingStatus = true;
             heading.IsWriterHeading = true;

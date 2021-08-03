@@ -21,12 +21,13 @@ namespace MvcProject.Mvc.Controllers
         private IHeadingService _headingService;
         private IContentService _contentService;
         private IInternService _ınternService;
-
-        public DefaultController(IHeadingService headingService, IContentService contentService, IInternService ınternService)
+        private InternValidator _validator;
+        public DefaultController(IHeadingService headingService, IContentService contentService, IInternService ınternService, InternValidator validator)
         {
             _headingService = headingService;
             _contentService = contentService;
             _ınternService = ınternService;
+            _validator = validator;
         }
 
         public PartialViewResult Index(int id=1)
@@ -51,12 +52,10 @@ namespace MvcProject.Mvc.Controllers
         [HttpPost]
         public ActionResult Intern(Intern ıntern)
         {
-            InternValidator validator = new InternValidator();
-            ValidationResult result = validator.Validate(ıntern);
+            ValidationResult result = _validator.Validate(ıntern);
             if (result.IsValid)
             {
                 _ınternService.Add(ıntern);
-                Thread.Sleep(1500);
                 return RedirectToAction("Intern");
             }
             else
