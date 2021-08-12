@@ -1,4 +1,4 @@
-# Sözlük Sitesi Klonu
+# Sözlük Sitesi
 
 [Youtube kanalımdaki videosu için tıklayınız](https://www.youtube.com/watch?v=1-tOfPIuQ8A)
 
