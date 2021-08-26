@@ -63,8 +63,7 @@
                                 </div>
                                 <div class="form-group">
                                     @Html.Label("Mesajınız")
-                                    <textarea id="compose-textarea" name="MessageContent" class="form-control" style="height: 300px"> 
-                                 </textarea>
+                                    <textarea id="compose-textarea" name="MessageContent" class="form-control" style="height: 150px"> </textarea>
                                     @Html.ValidationMessageFor(x => x.MessageContent)
                                 </div>
                                 <div class="form-group">
@@ -130,7 +129,7 @@
             swal({
                 title: "Eklendi!",
                 text: "Taslaklara Eklendi!",
-                icon: "success",
+                icon: "warning",
                 button: false
             });
         });

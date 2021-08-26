@@ -11,6 +11,7 @@ using System.Web.Mvc;
 using PagedList;
 using FluentValidation.Results;
 using MvcProject.Business.ValidationRules.FluentValidation;
+using MvcProject.DataAccess.Concrete;
 
 namespace MvcProject.Mvc.Controllers
 {
@@ -22,12 +23,14 @@ namespace MvcProject.Mvc.Controllers
         private IContentService _contentService;
         private IInternService _ınternService;
         private InternValidator _validator;
-        public DefaultController(IHeadingService headingService, IContentService contentService, IInternService ınternService, InternValidator validator)
+        private Context _context;
+        public DefaultController(IHeadingService headingService, IContentService contentService, IInternService ınternService, InternValidator validator, Context context)
         {
             _headingService = headingService;
             _contentService = contentService;
             _ınternService = ınternService;
             _validator = validator;
+            _context = context;
         }
 
         public PartialViewResult Index(int id=1)
@@ -39,6 +42,9 @@ namespace MvcProject.Mvc.Controllers
         public ActionResult Headings()
         {
             var headingList = _headingService.GetAll();
+            //var t = _context.Headings.Select(x => x.HeadingId).FirstOrDefault();
+            //var result = _context.Contents.Where(x => x.HeadingId == t).Select(z=>z.ContentValue).Count();
+            //ViewBag.result = result;
             return View(headingList);
         }
 
@@ -67,6 +73,5 @@ namespace MvcProject.Mvc.Controllers
             }
             return View();
         }
-
     }
 }
