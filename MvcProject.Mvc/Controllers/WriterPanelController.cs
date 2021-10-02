@@ -27,7 +27,6 @@ namespace MvcProject.Mvc.Controllers
         private Context _context;
         private WriterValidator _writerValidator;
 
-
         public WriterPanelController(IHeadingService headingService, ICategoryService categoryService, Context context, WriterValidator writerValidator)
         {
             _headingService = headingService;
