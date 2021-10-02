@@ -40,7 +40,6 @@ namespace MvcProject.Mvc.Controllers
         WriterManager writerManager = new WriterManager(new EfWriterDal());
 
     
-
         [HttpGet]
         public ActionResult WriterProfile(int id=0)
         {
