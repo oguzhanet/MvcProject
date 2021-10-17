@@ -94,6 +94,8 @@ namespace MvcProject.Mvc.Controllers
         }
 
 
+
+
         [HttpGet]
         public ActionResult WriterProfilePassword(int id = 0)
         {
