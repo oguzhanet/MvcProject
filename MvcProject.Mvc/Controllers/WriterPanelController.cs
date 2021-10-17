@@ -93,6 +93,7 @@ namespace MvcProject.Mvc.Controllers
             return View();
         }
 
+
         [HttpGet]
         public ActionResult WriterProfilePassword(int id = 0)
         {
